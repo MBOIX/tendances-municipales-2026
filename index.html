@@ -14,72 +14,67 @@
     <div class="header-content">
       <div class="header-top">
         <div class="header-brand">
-          <span class="header-tag">OBSERVATOIRE</span>
-          <h1>Municipales 2026</h1>
-          <p class="header-subtitle">Tendances politiques — 80 plus grandes villes de France</p>
+          <h1><span class="header-tag">OBSERVATOIRE</span> Municipales 2026</h1>
         </div>
+        <nav class="site-nav">
+          <a href="index.html" class="nav-link active">Par ville</a>
+          <a href="national.html" class="nav-link">Synthèse nationale</a>
+        </nav>
         <div class="header-meta">
+          <div class="countdown" id="countdown"></div>
+          <div class="last-update" id="lastUpdate"></div>
           <button class="theme-toggle" id="themeToggle" title="Changer le thème" aria-label="Changer le thème">
-            <svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
             </svg>
-            <svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
             </svg>
           </button>
-          <div class="countdown" id="countdown"></div>
-          <div class="last-update" id="lastUpdate"></div>
         </div>
       </div>
-      <nav class="site-nav">
-        <a href="index.html" class="nav-link active">Par ville</a>
-        <a href="national.html" class="nav-link">Synthèse nationale</a>
-      </nav>
-      <div class="header-stats" id="headerStats"></div>
+      <div class="header-toolbar">
+        <div class="header-stats" id="headerStats"></div>
+        <div class="controls-inline">
+          <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input type="text" id="searchInput" placeholder="Rechercher..." autocomplete="off">
+          </div>
+          <div class="filter-group">
+            <select id="sortSelect">
+              <option value="population">Population</option>
+              <option value="name">Nom</option>
+              <option value="polls">Nb sondages</option>
+              <option value="competition">Compétitivité</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <select id="filterSelect">
+              <option value="all">Toutes les villes</option>
+              <option value="with-polls">Avec sondages</option>
+              <option value="no-polls">Sans sondage</option>
+              <option value="left">Maire gauche</option>
+              <option value="right">Maire droite</option>
+              <option value="green">Maire écolo</option>
+            </select>
+          </div>
+          <div class="view-toggle">
+            <button class="view-btn legend-btn" id="legendBtn" title="Légende des partis">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            </button>
+            <button class="view-btn active" data-view="grid" title="Vue grille">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </button>
+            <button class="view-btn" data-view="list" title="Vue liste">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   </header>
-
-  <nav class="controls-bar">
-    <div class="controls-content">
-      <div class="search-box">
-        <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
-          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-        </svg>
-        <input type="text" id="searchInput" placeholder="Rechercher une ville..." autocomplete="off">
-      </div>
-      <div class="filter-group">
-        <label class="filter-label">Trier par</label>
-        <select id="sortSelect">
-          <option value="population">Population</option>
-          <option value="name">Nom</option>
-          <option value="polls">Nb sondages</option>
-          <option value="competition">Compétitivité</option>
-        </select>
-      </div>
-      <div class="filter-group">
-        <label class="filter-label">Filtrer</label>
-        <select id="filterSelect">
-          <option value="all">Toutes les villes</option>
-          <option value="with-polls">Avec sondages</option>
-          <option value="no-polls">Sans sondage</option>
-          <option value="left">Maire sortant gauche</option>
-          <option value="right">Maire sortant droite</option>
-          <option value="green">Maire sortant écolo</option>
-        </select>
-      </div>
-      <div class="view-toggle">
-        <button class="view-btn legend-btn" id="legendBtn" title="Légende des partis">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
-        </button>
-        <button class="view-btn active" data-view="grid" title="Vue grille">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
-        </button>
-        <button class="view-btn" data-view="list" title="Vue liste">
-          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><rect x="3" y="4" width="18" height="3" rx="1"/><rect x="3" y="10.5" width="18" height="3" rx="1"/><rect x="3" y="17" width="18" height="3" rx="1"/></svg>
-        </button>
-      </div>
-    </div>
-  </nav>
 
   <main class="main-content">
     <div class="city-grid" id="cityGrid"></div>

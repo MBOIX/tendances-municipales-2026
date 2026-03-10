@@ -248,16 +248,9 @@
 
   function initTheme() {
     var stored = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
-    var theme = stored || (prefersDark.matches ? 'dark' : 'light');
+    var theme = stored || 'light';
 
     document.documentElement.setAttribute('data-theme', theme);
-
-    prefersDark.addEventListener('change', function (e) {
-      if (!localStorage.getItem('theme')) {
-        document.documentElement.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-      }
-    });
 
     window.addEventListener('storage', function (e) {
       if (e.key === 'theme' && e.newValue) {
