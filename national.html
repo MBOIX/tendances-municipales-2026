@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipales 2026 — Synthèse nationale</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-content">
+      <div class="header-top">
+        <div class="header-brand">
+          <span class="header-tag">OBSERVATOIRE</span>
+          <h1>Municipales 2026</h1>
+          <p class="header-subtitle">Synthèse nationale — 80 plus grandes villes de France</p>
+        </div>
+        <div class="header-meta">
+          <button class="theme-toggle" id="themeToggle" title="Changer le thème" aria-label="Changer le thème">
+            <svg class="theme-icon-sun" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </svg>
+            <svg class="theme-icon-moon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            </svg>
+          </button>
+          <div class="countdown" id="countdown"></div>
+          <div class="last-update" id="lastUpdate"></div>
+        </div>
+      </div>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link">Par ville</a>
+        <a href="national.html" class="nav-link active">Synthèse nationale</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main-content national-main">
+    <!-- Section 1: Carte de France -->
+    <section class="national-section">
+      <h2 class="section-title">Carte des tendances</h2>
+      <p class="section-subtitle">Couleur politique projetée par ville (1er candidat en moyenne pondérée)</p>
+      <div class="map-container" id="mapContainer"></div>
+    </section>
+
+    <!-- Section 2: Projection mairies -->
+    <section class="national-section">
+      <h2 class="section-title">Projection des mairies</h2>
+      <p class="section-subtitle">Parti projeté en tête dans chaque ville (basé sur les sondages disponibles)</p>
+      <div class="projection-grid" id="projectionGrid"></div>
+    </section>
+
+    <!-- Section 3: Balance gauche / droite -->
+    <section class="national-section">
+      <h2 class="section-title">Rapport gauche / droite</h2>
+      <p class="section-subtitle">Comparaison maires sortants vs projections sondages</p>
+      <div class="balance-container" id="balanceContainer"></div>
+    </section>
+
+    <!-- Section 4: Scores moyens par parti -->
+    <section class="national-section">
+      <h2 class="section-title">Scores moyens par parti</h2>
+      <p class="section-subtitle">Moyenne nationale des scores pondérés dans les villes sondées</p>
+      <div class="party-scores-container" id="partyScoresContainer"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="methodology">
+        <h3>Méthodologie</h3>
+        <p>Projections basées sur les moyennes pondérées par ville. Le parti « projeté » correspond au parti du candidat en tête dans la moyenne pondérée. Les villes sans sondage conservent le maire sortant dans les projections.</p>
+      </div>
+      <div class="footer-meta">
+        <p>Sources : IFOP, Ipsos, Elabe, Cluster17, OpinionWay, Harris Interactive, Odoxa</p>
+        <p><a href="index.html">Voir le détail par ville</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tendances.js"></script>
+  <script src="candidats-data.js"></script>
+  <script src="lib.js"></script>
+  <script src="national.js"></script>
+</body>
+</html>

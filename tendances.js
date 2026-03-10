@@ -1,0 +1,7891 @@
+const TENDANCES_DATA = {
+  "metadata": {
+    "lastUpdate": "2026-03-07",
+    "electionDates": {
+      "firstRound": "2026-03-15",
+      "secondRound": "2026-03-22"
+    },
+    "sources": [
+      "https://www.publicsenat.fr/actualites/politique/municipales-paris-marseille-nantes-lyon-ce-que-disent-les-derniers-sondages",
+      "https://www.publicsenat.fr/actualites/politique/municipales-2026-a-un-mois-du-scrutin-que-revelent-les-sondages-dans-les-grandes-villes",
+      "https://www.touteleurope.eu/vie-politique-des-etats-membres/elections-municipales-2026-qu-indiquent-les-sondages-a-paris-lyon-et-marseille/",
+      "https://www.ipsos.com/fr-fr/topic/municipales-2026",
+      "https://www.opinion-way.com/fr/publications/les-intentions-de-vote-pour-les-elections-municipales-a-paris-2-2026-22672/",
+      "https://elabe.fr/municipales-2026-marseille/",
+      "https://cluster17.com/nos-sondages-municipaux-publies/",
+      "https://www.ifop.com/article/le-climat-politique-a-reims-2/",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10105-mun-paris-opinion-way-jdd-1er-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/fevrier/10072-mun-nimes-opinionway-objectif-gard-12-fevrier.pdf",
+      "https://france3-regions.franceinfo.fr/normandie/seine-maritime/havre/jean-paul-lecoq-futur-maire-du-havre-pour-la-premiere-fois-un-sondage-donne-edouard-philippe-perdant-aux-municipales-3305556.html",
+      "https://france3-regions.franceinfo.fr/provence-alpes-cote-d-azur/alpes-maritimes/nice/entre-christian-estrosi-et-eric-ciotti-les-sondages-se-suivent-et-ne-se-ressemblent-pas-3307548.html",
+      "https://www.franceinfo.fr/elections/a-un-mois-des-municipales-2026-voici-51-villes-a-surveiller-de-pres-lors-du-scrutin_7768301.html",
+      "https://actu.orange.fr/politique/municipales-2026-quels-candidats-sont-en-tete-des-sondages-dans-les-grandes-villes-magic-CNT000002nrlJ7.html",
+      "https://www.francebleu.fr/normandie/calvados-14/caen/municipales-2026-qui-sont-les-neuf-candidats-declares-a-caen-dans-le-calvados-6346992",
+      "https://www.tendanceouest.com/actualite-436501-video-municipales-2026-a-caen-aristide-olivier-presente-150-projets-sans-impots-supplementaires",
+      "https://www.candidator.fr/municipales2026/commune/14118.html",
+      "https://www.candidator.fr/municipales2026/",
+      "https://pourquituvotes.fr/municipales-2026/",
+      "https://www.opinion-way.com/fr/publications/les-intentions-de-vote-pour-les-elections-municipales-2026-a-tours-2026-22105/",
+      "https://www.ipsos.com/fr-fr/municipales-2026-le-point-besancon",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/fevrier/10064-mun-besancon-ipsos-bva-est-republicain-4-fevrier.pdf",
+      "https://cluster17.com/wp-content/uploads/2025/05/Sondage-Cluster17-Amiens-Municipales-2026.pdf",
+      "https://www.ifop.com/article/la-situation-politique-a-brest/",
+      "https://www.francebleu.fr/provence-alpes-cote-d-azur/vaucluse-84/avignon/municipales-2026-avignon",
+      "https://www.ifop.com/article/le-climat-politique-a-avignon/",
+      "https://www.ifop.com/article/le-climat-politique-a-poitiers/",
+      "https://www.defense-92.fr/municipales-2026-courbevoie-sondage/",
+      "https://onemedia.fr/actualite/sondage-2026-a-beziers-menard-en-tete-avec-61-dintentions-de-vote/",
+      "https://www.candidator.fr/municipales2026/",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10114-mun-paris-cluster-17-l-opinion-2-mars.pdf",
+      "https://www.ipsos.com/fr-fr/municipales-2026-paris-emmanuel-gregoire-en-tete-des-intentions-de-vote-devant-rachida-dati",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10110-mun-nice-ifop-nice-matin-1er-mars.pdf",
+      "https://elabe.fr/municipales-2026-toulon/",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10117-mun-lille-ipsos-bva-x-3-mars.pdf",
+      "https://www.franceinfo.fr/france/hauts-de-france/nord/lille/municipales-a-lille-arnaud-deslandes-ps-pcf-pp-est-donne-gagnant-dans-tous-les-cas-de-figure-testes-selon-un-sondage_7844819.html",
+      "https://www.francebleu.fr/pays-de-la-loire/loire-atlantique-44/nantes/municipales-2026-un-nouveau-sondage-commande-par-le-ps-place-johanna-rolland-largement-en-tete-a-nantes-4432291",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10128-mun-paris-ifop-le-parisien-6-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10121-mun-nantes-cluster-17-politico-5-mars.pdf",
+      "https://www.ipsos.com/fr-fr/municipales-2026-nimes-vincent-bouget-en-tete-des-intentions-de-vote-devant-julien-sanchez",
+      "https://www.francebleu.fr/bourgogne-franche-comte/cote-d-or-21/dijon/municipales-2026-le-candidat-de-la-droite-et-du-centre-devoile-un-nouveau-sondage-a-dijon-1726781",
+      "https://www.francebleu.fr/hauts-de-france/pas-de-calais-62/calais/sondage-ici-municipales-a-calais-natacha-bouchart-donnee-gagnante-des-le-premier-tour-4363104",
+      "https://www.francebleu.fr/hauts-de-france/nord-59/roubaix/municipales-2026-a-roubaix-david-guiraud-lfi-donne-largement-gagnant-selon-un-sondage-ifop-pour-la-voix-du-nord-7379979",
+      "https://france3-regions.franceinfo.fr/corse/corse-du-sud/grand-ajaccio/municipales-a-ajaccio-les-resultats-d-un-sondage-ifop-commande-par-jean-paul-carrolaggi-a-dix-jours-du-vote-3310425.html"
+    ]
+  },
+  "institutes": {
+    "ifop": {
+      "name": "IFOP-Fiducial",
+      "reliability": 7.5
+    },
+    "opinionway": {
+      "name": "OpinionWay",
+      "reliability": 6.0
+    },
+    "ipsos": {
+      "name": "Ipsos BVA",
+      "reliability": 7.5
+    },
+    "elabe": {
+      "name": "Elabe",
+      "reliability": 8.0
+    },
+    "cluster17": {
+      "name": "Cluster17",
+      "reliability": 8.0
+    },
+    "harris": {
+      "name": "Toluna Harris Interactive",
+      "reliability": 7.5
+    },
+    "odoxa": {
+      "name": "Odoxa",
+      "reliability": 6.0
+    },
+    "verian": {
+      "name": "Verian",
+      "reliability": 6.0
+    }
+  },
+  "cities": [
+    {
+      "name": "Paris",
+      "population": 2133111,
+      "department": "Paris (75)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Anne Hidalgo",
+        "party": "PS",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Anne Hidalgo",
+        "party": "PS",
+        "score": 49.3,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "LCI / Le Parisien / Sud Radio",
+          "publishDate": "2026-03-06",
+          "fieldDates": {
+            "start": "2026-03-02",
+            "end": "2026-03-05"
+          },
+          "sampleSize": 1065,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS / Écologistes / PCF",
+              "score": 33.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR / MoDem / UDI",
+              "score": 29.0,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 12.0,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Horizons / Renaissance",
+              "score": 11.5,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 10.0,
+              "candidateId": "paris-sophia-chikirou"
+            },
+            {
+              "name": "Thierry Mariani",
+              "party": "RN / UDR",
+              "score": 3.0,
+              "candidateId": "paris-thierry-mariani"
+            }
+          ]
+        },
+        {
+          "institute": "ipsos",
+          "commissioner": "ICI Paris Ile-de-France / CESI",
+          "publishDate": "2026-03-03",
+          "fieldDates": {
+            "start": "2026-02-20",
+            "end": "2026-02-28"
+          },
+          "sampleSize": 800,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS (Union de la gauche)",
+              "score": 35.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR",
+              "score": 27.0,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Horizons / Renaissance",
+              "score": 11.5,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 11.5,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 10.0,
+              "candidateId": "paris-sophia-chikirou"
+            },
+            {
+              "name": "Thierry Mariani",
+              "party": "RN",
+              "score": 4.0,
+              "candidateId": "paris-thierry-mariani"
+            }
+          ]
+        },
+        {
+          "institute": "cluster17",
+          "commissioner": "Paris en Grand / L'Opinion",
+          "publishDate": "2026-03-02",
+          "fieldDates": {
+            "start": "2026-02-24",
+            "end": "2026-02-26"
+          },
+          "sampleSize": 1103,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS / EELV / PCF / L'Après",
+              "score": 32.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR / MoDem / UDI",
+              "score": 27.0,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 12.5,
+              "candidateId": "paris-sophia-chikirou"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 11.0,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Renaissance / Horizons",
+              "score": 11.0,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Thierry Mariani",
+              "party": "UDR / RN",
+              "score": 3.0,
+              "candidateId": "paris-thierry-mariani"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "Le Journal du Dimanche / CNews / Europe 1",
+          "publishDate": "2026-03-01",
+          "fieldDates": {
+            "start": "2026-02-23",
+            "end": "2026-02-27"
+          },
+          "sampleSize": 1005,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS (Union de la gauche)",
+              "score": 34.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR",
+              "score": 27.0,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Horizons / Renaissance",
+              "score": 12.0,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 12.0,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "paris-sophia-chikirou"
+            },
+            {
+              "name": "Thierry Mariani",
+              "party": "RN",
+              "score": 4.0,
+              "candidateId": "paris-thierry-mariani"
+            }
+          ]
+        },
+        {
+          "institute": "harris",
+          "commissioner": "Le Parisien",
+          "publishDate": "2026-02-09",
+          "fieldDates": {
+            "start": "2026-02-03",
+            "end": "2026-02-07"
+          },
+          "sampleSize": 1002,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS (Union de la gauche)",
+              "score": 31.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR",
+              "score": 27.0,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 14.0,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Horizons / Renaissance",
+              "score": 14.0,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 10.0,
+              "candidateId": "paris-sophia-chikirou"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "Le Journal du Dimanche",
+          "publishDate": "2026-02-17",
+          "fieldDates": {
+            "start": "2026-02-10",
+            "end": "2026-02-14"
+          },
+          "sampleSize": 1003,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS (Union de la gauche)",
+              "score": 32.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR",
+              "score": 27.0,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Horizons / Renaissance",
+              "score": 12.7,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 11.3,
+              "candidateId": "paris-sophia-chikirou"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 11.3,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Thierry Mariani",
+              "party": "RN",
+              "score": 4.3,
+              "candidateId": "paris-thierry-mariani"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "cluster17",
+            "description": "Duel Grégoire vs Dati",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 50.1,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 49.9,
+                "candidateId": "paris-rachida-dati"
+              }
+            ]
+          },
+          {
+            "institute": "cluster17",
+            "description": "Triangulaire Grégoire / Dati / Bournazel",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 45.2,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 43.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Pierre-Yves Bournazel",
+                "party": "Renaissance / Horizons",
+                "score": 11.8,
+                "candidateId": "paris-pierre-yves-bournazel"
+              }
+            ]
+          },
+          {
+            "institute": "cluster17",
+            "description": "Triangulaire Grégoire / Dati / Knafo",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 49.2,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 37.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Sarah Knafo",
+                "party": "Reconquête",
+                "score": 13.8,
+                "candidateId": "paris-sarah-knafo"
+              }
+            ]
+          },
+          {
+            "institute": "cluster17",
+            "description": "Triangulaire Dati / Grégoire / Chikirou",
+            "candidates": [
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 45.1,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 40.9,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": 14.0,
+                "candidateId": "paris-sophia-chikirou"
+              }
+            ]
+          },
+          {
+            "institute": "cluster17",
+            "description": "Quintangulaire Grégoire / Dati / Chikirou / Knafo / Bournazel",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 35.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 29.8,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": 13.2,
+                "candidateId": "paris-sophia-chikirou"
+              },
+              {
+                "name": "Sarah Knafo",
+                "party": "Reconquête",
+                "score": 11.9,
+                "candidateId": "paris-sarah-knafo"
+              },
+              {
+                "name": "Pierre-Yves Bournazel",
+                "party": "Renaissance / Horizons",
+                "score": 10.1,
+                "candidateId": "paris-pierre-yves-bournazel"
+              }
+            ]
+          },
+          {
+            "institute": "opinionway",
+            "description": "Pentagonale à 5 listes (Grégoire, Dati, Bournazel, Knafo, Chikirou)",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 32.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": null,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Pierre-Yves Bournazel",
+                "party": "Horizons",
+                "score": null,
+                "candidateId": "paris-pierre-yves-bournazel"
+              },
+              {
+                "name": "Sarah Knafo",
+                "party": "Reconquête",
+                "score": null,
+                "candidateId": "paris-sarah-knafo"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": null,
+                "candidateId": "paris-sophia-chikirou"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Quintangulaire Chikirou / Grégoire / Bournazel / Dati / Knafo",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 35.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 32.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Pierre-Yves Bournazel",
+                "party": "Horizons / Renaissance",
+                "score": 12.0,
+                "candidateId": "paris-pierre-yves-bournazel"
+              },
+              {
+                "name": "Sarah Knafo",
+                "party": "Reconquête",
+                "score": 11.0,
+                "candidateId": "paris-sarah-knafo"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": 10.0,
+                "candidateId": "paris-sophia-chikirou"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire Chikirou / Grégoire / Dati+Horizons / Knafo",
+            "candidates": [
+              {
+                "name": "Rachida Dati",
+                "party": "LR / Horizons",
+                "score": 40.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 39.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": 11.0,
+                "candidateId": "paris-sophia-chikirou"
+              },
+              {
+                "name": "Sarah Knafo",
+                "party": "Reconquête",
+                "score": 10.0,
+                "candidateId": "paris-sarah-knafo"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire Chikirou / Grégoire / Bournazel / Dati",
+            "candidates": [
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 39.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 36.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Pierre-Yves Bournazel",
+                "party": "Horizons / Renaissance",
+                "score": 14.0,
+                "candidateId": "paris-pierre-yves-bournazel"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": 11.0,
+                "candidateId": "paris-sophia-chikirou"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Grégoire / Dati+Horizons / Knafo",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 45.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR / Horizons",
+                "score": 41.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Sarah Knafo",
+                "party": "Reconquête",
+                "score": 14.0,
+                "candidateId": "paris-sarah-knafo"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Chikirou / Grégoire / Dati (soutenue Bournazel)",
+            "candidates": [
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 47.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 41.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": 12.0,
+                "candidateId": "paris-sophia-chikirou"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Chikirou / Grégoire / Dati (soutenue Knafo)",
+            "candidates": [
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 46.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 42.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Sophia Chikirou",
+                "party": "LFI",
+                "score": 12.0,
+                "candidateId": "paris-sophia-chikirou"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Grégoire / Bournazel / Dati",
+            "candidates": [
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 42.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              },
+              {
+                "name": "Rachida Dati",
+                "party": "LR",
+                "score": 42.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Pierre-Yves Bournazel",
+                "party": "Horizons / Renaissance",
+                "score": 16.0,
+                "candidateId": "paris-pierre-yves-bournazel"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Duel Grégoire vs Dati+Horizons",
+            "candidates": [
+              {
+                "name": "Rachida Dati",
+                "party": "LR / Horizons",
+                "score": 53.0,
+                "candidateId": "paris-rachida-dati"
+              },
+              {
+                "name": "Emmanuel Grégoire",
+                "party": "PS",
+                "score": 47.0,
+                "candidateId": "paris-emmanuel-gregoire"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Marseille",
+      "population": 873076,
+      "department": "Bouches-du-Rhône (13)",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "currentMayor": {
+        "name": "Benoît Payan",
+        "party": "PS (DVG)",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Michèle Rubirola",
+        "party": "EELV (Printemps marseillais)",
+        "score": 38.3,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "La Provence / LCI / Sud Radio",
+          "publishDate": "2026-03-01",
+          "fieldDates": {
+            "start": "2026-02-24",
+            "end": "2026-02-28"
+          },
+          "sampleSize": 805,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Benoît Payan",
+              "party": "PS (Gauche unie hors LFI)",
+              "score": 35.0,
+              "candidateId": "marseille-benoit-payan"
+            },
+            {
+              "name": "Franck Allisio",
+              "party": "RN-UDR",
+              "score": 32.0,
+              "candidateId": "marseille-franck-allisio"
+            },
+            {
+              "name": "Martine Vassal",
+              "party": "LR / Renaissance / Horizons / UDI / MoDem",
+              "score": 18.0,
+              "candidateId": "marseille-martine-vassal"
+            },
+            {
+              "name": "Sébastien Delogu",
+              "party": "LFI",
+              "score": 13.0,
+              "candidateId": "marseille-sebastien-delogu"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "CNews / Europe 1 / JDD",
+          "publishDate": "2026-02-24",
+          "fieldDates": {
+            "start": "2026-02-16",
+            "end": "2026-02-23"
+          },
+          "sampleSize": 806,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Benoît Payan",
+              "party": "PS (DVG)",
+              "score": 34.0,
+              "candidateId": "marseille-benoit-payan"
+            },
+            {
+              "name": "Franck Allisio",
+              "party": "RN-UDR",
+              "score": 34.0,
+              "candidateId": "marseille-franck-allisio"
+            },
+            {
+              "name": "Martine Vassal",
+              "party": "LR / Renaissance / Horizons",
+              "score": 14.0,
+              "candidateId": "marseille-martine-vassal"
+            },
+            {
+              "name": "Sébastien Delogu",
+              "party": "LFI",
+              "score": 14.0,
+              "candidateId": "marseille-sebastien-delogu"
+            }
+          ]
+        },
+        {
+          "institute": "elabe",
+          "commissioner": "BFMTV / Berger-Levrault",
+          "publishDate": "2026-02-17",
+          "fieldDates": {
+            "start": "2026-02-09",
+            "end": "2026-02-16"
+          },
+          "sampleSize": 802,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Benoît Payan",
+              "party": "PS (DVG)",
+              "score": 31.0,
+              "candidateId": "marseille-benoit-payan"
+            },
+            {
+              "name": "Franck Allisio",
+              "party": "RN-UDR",
+              "score": 29.0,
+              "candidateId": "marseille-franck-allisio"
+            },
+            {
+              "name": "Martine Vassal",
+              "party": "LR / Renaissance / Horizons",
+              "score": 21.0,
+              "candidateId": "marseille-martine-vassal"
+            },
+            {
+              "name": "Sébastien Delogu",
+              "party": "LFI",
+              "score": 12.0,
+              "candidateId": "marseille-sebastien-delogu"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "JDD",
+          "publishDate": "2026-01-17",
+          "fieldDates": {
+            "start": "2026-01-10",
+            "end": "2026-01-16"
+          },
+          "sampleSize": 804,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Benoît Payan",
+              "party": "PS (DVG)",
+              "score": 31.0,
+              "candidateId": "marseille-benoit-payan"
+            },
+            {
+              "name": "Franck Allisio",
+              "party": "RN-UDR",
+              "score": 31.0,
+              "candidateId": "marseille-franck-allisio"
+            },
+            {
+              "name": "Martine Vassal",
+              "party": "LR / Renaissance / Horizons",
+              "score": 20.0,
+              "candidateId": "marseille-martine-vassal"
+            },
+            {
+              "name": "Sébastien Delogu",
+              "party": "LFI",
+              "score": 14.0,
+              "candidateId": "marseille-sebastien-delogu"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "opinionway",
+            "description": "Quadrangulaire (Payan, Allisio, Vassal, Delogu)",
+            "candidates": [
+              {
+                "name": "Benoît Payan",
+                "party": "PS",
+                "score": 36.0,
+                "candidateId": "marseille-benoit-payan"
+              },
+              {
+                "name": "Franck Allisio",
+                "party": "RN-UDR",
+                "score": null,
+                "candidateId": "marseille-franck-allisio"
+              },
+              {
+                "name": "Martine Vassal",
+                "party": "LR",
+                "score": 14.0,
+                "candidateId": "marseille-martine-vassal"
+              },
+              {
+                "name": "Sébastien Delogu",
+                "party": "LFI",
+                "score": 14.0,
+                "candidateId": "marseille-sebastien-delogu"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Lyon",
+      "population": 522250,
+      "department": "Rhône (69)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "Grégory Doucet",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Grégory Doucet",
+        "party": "EELV",
+        "score": 52.4,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "opinionway",
+          "commissioner": "LyonMag / Radio Espace / CNews / Europe 1 / JDD",
+          "publishDate": "2026-02-28",
+          "fieldDates": {
+            "start": "2026-02-17",
+            "end": "2026-02-25"
+          },
+          "sampleSize": 610,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Jean-Michel Aulas",
+              "party": "DVD (Coalition large centre-droit)",
+              "score": 47.0,
+              "candidateId": "lyon-jean-michel-aulas"
+            },
+            {
+              "name": "Grégory Doucet",
+              "party": "EELV (Sortant)",
+              "score": 30.0,
+              "candidateId": "lyon-gregory-doucet"
+            },
+            {
+              "name": "Alexandre Dupalais",
+              "party": "RN-UDR",
+              "score": 9.0,
+              "candidateId": "lyon-alexandre-dupalais"
+            },
+            {
+              "name": "Anaïs Belouassa-Cherifi",
+              "party": "LFI",
+              "score": 9.0,
+              "candidateId": "lyon-anais-belouassa-cherifi"
+            },
+            {
+              "name": "Nathalie Perrin-Gilbert",
+              "party": "DVG",
+              "score": 7.0,
+              "candidateId": "lyon-nathalie-perrin-gilbert"
+            }
+          ]
+        },
+        {
+          "institute": "ipsos",
+          "commissioner": "Le Progrès",
+          "publishDate": "2026-02-04",
+          "fieldDates": {
+            "start": "2026-01-13",
+            "end": "2026-01-27"
+          },
+          "sampleSize": 603,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Jean-Michel Aulas",
+              "party": "DVD (Coalition large)",
+              "score": 44.0,
+              "candidateId": "lyon-jean-michel-aulas"
+            },
+            {
+              "name": "Grégory Doucet",
+              "party": "EELV (Sortant)",
+              "score": 30.0,
+              "candidateId": "lyon-gregory-doucet"
+            },
+            {
+              "name": "Alexandre Dupalais",
+              "party": "RN-UDR",
+              "score": 8.0,
+              "candidateId": "lyon-alexandre-dupalais"
+            },
+            {
+              "name": "Anaïs Belouassa-Cherifi",
+              "party": "LFI",
+              "score": 8.0,
+              "candidateId": "lyon-anais-belouassa-cherifi"
+            },
+            {
+              "name": "Nathalie Perrin-Gilbert",
+              "party": "DVG",
+              "score": 7.0,
+              "candidateId": "lyon-nathalie-perrin-gilbert"
+            },
+            {
+              "name": "Georges Képénékian",
+              "party": "DVC",
+              "score": 3.0,
+              "candidateId": "lyon-georges-kepenekian"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": []
+      }
+    },
+    {
+      "name": "Toulouse",
+      "population": 498003,
+      "department": "Haute-Garonne (31)",
+      "region": "Occitanie",
+      "currentMayor": {
+        "name": "Jean-Luc Moudenc",
+        "party": "Horizons (ex-LR)",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Jean-Luc Moudenc",
+        "party": "LR",
+        "score": 51.5,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2026-02-20",
+          "fieldDates": {
+            "start": "2026-02-14",
+            "end": "2026-02-18"
+          },
+          "sampleSize": 602,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Jean-Luc Moudenc",
+              "party": "Horizons / LR / Renaissance / MoDem / UDI (Sortant)",
+              "score": 33.0,
+              "candidateId": "toulouse-jean-luc-moudenc"
+            },
+            {
+              "name": "François Briançon",
+              "party": "PS (Gauche hors LFI)",
+              "score": 30.0,
+              "candidateId": "toulouse-francois-briancon"
+            },
+            {
+              "name": "François Piquemal",
+              "party": "LFI",
+              "score": 23.0,
+              "candidateId": "toulouse-francois-piquemal"
+            },
+            {
+              "name": "Candidat RN",
+              "party": "RN",
+              "score": 10.0,
+              "candidateId": "toulouse-candidat-rn"
+            }
+          ]
+        },
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2025-11-15",
+          "fieldDates": {
+            "start": "2025-11-05",
+            "end": "2025-11-12"
+          },
+          "sampleSize": 765,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Jean-Luc Moudenc",
+              "party": "Horizons / LR (Sortant)",
+              "score": 33.0,
+              "candidateId": "toulouse-jean-luc-moudenc"
+            },
+            {
+              "name": "François Briançon",
+              "party": "PS",
+              "score": 21.0,
+              "candidateId": "toulouse-francois-briancon"
+            },
+            {
+              "name": "François Piquemal",
+              "party": "LFI",
+              "score": 20.0,
+              "candidateId": "toulouse-francois-piquemal"
+            },
+            {
+              "name": "Régis Godec",
+              "party": "EELV",
+              "score": 12.0,
+              "candidateId": "toulouse-regis-godec"
+            },
+            {
+              "name": "Candidat RN",
+              "party": "RN",
+              "score": 10.0,
+              "candidateId": "toulouse-candidat-rn"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "cluster17",
+            "description": "Gauche unie (Briançon + Piquemal fusionnés) vs Moudenc",
+            "candidates": [
+              {
+                "name": "François Briançon",
+                "party": "Gauche unie",
+                "score": 47.0,
+                "candidateId": "toulouse-francois-briancon"
+              },
+              {
+                "name": "Jean-Luc Moudenc",
+                "party": "Horizons / LR",
+                "score": 53.0,
+                "candidateId": "toulouse-jean-luc-moudenc"
+              }
+            ]
+          },
+          {
+            "institute": "cluster17",
+            "description": "Briançon (avec retrait Piquemal) vs Moudenc",
+            "candidates": [
+              {
+                "name": "François Briançon",
+                "party": "Gauche unie + LFI",
+                "score": 52.0,
+                "candidateId": "toulouse-francois-briancon"
+              },
+              {
+                "name": "Jean-Luc Moudenc",
+                "party": "Horizons / LR",
+                "score": 48.0,
+                "candidateId": "toulouse-jean-luc-moudenc"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Nice",
+      "population": 342669,
+      "department": "Alpes-Maritimes (06)",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "currentMayor": {
+        "name": "Christian Estrosi",
+        "party": "Horizons (ex-LR)",
+        "since": 2008
+      },
+      "municipales2020": {
+        "winner": "Christian Estrosi",
+        "party": "LR",
+        "score": 54.0,
+        "round": 1
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Nice Matin",
+          "publishDate": "2026-03-01",
+          "fieldDates": {
+            "start": "2026-02-16",
+            "end": "2026-02-20"
+          },
+          "sampleSize": 608,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Éric Ciotti",
+              "party": "UDR / RN",
+              "score": 38.0,
+              "candidateId": "nice-eric-ciotti"
+            },
+            {
+              "name": "Christian Estrosi",
+              "party": "Horizons / Renaissance / LR",
+              "score": 32.0,
+              "candidateId": "nice-christian-estrosi"
+            },
+            {
+              "name": "Juliette Chesnel-Le Roux",
+              "party": "EELV / PS / PCF",
+              "score": 12.0,
+              "candidateId": "nice-juliette-chesnel-le-roux"
+            },
+            {
+              "name": "Mireille Damiano",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "nice-mireille-damiano"
+            },
+            {
+              "name": "Cédric Vella",
+              "party": "Reconquête",
+              "score": 4.0,
+              "candidateId": "nice-cedric-vella"
+            },
+            {
+              "name": "Hélène Granouillac",
+              "party": "Divers écologistes",
+              "score": 3.0,
+              "candidateId": "nice-helene-granouillac"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "Hexagone / JDD",
+          "publishDate": "2026-03-01",
+          "fieldDates": {
+            "start": "2026-02-16",
+            "end": "2026-02-21"
+          },
+          "sampleSize": 830,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Éric Ciotti",
+              "party": "UDR (soutien RN)",
+              "score": 45.0,
+              "candidateId": "nice-eric-ciotti"
+            },
+            {
+              "name": "Christian Estrosi",
+              "party": "Horizons / LR (Sortant)",
+              "score": 27.0,
+              "candidateId": "nice-christian-estrosi"
+            },
+            {
+              "name": "Juliette Chesnel-Le Roux",
+              "party": "EELV / PS / PCF",
+              "score": 12.0,
+              "candidateId": "nice-juliette-chesnel-le-roux"
+            },
+            {
+              "name": "Mireille Damiano",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "nice-mireille-damiano"
+            },
+            {
+              "name": "Hélène Granouillac",
+              "party": "Divers écologistes",
+              "score": 2.0,
+              "candidateId": "nice-helene-granouillac"
+            },
+            {
+              "name": "Cédric Vella",
+              "party": "Reconquête",
+              "score": 2.0,
+              "candidateId": "nice-cedric-vella"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "France 3 / camp Estrosi",
+          "publishDate": "2026-02-15",
+          "fieldDates": {
+            "start": "2026-02-08",
+            "end": "2026-02-13"
+          },
+          "sampleSize": 603,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Éric Ciotti",
+              "party": "UDR (soutien RN)",
+              "score": 38.0,
+              "candidateId": "nice-eric-ciotti"
+            },
+            {
+              "name": "Christian Estrosi",
+              "party": "Horizons / LR (Sortant)",
+              "score": 32.0,
+              "candidateId": "nice-christian-estrosi"
+            },
+            {
+              "name": "Juliette Chesnel-Le Roux",
+              "party": "EELV / PS / PCF",
+              "score": 12.0,
+              "candidateId": "nice-juliette-chesnel-le-roux"
+            },
+            {
+              "name": "Mireille Damiano",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "nice-mireille-damiano"
+            }
+          ]
+        },
+        {
+          "institute": "elabe",
+          "commissioner": "Berger-Levrault",
+          "publishDate": "2026-02-10",
+          "fieldDates": {
+            "start": "2026-02-03",
+            "end": "2026-02-08"
+          },
+          "sampleSize": 605,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Éric Ciotti",
+              "party": "UDR (soutien RN)",
+              "score": 41.0,
+              "candidateId": "nice-eric-ciotti"
+            },
+            {
+              "name": "Christian Estrosi",
+              "party": "Horizons / LR (Sortant)",
+              "score": 30.0,
+              "candidateId": "nice-christian-estrosi"
+            },
+            {
+              "name": "Juliette Chesnel-Le Roux",
+              "party": "EELV / PS / PCF",
+              "score": 13.0,
+              "candidateId": "nice-juliette-chesnel-le-roux"
+            },
+            {
+              "name": "Mireille Damiano",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "nice-mireille-damiano"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire Ciotti / Estrosi / Chesnel-Le Roux / Damiano",
+            "candidates": [
+              {
+                "name": "Éric Ciotti",
+                "party": "UDR",
+                "score": 40.0,
+                "candidateId": "nice-eric-ciotti"
+              },
+              {
+                "name": "Christian Estrosi",
+                "party": "Horizons / LR",
+                "score": 36.0,
+                "candidateId": "nice-christian-estrosi"
+              },
+              {
+                "name": "Juliette Chesnel-Le Roux",
+                "party": "EELV / PS / PCF",
+                "score": 14.0,
+                "candidateId": "nice-juliette-chesnel-le-roux"
+              },
+              {
+                "name": "Mireille Damiano",
+                "party": "LFI",
+                "score": 10.0,
+                "candidateId": "nice-mireille-damiano"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Ciotti / Estrosi / Chesnel-Le Roux",
+            "candidates": [
+              {
+                "name": "Éric Ciotti",
+                "party": "UDR",
+                "score": 43.0,
+                "candidateId": "nice-eric-ciotti"
+              },
+              {
+                "name": "Christian Estrosi",
+                "party": "Horizons / LR",
+                "score": 37.0,
+                "candidateId": "nice-christian-estrosi"
+              },
+              {
+                "name": "Juliette Chesnel-Le Roux",
+                "party": "EELV / PS / PCF",
+                "score": 20.0,
+                "candidateId": "nice-juliette-chesnel-le-roux"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Duel Estrosi vs Ciotti",
+            "candidates": [
+              {
+                "name": "Christian Estrosi",
+                "party": "Horizons / LR",
+                "score": 50.0,
+                "candidateId": "nice-christian-estrosi"
+              },
+              {
+                "name": "Éric Ciotti",
+                "party": "UDR",
+                "score": 50.0,
+                "candidateId": "nice-eric-ciotti"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Duel Ciotti vs Estrosi",
+            "candidates": [
+              {
+                "name": "Éric Ciotti",
+                "party": "UDR",
+                "score": 50.0,
+                "candidateId": "nice-eric-ciotti"
+              },
+              {
+                "name": "Christian Estrosi",
+                "party": "Horizons / LR",
+                "score": 50.0,
+                "candidateId": "nice-christian-estrosi"
+              }
+            ]
+          },
+          {
+            "institute": "opinionway",
+            "description": "Duel Ciotti vs Estrosi",
+            "candidates": [
+              {
+                "name": "Éric Ciotti",
+                "party": "UDR",
+                "score": 55.0,
+                "candidateId": "nice-eric-ciotti"
+              },
+              {
+                "name": "Christian Estrosi",
+                "party": "Horizons / LR",
+                "score": 45.0,
+                "candidateId": "nice-christian-estrosi"
+              }
+            ]
+          },
+          {
+            "institute": "elabe",
+            "description": "Triangulaire Ciotti / Estrosi / Chesnel-Le Roux",
+            "candidates": [
+              {
+                "name": "Éric Ciotti",
+                "party": "UDR",
+                "score": 43.0,
+                "candidateId": "nice-eric-ciotti"
+              },
+              {
+                "name": "Christian Estrosi",
+                "party": "Horizons / LR",
+                "score": 37.0,
+                "candidateId": "nice-christian-estrosi"
+              },
+              {
+                "name": "Juliette Chesnel-Le Roux",
+                "party": "EELV / PS / PCF",
+                "score": 20.0,
+                "candidateId": "nice-juliette-chesnel-le-roux"
+              }
+            ]
+          },
+          {
+            "institute": "elabe",
+            "description": "Quadrangulaire Ciotti / Estrosi / Chesnel-Le Roux / Damiano",
+            "candidates": [
+              {
+                "name": "Éric Ciotti",
+                "party": "UDR",
+                "score": 40.0,
+                "candidateId": "nice-eric-ciotti"
+              },
+              {
+                "name": "Christian Estrosi",
+                "party": "Horizons / LR",
+                "score": 36.0,
+                "candidateId": "nice-christian-estrosi"
+              },
+              {
+                "name": "Juliette Chesnel-Le Roux",
+                "party": "EELV / PS / PCF",
+                "score": 14.0,
+                "candidateId": "nice-juliette-chesnel-le-roux"
+              },
+              {
+                "name": "Mireille Damiano",
+                "party": "LFI",
+                "score": 10.0,
+                "candidateId": "nice-mireille-damiano"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Nantes",
+      "population": 320732,
+      "department": "Loire-Atlantique (44)",
+      "region": "Pays de la Loire",
+      "currentMayor": {
+        "name": "Johanna Rolland",
+        "party": "PS",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Johanna Rolland",
+        "party": "PS",
+        "score": 59.7,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2026-03-05",
+          "fieldDates": {
+            "start": "2026-03-01",
+            "end": "2026-03-04"
+          },
+          "sampleSize": 712,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Johanna Rolland",
+              "party": "PS (Sortante)",
+              "score": 38.0,
+              "candidateId": "nantes-johanna-rolland"
+            },
+            {
+              "name": "Foulques Chombart de Lauwe",
+              "party": "LR",
+              "score": 31.0,
+              "candidateId": "nantes-foulques-chombart-de-lauwe"
+            },
+            {
+              "name": "William Aucant",
+              "party": "LFI",
+              "score": 13.0,
+              "candidateId": "nantes-william-aucant"
+            },
+            {
+              "name": "Jean-Claude Hulot",
+              "party": "RN",
+              "score": 7.0,
+              "candidateId": "nantes-jean-claude-hulot"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "PS / Sud-Ouest",
+          "publishDate": "2026-03-04",
+          "fieldDates": {
+            "start": "2026-02-24",
+            "end": "2026-02-28"
+          },
+          "sampleSize": 803,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Johanna Rolland",
+              "party": "PS (Sortante)",
+              "score": 43.0,
+              "candidateId": "nantes-johanna-rolland"
+            },
+            {
+              "name": "Foulques Chombart de Lauwe",
+              "party": "LR",
+              "score": 26.0,
+              "candidateId": "nantes-foulques-chombart-de-lauwe"
+            },
+            {
+              "name": "William Aucant",
+              "party": "LFI",
+              "score": 13.5,
+              "candidateId": "nantes-william-aucant"
+            },
+            {
+              "name": "Jean-Claude Hulot",
+              "party": "RN",
+              "score": 8.0,
+              "candidateId": "nantes-jean-claude-hulot"
+            }
+          ]
+        },
+        {
+          "institute": "odoxa",
+          "commissioner": "Le Point / camp Chombart de Lauwe",
+          "publishDate": "2026-03-02",
+          "fieldDates": {
+            "start": "2026-02-17",
+            "end": "2026-02-22"
+          },
+          "sampleSize": 810,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Johanna Rolland",
+              "party": "PS (Sortante)",
+              "score": 35.0,
+              "candidateId": "nantes-johanna-rolland"
+            },
+            {
+              "name": "Foulques Chombart de Lauwe",
+              "party": "LR",
+              "score": 34.0,
+              "candidateId": "nantes-foulques-chombart-de-lauwe"
+            },
+            {
+              "name": "William Aucant",
+              "party": "LFI",
+              "score": 12.5,
+              "candidateId": "nantes-william-aucant"
+            },
+            {
+              "name": "Jean-Claude Hulot",
+              "party": "RN",
+              "score": 7.5,
+              "candidateId": "nantes-jean-claude-hulot"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Rolland / Chombart de Lauwe / Aucant",
+            "candidates": [
+              {
+                "name": "Johanna Rolland",
+                "party": "PS",
+                "score": 48.0,
+                "candidateId": "nantes-johanna-rolland"
+              },
+              {
+                "name": "Foulques Chombart de Lauwe",
+                "party": "LR",
+                "score": 36.0,
+                "candidateId": "nantes-foulques-chombart-de-lauwe"
+              },
+              {
+                "name": "William Aucant",
+                "party": "LFI",
+                "score": 16.0,
+                "candidateId": "nantes-william-aucant"
+              }
+            ]
+          },
+          {
+            "institute": "odoxa",
+            "description": "Duel Rolland vs Chombart (avec soutien LFI à Rolland)",
+            "candidates": [
+              {
+                "name": "Johanna Rolland",
+                "party": "PS + LFI",
+                "score": 54.0,
+                "candidateId": "nantes-johanna-rolland"
+              },
+              {
+                "name": "Foulques Chombart de Lauwe",
+                "party": "LR",
+                "score": 46.0,
+                "candidateId": "nantes-foulques-chombart-de-lauwe"
+              }
+            ]
+          },
+          {
+            "institute": "odoxa",
+            "description": "Triangulaire Chombart / Rolland / Aucant (sans alliance gauche)",
+            "candidates": [
+              {
+                "name": "Foulques Chombart de Lauwe",
+                "party": "LR",
+                "score": 42.0,
+                "candidateId": "nantes-foulques-chombart-de-lauwe"
+              },
+              {
+                "name": "Johanna Rolland",
+                "party": "PS",
+                "score": 40.0,
+                "candidateId": "nantes-johanna-rolland"
+              },
+              {
+                "name": "William Aucant",
+                "party": "LFI",
+                "score": 18.0,
+                "candidateId": "nantes-william-aucant"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Montpellier",
+      "population": 299096,
+      "department": "Hérault (34)",
+      "region": "Occitanie",
+      "currentMayor": {
+        "name": "Michaël Delafosse",
+        "party": "PS",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Michaël Delafosse",
+        "party": "PS",
+        "score": 47.3,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Le Métropolitain",
+          "publishDate": "2026-02-15",
+          "fieldDates": {
+            "start": "2026-02-06",
+            "end": "2026-02-12"
+          },
+          "sampleSize": 608,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Michaël Delafosse",
+              "party": "PS (Sortant)",
+              "score": 38.0,
+              "candidateId": "montpellier-michael-delafosse"
+            },
+            {
+              "name": "Nathalie Oziol",
+              "party": "LFI",
+              "score": 16.0,
+              "candidateId": "montpellier-nathalie-oziol"
+            },
+            {
+              "name": "Rémi Gaillard",
+              "party": "SE",
+              "score": 10.0,
+              "candidateId": "montpellier-remi-gaillard"
+            },
+            {
+              "name": "Philippe Saurel",
+              "party": "DVG (ex-maire)",
+              "score": 9.0,
+              "candidateId": "montpellier-philippe-saurel"
+            },
+            {
+              "name": "Mohed Altrad",
+              "party": "SE",
+              "score": 9.0,
+              "candidateId": "montpellier-mohed-altrad"
+            },
+            {
+              "name": "France Jamet",
+              "party": "RN",
+              "score": 8.0,
+              "candidateId": "montpellier-france-jamet"
+            },
+            {
+              "name": "Thierry Tsagalos",
+              "party": "RN-UDR",
+              "score": 9.0,
+              "candidateId": "montpellier-thierry-tsagalos"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "Midi Libre",
+          "publishDate": "2025-11-29",
+          "fieldDates": {
+            "start": "2025-11-20",
+            "end": "2025-11-27"
+          },
+          "sampleSize": 606,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Michaël Delafosse",
+              "party": "PS (Sortant)",
+              "score": 36.0,
+              "candidateId": "montpellier-michael-delafosse"
+            },
+            {
+              "name": "Nathalie Oziol",
+              "party": "LFI",
+              "score": 16.0,
+              "candidateId": "montpellier-nathalie-oziol"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Delafosse / Oziol / Saurel",
+            "candidates": [
+              {
+                "name": "Michaël Delafosse",
+                "party": "PS",
+                "score": 50.0,
+                "candidateId": "montpellier-michael-delafosse"
+              },
+              {
+                "name": "Nathalie Oziol",
+                "party": "LFI",
+                "score": 21.0,
+                "candidateId": "montpellier-nathalie-oziol"
+              },
+              {
+                "name": "Philippe Saurel",
+                "party": "DVG",
+                "score": 29.0,
+                "candidateId": "montpellier-philippe-saurel"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire avec Altrad",
+            "candidates": [
+              {
+                "name": "Michaël Delafosse",
+                "party": "PS",
+                "score": 43.0,
+                "candidateId": "montpellier-michael-delafosse"
+              },
+              {
+                "name": "Nathalie Oziol",
+                "party": "LFI",
+                "score": 22.0,
+                "candidateId": "montpellier-nathalie-oziol"
+              },
+              {
+                "name": "Mohed Altrad",
+                "party": "SE",
+                "score": 18.0,
+                "candidateId": "montpellier-mohed-altrad"
+              },
+              {
+                "name": "Philippe Saurel",
+                "party": "DVG",
+                "score": 17.0,
+                "candidateId": "montpellier-philippe-saurel"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Strasbourg",
+      "population": 287228,
+      "department": "Bas-Rhin (67)",
+      "region": "Grand Est",
+      "currentMayor": {
+        "name": "Jeanne Barseghian",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Jeanne Barseghian",
+        "party": "EELV",
+        "score": 44.0,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2026-02-17",
+          "fieldDates": {
+            "start": "2026-02-09",
+            "end": "2026-02-12"
+          },
+          "sampleSize": 684,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Catherine Trautmann",
+              "party": "PS",
+              "score": 31.0,
+              "candidateId": "strasbourg-catherine-trautmann"
+            },
+            {
+              "name": "Jeanne Barseghian",
+              "party": "EELV (Sortante)",
+              "score": 20.0,
+              "candidateId": "strasbourg-jeanne-barseghian"
+            },
+            {
+              "name": "Jean-Philippe Vetter",
+              "party": "LR",
+              "score": 19.0,
+              "candidateId": "strasbourg-jean-philippe-vetter"
+            },
+            {
+              "name": "Virginie Joron",
+              "party": "RN",
+              "score": 11.0,
+              "candidateId": "strasbourg-virginie-joron"
+            },
+            {
+              "name": "Florian Kobryn",
+              "party": "LFI",
+              "score": 10.0,
+              "candidateId": "strasbourg-florian-kobryn"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": []
+      }
+    },
+    {
+      "name": "Bordeaux",
+      "population": 259809,
+      "department": "Gironde (33)",
+      "region": "Nouvelle-Aquitaine",
+      "currentMayor": {
+        "name": "Pierre Hurmic",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Pierre Hurmic",
+        "party": "EELV",
+        "score": 46.5,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Sud Ouest / Fiducial",
+          "publishDate": "2026-02-25",
+          "fieldDates": {
+            "start": "2026-02-19",
+            "end": "2026-02-24"
+          },
+          "sampleSize": 707,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Pierre Hurmic",
+              "party": "EELV (Sortant)",
+              "score": 33.0,
+              "candidateId": "bordeaux-pierre-hurmic"
+            },
+            {
+              "name": "Thomas Cazenave",
+              "party": "Renaissance / Horizons / LR",
+              "score": 25.0,
+              "candidateId": "bordeaux-thomas-cazenave"
+            },
+            {
+              "name": "Philippe Dessertine",
+              "party": "SE (économiste)",
+              "score": 15.0,
+              "candidateId": "bordeaux-philippe-dessertine"
+            },
+            {
+              "name": "Nordine Raymond",
+              "party": "LFI",
+              "score": 12.0,
+              "candidateId": "bordeaux-nordine-raymond"
+            },
+            {
+              "name": "Julie Rechagneux",
+              "party": "RN",
+              "score": 7.0,
+              "candidateId": "bordeaux-julie-rechagneux"
+            },
+            {
+              "name": "Philippe Poutou",
+              "party": "NPA",
+              "score": 5.0,
+              "candidateId": "bordeaux-philippe-poutou"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "Renaissance",
+          "publishDate": "2025-11-15",
+          "fieldDates": {
+            "start": "2025-11-05",
+            "end": "2025-11-12"
+          },
+          "sampleSize": 605,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Pierre Hurmic",
+              "party": "EELV (Sortant)",
+              "score": 32.0,
+              "candidateId": "bordeaux-pierre-hurmic"
+            },
+            {
+              "name": "Thomas Cazenave",
+              "party": "Renaissance / Horizons / LR",
+              "score": 26.0,
+              "candidateId": "bordeaux-thomas-cazenave"
+            },
+            {
+              "name": "Nordine Raymond",
+              "party": "LFI",
+              "score": 15.0,
+              "candidateId": "bordeaux-nordine-raymond"
+            },
+            {
+              "name": "Julie Rechagneux",
+              "party": "RN",
+              "score": 13.0,
+              "candidateId": "bordeaux-julie-rechagneux"
+            },
+            {
+              "name": "Philippe Dessertine",
+              "party": "SE",
+              "score": 12.0,
+              "candidateId": "bordeaux-philippe-dessertine"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Pentagonale (Hurmic, Cazenave, Dessertine, Raymond, Rechagneux)",
+            "candidates": [
+              {
+                "name": "Pierre Hurmic",
+                "party": "EELV",
+                "score": 34.0,
+                "candidateId": "bordeaux-pierre-hurmic"
+              },
+              {
+                "name": "Thomas Cazenave",
+                "party": "Renaissance / LR",
+                "score": 25.0,
+                "candidateId": "bordeaux-thomas-cazenave"
+              },
+              {
+                "name": "Philippe Dessertine",
+                "party": "SE",
+                "score": null,
+                "candidateId": "bordeaux-philippe-dessertine"
+              },
+              {
+                "name": "Nordine Raymond",
+                "party": "LFI",
+                "score": null,
+                "candidateId": "bordeaux-nordine-raymond"
+              },
+              {
+                "name": "Julie Rechagneux",
+                "party": "RN",
+                "score": null,
+                "candidateId": "bordeaux-julie-rechagneux"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Lille",
+      "population": 236234,
+      "department": "Nord (59)",
+      "region": "Hauts-de-France",
+      "currentMayor": {
+        "name": "Arnaud Deslandes",
+        "party": "PS",
+        "since": 2024
+      },
+      "municipales2020": {
+        "winner": "Martine Aubry",
+        "party": "PS",
+        "score": 39.6,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "La Voix du Nord / ICI Nord / France 3",
+          "publishDate": "2026-03-04",
+          "fieldDates": {
+            "start": "2026-02-24",
+            "end": "2026-03-02"
+          },
+          "sampleSize": 706,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Arnaud Deslandes",
+              "party": "PS / PCF / Place publique",
+              "score": 28.0,
+              "candidateId": "lille-arnaud-deslandes"
+            },
+            {
+              "name": "Stéphane Baly",
+              "party": "EELV",
+              "score": 20.0,
+              "candidateId": "lille-stephane-baly"
+            },
+            {
+              "name": "Lahouaria Addouche",
+              "party": "LFI",
+              "score": 16.0,
+              "candidateId": "lille-lahouaria-addouche"
+            },
+            {
+              "name": "Violette Spillebout",
+              "party": "Renaissance / MoDem / Horizons",
+              "score": 15.0,
+              "candidateId": "lille-violette-spillebout"
+            },
+            {
+              "name": "Matthieu Valet",
+              "party": "RN",
+              "score": 9.0,
+              "candidateId": "lille-matthieu-valet"
+            },
+            {
+              "name": "Louis Delemer",
+              "party": "LR",
+              "score": 7.0,
+              "candidateId": "lille-louis-delemer"
+            }
+          ]
+        },
+        {
+          "institute": "ipsos",
+          "commissioner": "Renaissance (partisan)",
+          "publishDate": "2026-03-03",
+          "fieldDates": {
+            "start": "2026-02-16",
+            "end": "2026-02-23"
+          },
+          "sampleSize": 604,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Arnaud Deslandes",
+              "party": "PS / PCF / Place publique",
+              "score": 23.0,
+              "candidateId": "lille-arnaud-deslandes"
+            },
+            {
+              "name": "Stéphane Baly",
+              "party": "EELV",
+              "score": 20.0,
+              "candidateId": "lille-stephane-baly"
+            },
+            {
+              "name": "Lahouaria Addouche",
+              "party": "LFI",
+              "score": 19.0,
+              "candidateId": "lille-lahouaria-addouche"
+            },
+            {
+              "name": "Violette Spillebout",
+              "party": "Renaissance / MoDem / Horizons",
+              "score": 17.0,
+              "candidateId": "lille-violette-spillebout"
+            },
+            {
+              "name": "Matthieu Valet",
+              "party": "RN",
+              "score": 13.0,
+              "candidateId": "lille-matthieu-valet"
+            },
+            {
+              "name": "Louis Delemer",
+              "party": "LR",
+              "score": 6.0,
+              "candidateId": "lille-louis-delemer"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "La Voix du Nord / PS",
+          "publishDate": "2025-09-23",
+          "fieldDates": {
+            "start": "2025-09-15",
+            "end": "2025-09-22"
+          },
+          "sampleSize": 605,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Arnaud Deslandes",
+              "party": "PS (Sortant)",
+              "score": 27.0,
+              "candidateId": "lille-arnaud-deslandes"
+            },
+            {
+              "name": "Stéphane Baly",
+              "party": "EELV",
+              "score": 19.0,
+              "candidateId": "lille-stephane-baly"
+            },
+            {
+              "name": "Violette Spillebout",
+              "party": "Renaissance",
+              "score": 18.0,
+              "candidateId": "lille-violette-spillebout"
+            },
+            {
+              "name": "Lahouaria Addouche",
+              "party": "LFI",
+              "score": 16.0,
+              "candidateId": "lille-lahouaria-addouche"
+            },
+            {
+              "name": "Matthieu Valet",
+              "party": "RN",
+              "score": 16.0,
+              "candidateId": "lille-matthieu-valet"
+            },
+            {
+              "name": "Louis Delemer",
+              "party": "LR",
+              "score": 9.0,
+              "candidateId": "lille-louis-delemer"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire Deslandes / Spillebout / Baly / Addouche",
+            "candidates": [
+              {
+                "name": "Arnaud Deslandes",
+                "party": "PS",
+                "score": 37.0,
+                "candidateId": "lille-arnaud-deslandes"
+              },
+              {
+                "name": "Violette Spillebout",
+                "party": "Renaissance / Horizons",
+                "score": 24.0,
+                "candidateId": "lille-violette-spillebout"
+              },
+              {
+                "name": "Stéphane Baly",
+                "party": "EELV",
+                "score": 20.0,
+                "candidateId": "lille-stephane-baly"
+              },
+              {
+                "name": "Lahouaria Addouche",
+                "party": "LFI",
+                "score": 19.0,
+                "candidateId": "lille-lahouaria-addouche"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire PS+EELV : Deslandes / Spillebout / Addouche",
+            "candidates": [
+              {
+                "name": "Arnaud Deslandes",
+                "party": "PS / EELV",
+                "score": 53.0,
+                "candidateId": "lille-arnaud-deslandes"
+              },
+              {
+                "name": "Violette Spillebout",
+                "party": "Renaissance / Horizons",
+                "score": 26.0,
+                "candidateId": "lille-violette-spillebout"
+              },
+              {
+                "name": "Lahouaria Addouche",
+                "party": "LFI",
+                "score": 21.0,
+                "candidateId": "lille-lahouaria-addouche"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire EELV+LFI : Deslandes / Baly / Spillebout",
+            "candidates": [
+              {
+                "name": "Arnaud Deslandes",
+                "party": "PS",
+                "score": 41.0,
+                "candidateId": "lille-arnaud-deslandes"
+              },
+              {
+                "name": "Stéphane Baly",
+                "party": "EELV / LFI",
+                "score": 35.0,
+                "candidateId": "lille-stephane-baly"
+              },
+              {
+                "name": "Violette Spillebout",
+                "party": "Renaissance / Horizons",
+                "score": 24.0,
+                "candidateId": "lille-violette-spillebout"
+              }
+            ]
+          },
+          {
+            "institute": "ipsos",
+            "description": "Quadrangulaire Spillebout / Deslandes / Addouche / Baly (Renaissance et LR séparés)",
+            "candidates": [
+              {
+                "name": "Violette Spillebout",
+                "party": "Renaissance / Horizons",
+                "score": 28.0,
+                "candidateId": "lille-violette-spillebout"
+              },
+              {
+                "name": "Arnaud Deslandes",
+                "party": "PS",
+                "score": 26.0,
+                "candidateId": "lille-arnaud-deslandes"
+              },
+              {
+                "name": "Lahouaria Addouche",
+                "party": "LFI",
+                "score": 23.0,
+                "candidateId": "lille-lahouaria-addouche"
+              },
+              {
+                "name": "Stéphane Baly",
+                "party": "EELV",
+                "score": 23.0,
+                "candidateId": "lille-stephane-baly"
+              }
+            ]
+          },
+          {
+            "institute": "ipsos",
+            "description": "Quadrangulaire EELV+LFI : Baly / Deslandes / Spillebout / Valet",
+            "candidates": [
+              {
+                "name": "Stéphane Baly",
+                "party": "EELV / LFI",
+                "score": 36.0,
+                "candidateId": "lille-stephane-baly"
+              },
+              {
+                "name": "Arnaud Deslandes",
+                "party": "PS",
+                "score": 29.0,
+                "candidateId": "lille-arnaud-deslandes"
+              },
+              {
+                "name": "Violette Spillebout",
+                "party": "Renaissance / Horizons",
+                "score": 21.0,
+                "candidateId": "lille-violette-spillebout"
+              },
+              {
+                "name": "Matthieu Valet",
+                "party": "RN",
+                "score": 14.0,
+                "candidateId": "lille-matthieu-valet"
+              }
+            ]
+          },
+          {
+            "institute": "ipsos",
+            "description": "Quadrangulaire PS+EELV : Deslandes / Addouche / Spillebout / Valet",
+            "candidates": [
+              {
+                "name": "Arnaud Deslandes",
+                "party": "PS / EELV",
+                "score": 40.0,
+                "candidateId": "lille-arnaud-deslandes"
+              },
+              {
+                "name": "Lahouaria Addouche",
+                "party": "LFI",
+                "score": 25.0,
+                "candidateId": "lille-lahouaria-addouche"
+              },
+              {
+                "name": "Violette Spillebout",
+                "party": "Renaissance / Horizons",
+                "score": 21.0,
+                "candidateId": "lille-violette-spillebout"
+              },
+              {
+                "name": "Matthieu Valet",
+                "party": "RN",
+                "score": 14.0,
+                "candidateId": "lille-matthieu-valet"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Rennes",
+      "population": 222485,
+      "department": "Ille-et-Vilaine (35)",
+      "region": "Bretagne",
+      "currentMayor": {
+        "name": "Nathalie Appéré",
+        "party": "PS",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Nathalie Appéré",
+        "party": "PS",
+        "score": 64.3,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2026-02-28",
+          "fieldDates": {
+            "start": "2026-02-24",
+            "end": "2026-02-27"
+          },
+          "sampleSize": 658,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Nathalie Appéré",
+              "party": "PS / EELV (Sortante)",
+              "score": 42.0,
+              "candidateId": "rennes-nathalie-appere"
+            },
+            {
+              "name": "Marie Mesmeur",
+              "party": "LFI",
+              "score": 18.0,
+              "candidateId": "rennes-marie-mesmeur"
+            },
+            {
+              "name": "Charles Compagnon",
+              "party": "LR / Centre",
+              "score": 17.0,
+              "candidateId": "rennes-charles-compagnon"
+            },
+            {
+              "name": "Thomas Rousseau",
+              "party": "LR",
+              "score": 8.0,
+              "candidateId": "rennes-thomas-rousseau"
+            },
+            {
+              "name": "Julien Masson",
+              "party": "RN",
+              "score": 7.0,
+              "candidateId": "rennes-julien-masson"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": []
+      }
+    },
+    {
+      "name": "Toulon",
+      "population": 178745,
+      "department": "Var (83)",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "currentMayor": {
+        "name": "Josée Massi",
+        "party": "DVD",
+        "since": 2023
+      },
+      "municipales2020": {
+        "winner": "Hubert Falco",
+        "party": "LR",
+        "score": 52.9,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "elabe",
+          "commissioner": "BFMTV / Le Figaro / Var-Matin",
+          "publishDate": "2026-03-02",
+          "fieldDates": {
+            "start": "2026-02-19",
+            "end": "2026-02-26"
+          },
+          "sampleSize": 700,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Laure Lavalette",
+              "party": "RN",
+              "score": 41.0,
+              "candidateId": "toulon-laure-lavalette"
+            },
+            {
+              "name": "Josée Massi",
+              "party": "DVD (soutien LR)",
+              "score": 27.0,
+              "candidateId": "toulon-josee-massi"
+            },
+            {
+              "name": "Michel Bonnus",
+              "party": "LR",
+              "score": 14.0,
+              "candidateId": "toulon-michel-bonnus"
+            },
+            {
+              "name": "Magali Brunel",
+              "party": "PS / PCF / EELV",
+              "score": 12.0,
+              "candidateId": "toulon-magali-brunel"
+            },
+            {
+              "name": "Isaline Cornil",
+              "party": "LFI",
+              "score": 6.0,
+              "candidateId": "toulon-isaline-cornil"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "Var Matin / Collectif 'Un bouclier pour Toulon'",
+          "publishDate": "2026-02-20",
+          "fieldDates": {
+            "start": "2026-02-12",
+            "end": "2026-02-18"
+          },
+          "sampleSize": 602,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Laure Lavalette",
+              "party": "RN (SE)",
+              "score": 39.0,
+              "candidateId": "toulon-laure-lavalette"
+            },
+            {
+              "name": "Josée Massi",
+              "party": "DVD (Sortante)",
+              "score": 24.0,
+              "candidateId": "toulon-josee-massi"
+            },
+            {
+              "name": "Michel Bonnus",
+              "party": "LR (Sénateur)",
+              "score": 15.0,
+              "candidateId": "toulon-michel-bonnus"
+            },
+            {
+              "name": "Magali Brunel",
+              "party": "PS / PCF / EELV",
+              "score": 13.0,
+              "candidateId": "toulon-magali-brunel"
+            },
+            {
+              "name": "Isaline Cornil",
+              "party": "LFI",
+              "score": 6.0,
+              "candidateId": "toulon-isaline-cornil"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "elabe",
+            "description": "Triangulaire Lavalette / Massi / Brunel",
+            "candidates": [
+              {
+                "name": "Laure Lavalette",
+                "party": "RN",
+                "score": 45.0,
+                "candidateId": "toulon-laure-lavalette"
+              },
+              {
+                "name": "Josée Massi",
+                "party": "DVD",
+                "score": 38.0,
+                "candidateId": "toulon-josee-massi"
+              },
+              {
+                "name": "Magali Brunel",
+                "party": "PS / PCF / EELV",
+                "score": 17.0,
+                "candidateId": "toulon-magali-brunel"
+              }
+            ]
+          },
+          {
+            "institute": "elabe",
+            "description": "Triangulaire Lavalette / Bonnus / Brunel",
+            "candidates": [
+              {
+                "name": "Laure Lavalette",
+                "party": "RN",
+                "score": 48.0,
+                "candidateId": "toulon-laure-lavalette"
+              },
+              {
+                "name": "Michel Bonnus",
+                "party": "LR",
+                "score": 31.0,
+                "candidateId": "toulon-michel-bonnus"
+              },
+              {
+                "name": "Magali Brunel",
+                "party": "PS / PCF / EELV",
+                "score": 21.0,
+                "candidateId": "toulon-magali-brunel"
+              }
+            ]
+          },
+          {
+            "institute": "elabe",
+            "description": "Duel Massi vs Lavalette",
+            "candidates": [
+              {
+                "name": "Josée Massi",
+                "party": "DVD",
+                "score": 53.0,
+                "candidateId": "toulon-josee-massi"
+              },
+              {
+                "name": "Laure Lavalette",
+                "party": "RN",
+                "score": 47.0,
+                "candidateId": "toulon-laure-lavalette"
+              }
+            ]
+          },
+          {
+            "institute": "elabe",
+            "description": "Duel Lavalette vs Bonnus",
+            "candidates": [
+              {
+                "name": "Laure Lavalette",
+                "party": "RN",
+                "score": 51.0,
+                "candidateId": "toulon-laure-lavalette"
+              },
+              {
+                "name": "Michel Bonnus",
+                "party": "LR",
+                "score": 49.0,
+                "candidateId": "toulon-michel-bonnus"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Duel Massi (union droite + gauche) vs Lavalette",
+            "candidates": [
+              {
+                "name": "Josée Massi",
+                "party": "Union droite + gauche",
+                "score": 52.0,
+                "candidateId": "toulon-josee-massi"
+              },
+              {
+                "name": "Laure Lavalette",
+                "party": "RN",
+                "score": 48.0,
+                "candidateId": "toulon-laure-lavalette"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Duel Bonnus (union droite) vs Lavalette",
+            "candidates": [
+              {
+                "name": "Michel Bonnus",
+                "party": "LR / union droite",
+                "score": 49.0,
+                "candidateId": "toulon-michel-bonnus"
+              },
+              {
+                "name": "Laure Lavalette",
+                "party": "RN",
+                "score": 51.0,
+                "candidateId": "toulon-laure-lavalette"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Reims",
+      "population": 182592,
+      "department": "Marne (51)",
+      "region": "Grand Est",
+      "currentMayor": {
+        "name": "Arnaud Robinet",
+        "party": "Horizons (ex-LR)",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Arnaud Robinet",
+        "party": "LR",
+        "score": 55.0,
+        "round": 1
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "L'Union-L'Ardennais / Sud Radio / Fiducial",
+          "publishDate": "2026-02-20",
+          "fieldDates": {
+            "start": "2026-02-10",
+            "end": "2026-02-17"
+          },
+          "sampleSize": 603,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Arnaud Robinet",
+              "party": "Horizons / LR / Renaissance / MoDem (Sortant)",
+              "score": 55.0,
+              "candidateId": "reims-arnaud-robinet"
+            },
+            {
+              "name": "Éric Quénard",
+              "party": "PS / PCF",
+              "score": 10.0,
+              "candidateId": "reims-eric-quenard"
+            },
+            {
+              "name": "Candidat RN",
+              "party": "RN",
+              "score": 10.0,
+              "candidateId": "reims-candidat-rn"
+            },
+            {
+              "name": "Léo Tyburce",
+              "party": "EELV",
+              "score": 8.0,
+              "candidateId": "reims-leo-tyburce"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": []
+      }
+    },
+    {
+      "name": "Saint-Étienne",
+      "population": 177480,
+      "department": "Loire (42)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "Gaël Perdriau",
+        "party": "LR (inéligible - condamné)",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Gaël Perdriau",
+        "party": "LR",
+        "score": 46.3,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "PS stéphanois",
+          "publishDate": "2025-09-14",
+          "fieldDates": {
+            "start": "2025-02-01",
+            "end": "2025-02-28"
+          },
+          "sampleSize": 600,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Régis Juanico",
+              "party": "PS / EELV / PCF / Place publique (Gauche unie)",
+              "score": 31.0,
+              "candidateId": "saint-etienne-regis-juanico"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": []
+      }
+    },
+    {
+      "name": "Le Havre",
+      "population": 172074,
+      "department": "Seine-Maritime (76)",
+      "region": "Normandie",
+      "currentMayor": {
+        "name": "Édouard Philippe",
+        "party": "Horizons",
+        "since": 2010
+      },
+      "municipales2020": {
+        "winner": "Édouard Philippe",
+        "party": "LR",
+        "score": 58.8,
+        "round": 1
+      },
+      "polls": [
+        {
+          "institute": "opinionway",
+          "commissioner": "Hexagone (Obs. Pierre-Édouard Stérin)",
+          "publishDate": "2026-02-25",
+          "fieldDates": {
+            "start": "2026-02-17",
+            "end": "2026-02-22"
+          },
+          "sampleSize": 605,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Édouard Philippe",
+              "party": "Horizons (Sortant)",
+              "score": 37.0,
+              "candidateId": "le-havre-edouard-philippe"
+            },
+            {
+              "name": "Jean-Paul Lecoq",
+              "party": "PCF / PS / EELV / Place publique",
+              "score": 35.0,
+              "candidateId": "le-havre-jean-paul-lecoq"
+            },
+            {
+              "name": "Franck Keller",
+              "party": "RN-UDR",
+              "score": 18.0,
+              "candidateId": "le-havre-franck-keller"
+            },
+            {
+              "name": "Charlotte Boulogne",
+              "party": "LFI",
+              "score": 6.0,
+              "candidateId": "le-havre-charlotte-boulogne"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "opinionway",
+            "description": "Triangulaire Philippe / Lecoq / Keller",
+            "candidates": [
+              {
+                "name": "Jean-Paul Lecoq",
+                "party": "PCF / Gauche unie",
+                "score": 42.0,
+                "candidateId": "le-havre-jean-paul-lecoq"
+              },
+              {
+                "name": "Édouard Philippe",
+                "party": "Horizons / Centre-droit",
+                "score": 40.0,
+                "candidateId": "le-havre-edouard-philippe"
+              },
+              {
+                "name": "Franck Keller",
+                "party": "RN-UDR",
+                "score": 18.0,
+                "candidateId": "le-havre-franck-keller"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Villeurbanne",
+      "population": 154781,
+      "department": "Rhône (69)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "Cédric Van Styvendael",
+        "party": "PS",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Cédric Van Styvendael",
+        "party": "PS",
+        "score": 70.4,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Van Styvendael (PS, sortant) fait face à une gauche fragmentée : son ancien prédécesseur Bret (DVG, suspendu du PS) et LFI (Garabedian, ex-adjoint) en dissidence. La droite-centre s'unit derrière Cruz (Renaissance+LR). Aucun sondage publié avec scores chiffrés.",
+      "declaredCandidates": [
+        {
+          "name": "Cédric Van Styvendael",
+          "party": "PS",
+          "listName": "Engagé.e.s pour Villeurbanne",
+          "incumbent": true
+        },
+        {
+          "name": "Jean-Paul Bret",
+          "party": "DVG",
+          "listName": "Avec Jean-Paul Bret pour Villeurbanne",
+          "incumbent": false
+        },
+        {
+          "name": "Mathieu Garabedian",
+          "party": "LFI",
+          "listName": "Villeurbanne Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Sophie Cruz",
+          "party": "DVD",
+          "listName": "Coeur Villeurbanne",
+          "incumbent": false
+        },
+        {
+          "name": "Gérald Canon",
+          "party": "RN",
+          "listName": "Rendez-nous Villeurbanne",
+          "incumbent": false
+        },
+        {
+          "name": "Nadia Bouhami",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Dijon",
+      "population": 159346,
+      "department": "Côte-d'Or (21)",
+      "region": "Bourgogne-Franche-Comté",
+      "currentMayor": {
+        "name": "Nathalie Koenders",
+        "party": "PS",
+        "since": 2024
+      },
+      "municipales2020": {
+        "winner": "François Rebsamen",
+        "party": "PS",
+        "score": 48.8,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Le Bien public",
+          "publishDate": "2026-03-06",
+          "fieldDates": {
+            "start": "2026-02-27",
+            "end": "2026-03-05"
+          },
+          "sampleSize": 504,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Nathalie Koenders",
+              "party": "PS / MoDem",
+              "score": 41.0,
+              "candidateId": "dijon-nathalie-koenders"
+            },
+            {
+              "name": "Emmanuel Bichot",
+              "party": "LR (droite et centre)",
+              "score": 21.0,
+              "candidateId": "dijon-emmanuel-bichot"
+            },
+            {
+              "name": "Olivier Minard",
+              "party": "LFI",
+              "score": 12.0,
+              "candidateId": "dijon-olivier-minard"
+            },
+            {
+              "name": "Thierry Coudert",
+              "party": "UDR / RN",
+              "score": 11.0,
+              "candidateId": "dijon-thierry-coudert"
+            },
+            {
+              "name": "Michel Haberstrau",
+              "party": "EELV / PCF / Génération.s",
+              "score": 11.0,
+              "candidateId": "dijon-michel-haberstrau"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "Le Bien Public",
+          "publishDate": "2026-01-16",
+          "fieldDates": {
+            "start": "2026-01-06",
+            "end": "2026-01-12"
+          },
+          "sampleSize": 607,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Nathalie Koenders",
+              "party": "PS / MoDem / Génération Écologie (Sortante)",
+              "score": 41.0,
+              "candidateId": "dijon-nathalie-koenders"
+            },
+            {
+              "name": "Emmanuel Bichot",
+              "party": "LR / UDI / Reconquête",
+              "score": 17.0,
+              "candidateId": "dijon-emmanuel-bichot"
+            },
+            {
+              "name": "Thierry Coudert",
+              "party": "RN / Union des droites",
+              "score": 17.0,
+              "candidateId": "dijon-thierry-coudert"
+            },
+            {
+              "name": "Dominique Guidoni-Stoltz",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "dijon-dominique-guidoni-stoltz"
+            },
+            {
+              "name": "Michel Haberstrau",
+              "party": "EELV / PCF",
+              "score": 7.0,
+              "candidateId": "dijon-michel-haberstrau"
+            },
+            {
+              "name": "Dijon Avenir",
+              "party": "DVG (citoyenne)",
+              "score": 3.0,
+              "candidateId": "dijon-dijon-avenir"
+            },
+            {
+              "name": "Fadila Khattabi",
+              "party": "Renaissance",
+              "score": 2.0,
+              "candidateId": "dijon-fadila-khattabi"
+            },
+            {
+              "name": "Lutte Ouvrière",
+              "party": "LO",
+              "score": 2.0,
+              "candidateId": "dijon-lutte-ouvriere"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "opinionway",
+            "description": "Triangulaire Koenders / Bichot / Coudert",
+            "candidates": [
+              {
+                "name": "Nathalie Koenders",
+                "party": "PS",
+                "score": 57.0,
+                "candidateId": "dijon-nathalie-koenders"
+              },
+              {
+                "name": "Emmanuel Bichot",
+                "party": "LR",
+                "score": 22.0,
+                "candidateId": "dijon-emmanuel-bichot"
+              },
+              {
+                "name": "Thierry Coudert",
+                "party": "RN",
+                "score": 21.0,
+                "candidateId": "dijon-thierry-coudert"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Angers",
+      "population": 157175,
+      "department": "Maine-et-Loire (49)",
+      "region": "Pays de la Loire",
+      "currentMayor": {
+        "name": "Christophe Béchu",
+        "party": "Horizons",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Christophe Béchu",
+        "party": "DVD",
+        "score": 57.8,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Béchu (Horizons, ex-ministre) brigue un 3e mandat avec le soutien LR+Renaissance+MoDem. La gauche est divisée entre une union large EELV-PS (Laveau) et LFI en solo (Saeidi). Réélu au 1er tour en 2020 avec 57,8 %. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Christophe Béchu",
+          "party": "Horizons",
+          "listName": "Angers pour vous",
+          "incumbent": true
+        },
+        {
+          "name": "Romain Laveau",
+          "party": "EELV",
+          "listName": "Demain Angers",
+          "incumbent": false
+        },
+        {
+          "name": "Arash Saeidi",
+          "party": "LFI",
+          "listName": "Angers Populaire",
+          "incumbent": false
+        },
+        {
+          "name": "Aurore Lahondès",
+          "party": "RN",
+          "listName": "Rassemblement pour Angers",
+          "incumbent": false
+        },
+        {
+          "name": "Valentin Rambault",
+          "party": "DVG",
+          "listName": "Angers 2026",
+          "incumbent": false
+        },
+        {
+          "name": "Céline L'Huillier",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        },
+        {
+          "name": "Nicolas Cuisinier",
+          "party": "NPA",
+          "listName": "Angers ouvrière et révolutionnaire",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Grenoble",
+      "population": 158198,
+      "department": "Isère (38)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "Éric Piolle",
+        "party": "EELV",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Éric Piolle",
+        "party": "EELV",
+        "score": 53.1,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ipsos",
+          "commissioner": "Groupe EBRA (Le Dauphiné Libéré)",
+          "publishDate": "2026-02-04",
+          "fieldDates": {
+            "start": "2026-01-13",
+            "end": "2026-01-27"
+          },
+          "sampleSize": 609,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Laurence Ruffin",
+              "party": "EELV / PS / PCF (Gauche unie hors LFI)",
+              "score": 34.0,
+              "candidateId": "grenoble-laurence-ruffin"
+            },
+            {
+              "name": "Alain Carignon",
+              "party": "LR",
+              "score": 25.0,
+              "candidateId": "grenoble-alain-carignon"
+            },
+            {
+              "name": "Allan Brunon",
+              "party": "LFI",
+              "score": 10.0,
+              "candidateId": "grenoble-allan-brunon"
+            },
+            {
+              "name": "Romain Gentil",
+              "party": "Grenoble Capitale Citoyenne",
+              "score": 8.0,
+              "candidateId": "grenoble-romain-gentil"
+            },
+            {
+              "name": "Valentin Gabriac",
+              "party": "RN",
+              "score": 8.0,
+              "candidateId": "grenoble-valentin-gabriac"
+            },
+            {
+              "name": "Pierre-Édouard Cardinal",
+              "party": "Renaissance",
+              "score": 6.0,
+              "candidateId": "grenoble-pierre-edouard-cardinal"
+            },
+            {
+              "name": "Hervé Gerbi",
+              "party": "Horizons",
+              "score": 5.0,
+              "candidateId": "grenoble-herve-gerbi"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": []
+      }
+    },
+    {
+      "name": "Saint-Denis (La Réunion)",
+      "population": 155536,
+      "department": "La Réunion (974)",
+      "region": "La Réunion",
+      "currentMayor": {
+        "name": "Ericka Bareigts",
+        "party": "PS",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Ericka Bareigts",
+        "party": "PS",
+        "score": 58.9,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Bareigts (PS, 80 % d'opinions favorables en 2025) brigue un 2e mandat face à 8 adversaires. Droite fragmentée entre LR (Victoria, ancien maire), Horizons (Mangrolia) et RN (Nativel). Aucun sondage d'intentions de vote publié.",
+      "declaredCandidates": [
+        {
+          "name": "Ericka Bareigts",
+          "party": "PS",
+          "listName": "Saint-Denis pour tous",
+          "incumbent": true
+        },
+        {
+          "name": "René-Paul Victoria",
+          "party": "LR",
+          "listName": "Dionysiens rassemblés pour changer",
+          "incumbent": false
+        },
+        {
+          "name": "Farid Mangrolia",
+          "party": "Horizons",
+          "listName": "Tous Dionysiens",
+          "incumbent": false
+        },
+        {
+          "name": "Jean-Max Nativel",
+          "party": "RN",
+          "incumbent": false
+        },
+        {
+          "name": "Gaëlle Lebon",
+          "party": "Reconquête",
+          "listName": "Rassemblement Réunion",
+          "incumbent": false
+        },
+        {
+          "name": "Ludovic Sautron",
+          "party": "DVG",
+          "incumbent": false
+        },
+        {
+          "name": "Stéphane Persée",
+          "party": "DVG",
+          "listName": "Pour tout Saint-Denis",
+          "incumbent": false
+        },
+        {
+          "name": "Giovanni Payet",
+          "party": "DVD",
+          "listName": "La Voix Citoyenne",
+          "incumbent": false
+        },
+        {
+          "name": "Sonny Welmant",
+          "party": "DVG",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Nîmes",
+      "population": 151001,
+      "department": "Gard (30)",
+      "region": "Occitanie",
+      "currentMayor": {
+        "name": "Jean-Paul Fournier",
+        "party": "LR",
+        "since": 2001
+      },
+      "municipales2020": {
+        "winner": "Jean-Paul Fournier",
+        "party": "LR",
+        "score": 40.4,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ipsos",
+          "commissioner": "Experts & Territoires / La Marseillaise",
+          "publishDate": "2026-03-06",
+          "fieldDates": {
+            "start": "2026-02-20",
+            "end": "2026-02-28"
+          },
+          "sampleSize": 700,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Vincent Bouget",
+              "party": "PCF (soutenu PS, Écologistes)",
+              "score": 29.0,
+              "candidateId": "nimes-vincent-bouget"
+            },
+            {
+              "name": "Julien Sanchez",
+              "party": "RN",
+              "score": 26.0,
+              "candidateId": "nimes-julien-sanchez"
+            },
+            {
+              "name": "Franck Proust",
+              "party": "LR / UDI / Horizons",
+              "score": 22.0,
+              "candidateId": "nimes-franck-proust"
+            },
+            {
+              "name": "Julien Plantier",
+              "party": "Renaissance",
+              "score": 16.0,
+              "candidateId": "nimes-julien-plantier"
+            },
+            {
+              "name": "Pascal Dupretz",
+              "party": "LFI",
+              "score": 7.0,
+              "candidateId": "nimes-pascal-dupretz"
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "Objectif Gard",
+          "publishDate": "2026-02-12",
+          "fieldDates": {
+            "start": "2026-02-03",
+            "end": "2026-02-09"
+          },
+          "sampleSize": 605,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Vincent Bouget",
+              "party": "PS / EELV / PCF (Gauche unie hors LFI)",
+              "score": 32.0,
+              "candidateId": "nimes-vincent-bouget"
+            },
+            {
+              "name": "Julien Sanchez",
+              "party": "RN",
+              "score": 23.0,
+              "candidateId": "nimes-julien-sanchez"
+            },
+            {
+              "name": "Franck Proust",
+              "party": "LR (Tout Nîmes)",
+              "score": 21.0,
+              "candidateId": "nimes-franck-proust"
+            },
+            {
+              "name": "Julien Plantier",
+              "party": "DVD",
+              "score": 14.0,
+              "candidateId": "nimes-julien-plantier"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "opinionway",
+            "description": "Triangulaire Bouget / Sanchez / Proust",
+            "candidates": [
+              {
+                "name": "Vincent Bouget",
+                "party": "Gauche unie",
+                "score": 45.0,
+                "candidateId": "nimes-vincent-bouget"
+              },
+              {
+                "name": "Franck Proust",
+                "party": "LR",
+                "score": 29.0,
+                "candidateId": "nimes-franck-proust"
+              },
+              {
+                "name": "Julien Sanchez",
+                "party": "RN",
+                "score": 27.0,
+                "candidateId": "nimes-julien-sanchez"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Aix-en-Provence",
+      "population": 147122,
+      "department": "Bouches-du-Rhône (13)",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "currentMayor": {
+        "name": "Sophie Joissains",
+        "party": "UDI",
+        "since": 2021
+      },
+      "municipales2020": {
+        "winner": "Maryse Joissains-Masini",
+        "party": "LR",
+        "score": 49.5,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "La Provence",
+          "publishDate": "2026-02-12",
+          "fieldDates": {
+            "start": "2026-02-02",
+            "end": "2026-02-09"
+          },
+          "sampleSize": 604,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Sophie Joissains",
+              "party": "UDI (Sortante)",
+              "score": 34.0,
+              "candidateId": "aix-en-provence-sophie-joissains"
+            },
+            {
+              "name": "Marc Pena",
+              "party": "PS / EELV (Gauche unie)",
+              "score": 21.0,
+              "candidateId": "aix-en-provence-marc-pena"
+            },
+            {
+              "name": "Jean-Louis Geiger",
+              "party": "RN",
+              "score": 20.0,
+              "candidateId": "aix-en-provence-jean-louis-geiger"
+            },
+            {
+              "name": "Julie Boronad",
+              "party": "LFI",
+              "score": 10.0,
+              "candidateId": "aix-en-provence-julie-boronad"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire Joissains / Pena / Geiger / Boronad",
+            "candidates": [
+              {
+                "name": "Sophie Joissains",
+                "party": "UDI",
+                "score": 37.0,
+                "candidateId": "aix-en-provence-sophie-joissains"
+              },
+              {
+                "name": "Marc Pena",
+                "party": "PS / EELV",
+                "score": 35.0,
+                "candidateId": "aix-en-provence-marc-pena"
+              },
+              {
+                "name": "Jean-Louis Geiger",
+                "party": "RN",
+                "score": null,
+                "candidateId": "aix-en-provence-jean-louis-geiger"
+              },
+              {
+                "name": "Julie Boronad",
+                "party": "LFI",
+                "score": null,
+                "candidateId": "aix-en-provence-julie-boronad"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Clermont-Ferrand",
+      "population": 147284,
+      "department": "Puy-de-Dôme (63)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "Olivier Bianchi",
+        "party": "PS",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Olivier Bianchi",
+        "party": "PS",
+        "score": 43.3,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Mandataire financier Bianchi",
+          "publishDate": "2026-02-09",
+          "fieldDates": {
+            "start": "2026-01-13",
+            "end": "2026-01-19"
+          },
+          "sampleSize": 606,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Olivier Bianchi",
+              "party": "PS (Sortant)",
+              "score": 37.0,
+              "candidateId": "clermont-ferrand-olivier-bianchi"
+            },
+            {
+              "name": "Julien Bony",
+              "party": "LR / Centre",
+              "score": 27.0,
+              "candidateId": "clermont-ferrand-julien-bony"
+            },
+            {
+              "name": "Antoine Darbois",
+              "party": "RN-UDR",
+              "score": 15.0,
+              "candidateId": "clermont-ferrand-antoine-darbois"
+            },
+            {
+              "name": "Marine Maximi",
+              "party": "LFI",
+              "score": 14.0,
+              "candidateId": "clermont-ferrand-marine-maximi"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Duel Bianchi vs Bony",
+            "candidates": [
+              {
+                "name": "Olivier Bianchi",
+                "party": "PS",
+                "score": 54.0,
+                "candidateId": "clermont-ferrand-olivier-bianchi"
+              },
+              {
+                "name": "Julien Bony",
+                "party": "LR",
+                "score": 46.0,
+                "candidateId": "clermont-ferrand-julien-bony"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire Bianchi / Bony / Darbois / Maximi",
+            "candidates": [
+              {
+                "name": "Olivier Bianchi",
+                "party": "PS",
+                "score": 39.0,
+                "candidateId": "clermont-ferrand-olivier-bianchi"
+              },
+              {
+                "name": "Julien Bony",
+                "party": "LR",
+                "score": 32.0,
+                "candidateId": "clermont-ferrand-julien-bony"
+              },
+              {
+                "name": "Antoine Darbois",
+                "party": "RN-UDR",
+                "score": 15.0,
+                "candidateId": "clermont-ferrand-antoine-darbois"
+              },
+              {
+                "name": "Marine Maximi",
+                "party": "LFI",
+                "score": 14.0,
+                "candidateId": "clermont-ferrand-marine-maximi"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Le Mans",
+      "population": 144515,
+      "department": "Sarthe (72)",
+      "region": "Pays de la Loire",
+      "currentMayor": {
+        "name": "Stéphane Le Foll",
+        "party": "PS",
+        "since": 2018
+      },
+      "municipales2020": {
+        "winner": "Stéphane Le Foll",
+        "party": "PS",
+        "score": 63.1,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Le Foll (PS, sortant depuis 2018) face à une gauche divisée : Karamanli (DVG, EELV-PCF) mène une liste dissidente. La droite (LR-Horizons-UDI) fait son retour avec Sasso après une absence au conseil municipal depuis 2020. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Stéphane Le Foll",
+          "party": "PS",
+          "listName": "Le Mans nous rassemble",
+          "incumbent": true
+        },
+        {
+          "name": "Marietta Karamanli",
+          "party": "DVG",
+          "listName": "L'Union pour Le Mans",
+          "incumbent": false
+        },
+        {
+          "name": "Olivier Sasso",
+          "party": "LR",
+          "listName": "Le Mans, nouveau cap",
+          "incumbent": false
+        },
+        {
+          "name": "Victoria de Vigneral",
+          "party": "RN",
+          "listName": "Rassemblement pour Le Mans",
+          "incumbent": false
+        },
+        {
+          "name": "Maël Brillant",
+          "party": "LFI",
+          "incumbent": false
+        },
+        {
+          "name": "Arnaud Rabette",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte ouvrière — Le camp des travailleurs",
+          "incumbent": false
+        },
+        {
+          "name": "Benjamin Sainty",
+          "party": "NPA",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Brest",
+      "population": 142722,
+      "department": "Finistère (29)",
+      "region": "Bretagne",
+      "currentMayor": {
+        "name": "François Cuillandre",
+        "party": "PS",
+        "since": 2001
+      },
+      "municipales2020": {
+        "winner": "François Cuillandre",
+        "party": "PS",
+        "score": 49.7,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "PS",
+          "publishDate": "2025-09-01",
+          "fieldDates": {
+            "start": "2025-08-15",
+            "end": "2025-09-01"
+          },
+          "sampleSize": 600,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "François Cuillandre",
+              "party": "PS",
+              "score": 27.0,
+              "candidateId": "brest-francois-cuillandre"
+            },
+            {
+              "name": "Stéphane Roudaut",
+              "party": "DVD",
+              "score": 18.0,
+              "candidateId": "brest-stephane-roudaut"
+            },
+            {
+              "name": "Cécile Beaudouin",
+              "party": "LFI",
+              "score": 14.0,
+              "candidateId": "brest-cecile-beaudouin"
+            }
+          ]
+        }
+      ],
+      "context": "Cuillandre (PS, 5e mandat) malgré 75 % de Brestois souhaitant un renouvellement (Cluster17, août 2025). Un sondage IFOP (sept. 2025) le crédite de 27 % au 1er tour, devant Roudaut (DVD, 18 %) et Beaudouin (LFI, 14 %). 10 listes, gauche et droite très fragmentées.",
+      "declaredCandidates": [
+        {
+          "name": "François Cuillandre",
+          "party": "PS",
+          "listName": "Brest, la ville que l'on aime",
+          "incumbent": true
+        },
+        {
+          "name": "Stéphane Roudaut",
+          "party": "DVD",
+          "listName": "Une nouvelle histoire pour Brest",
+          "incumbent": false
+        },
+        {
+          "name": "Cécile Beaudouin",
+          "party": "LFI",
+          "listName": "Brest Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Réza Salami",
+          "party": "DVG",
+          "listName": "Brest en commun",
+          "incumbent": false
+        },
+        {
+          "name": "Sébastien Muscat",
+          "party": "DVG",
+          "listName": "Brest Nouvelle Vague",
+          "incumbent": false
+        },
+        {
+          "name": "Yves Pagès",
+          "party": "RN",
+          "incumbent": false
+        },
+        {
+          "name": "Franck Besombes",
+          "party": "LR",
+          "listName": "Union du Ponant",
+          "incumbent": false
+        },
+        {
+          "name": "Nazim Yenier",
+          "party": "DVG",
+          "incumbent": false
+        },
+        {
+          "name": "Rémy Collard",
+          "party": "Lutte Ouvrière",
+          "incumbent": false
+        },
+        {
+          "name": "Mathieu Le Tallec",
+          "party": "DVG",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Tours",
+      "population": 138588,
+      "department": "Indre-et-Loire (37)",
+      "region": "Centre-Val de Loire",
+      "currentMayor": {
+        "name": "Emmanuel Denis",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Emmanuel Denis",
+        "party": "EELV",
+        "score": 54.94,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "opinionway",
+          "commissioner": "Cercle des élus locaux / La Nouvelle République",
+          "publishDate": "2026-01-16",
+          "fieldDates": {
+            "start": "2026-01-06",
+            "end": "2026-01-12"
+          },
+          "sampleSize": 601,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Denis",
+              "party": "EELV",
+              "score": 37.0,
+              "candidateId": "tours-emmanuel-denis"
+            },
+            {
+              "name": "Christophe Bouchet",
+              "party": "DVD",
+              "score": 24.0,
+              "candidateId": "tours-christophe-bouchet"
+            },
+            {
+              "name": "Aleksandar Nikolic",
+              "party": "RN",
+              "score": 15.0,
+              "candidateId": "tours-aleksandar-nikolic"
+            },
+            {
+              "name": "Marie Quinton",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "tours-marie-quinton"
+            }
+          ]
+        }
+      ],
+      "context": "Denis (EELV, sortant) en tête au 1er tour (37 %, OpinionWay jan. 2026) et donné vainqueur au 2nd tour. Droite fragmentée en 3 listes (Bouchet DVD, Alfandari Horizons, Pierre centre). LFI (Quinton) refuse l'union avec Denis.",
+      "declaredCandidates": [
+        {
+          "name": "Emmanuel Denis",
+          "party": "EELV",
+          "listName": "Tours Inspire 2026",
+          "incumbent": true
+        },
+        {
+          "name": "Christophe Bouchet",
+          "party": "DVD",
+          "listName": "Tours pour tous",
+          "incumbent": false
+        },
+        {
+          "name": "Aleksandar Nikolic",
+          "party": "RN",
+          "incumbent": false
+        },
+        {
+          "name": "Henri Alfandari",
+          "party": "Horizons",
+          "listName": "Naturellement Tours",
+          "incumbent": false
+        },
+        {
+          "name": "Benoist Pierre",
+          "party": "DVD",
+          "incumbent": false
+        },
+        {
+          "name": "Marie Quinton",
+          "party": "LFI",
+          "listName": "Faire Mieux pour Tours",
+          "incumbent": false
+        },
+        {
+          "name": "Thomas Jouhannaud",
+          "party": "Lutte Ouvrière",
+          "incumbent": false
+        },
+        {
+          "name": "Claire Delore",
+          "party": "DVG",
+          "listName": "Tours pour les travailleurs et la jeunesse",
+          "incumbent": false
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "description": "Triangulaire Denis-Bouchet-Nikolic",
+            "institute": "opinionway",
+            "candidates": [
+              {
+                "name": "Emmanuel Denis",
+                "party": "EELV",
+                "score": 50,
+                "candidateId": "tours-emmanuel-denis"
+              },
+              {
+                "name": "Christophe Bouchet",
+                "party": "DVD",
+                "score": 35,
+                "candidateId": "tours-christophe-bouchet"
+              },
+              {
+                "name": "Aleksandar Nikolic",
+                "party": "RN",
+                "score": 15,
+                "candidateId": "tours-aleksandar-nikolic"
+              }
+            ]
+          },
+          {
+            "description": "Quadrangulaire avec LFI",
+            "institute": "opinionway",
+            "candidates": [
+              {
+                "name": "Emmanuel Denis",
+                "party": "EELV",
+                "score": 39,
+                "candidateId": "tours-emmanuel-denis"
+              },
+              {
+                "name": "Christophe Bouchet",
+                "party": "DVD",
+                "score": 33,
+                "candidateId": "tours-christophe-bouchet"
+              },
+              {
+                "name": "Aleksandar Nikolic",
+                "party": "RN",
+                "score": 16,
+                "candidateId": "tours-aleksandar-nikolic"
+              },
+              {
+                "name": "Marie Quinton",
+                "party": "LFI",
+                "score": 12,
+                "candidateId": "tours-marie-quinton"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Amiens",
+      "population": 135501,
+      "department": "Somme (80)",
+      "region": "Hauts-de-France",
+      "currentMayor": {
+        "name": "Hubert de Jenlis",
+        "party": "UDI",
+        "since": 2024
+      },
+      "municipales2020": {
+        "winner": "Brigitte Fouré",
+        "party": "UDI",
+        "score": 45.79,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "cluster17",
+          "commissioner": "Parti socialiste de la Somme",
+          "publishDate": "2025-05-01",
+          "fieldDates": {
+            "start": "2025-04-15",
+            "end": "2025-05-01"
+          },
+          "sampleSize": 518,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Hubert de Jenlis",
+              "party": "UDI",
+              "score": 25.0,
+              "candidateId": "amiens-hubert-de-jenlis"
+            },
+            {
+              "name": "Frédéric Fauvet",
+              "party": "PS",
+              "score": 22.5,
+              "candidateId": "amiens-frederic-fauvet"
+            },
+            {
+              "name": "Damien Toumi",
+              "party": "RN",
+              "score": 17.0,
+              "candidateId": "amiens-damien-toumi"
+            },
+            {
+              "name": "Samy Olivier",
+              "party": "LFI",
+              "score": 17.0,
+              "candidateId": "amiens-samy-olivier"
+            },
+            {
+              "name": "Julia Bellina",
+              "party": "DVG",
+              "score": 13.5,
+              "candidateId": "amiens-julia-bellina"
+            },
+            {
+              "name": "Aurélien Caron",
+              "party": "DVD",
+              "score": 5.0,
+              "candidateId": "amiens-aurelien-caron"
+            }
+          ]
+        }
+      ],
+      "context": "Fouré (UDI) a démissionné en oct. 2024, remplacée par son 1er adjoint de Jenlis. La gauche unie (PS-PCF, Fauvet) est donnée gagnante au 2nd tour par Cluster17 (fév. 2026), avec 65 % des Amiénois souhaitant une alternance. 9 listes en lice.",
+      "declaredCandidates": [
+        {
+          "name": "Hubert de Jenlis",
+          "party": "UDI",
+          "listName": "Nous, les Amiénois !",
+          "incumbent": true
+        },
+        {
+          "name": "Frédéric Fauvet",
+          "party": "PS",
+          "listName": "Pour Amiens en mieux",
+          "incumbent": false
+        },
+        {
+          "name": "Damien Toumi",
+          "party": "RN",
+          "listName": "Amiens pour Vous",
+          "incumbent": false
+        },
+        {
+          "name": "Samy Olivier",
+          "party": "LFI",
+          "listName": "Amiens en Commun",
+          "incumbent": false
+        },
+        {
+          "name": "Aurélien Caron",
+          "party": "DVD",
+          "listName": "Amiens Ville d'Avenir",
+          "incumbent": false
+        },
+        {
+          "name": "Benoît Mercuzot",
+          "party": "DVD",
+          "listName": "Réussir Amiens Ensemble",
+          "incumbent": false
+        },
+        {
+          "name": "Paul-Éric Dècle",
+          "party": "UDI",
+          "listName": "Nouvelle Dynamique !",
+          "incumbent": false
+        },
+        {
+          "name": "Julia Bellina",
+          "party": "DVG",
+          "listName": "Amiens au Coeur",
+          "incumbent": false
+        },
+        {
+          "name": "Jean-Patrick Baudry",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Annecy",
+      "population": 132856,
+      "department": "Haute-Savoie (74)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "François Astorg",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "François Astorg",
+        "party": "EELV",
+        "score": 43.2,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ipsos",
+          "commissioner": "Groupe EBRA",
+          "publishDate": "2026-01-28",
+          "fieldDates": {
+            "start": "2026-01-13",
+            "end": "2026-01-27"
+          },
+          "sampleSize": 609,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Antoine Armand",
+              "party": "Renaissance (ex-ministre)",
+              "score": 28.0,
+              "candidateId": "annecy-antoine-armand"
+            },
+            {
+              "name": "Jean-Luc Rigaut",
+              "party": "LR / UDI (ancien maire)",
+              "score": 25.0,
+              "candidateId": "annecy-jean-luc-rigaut"
+            },
+            {
+              "name": "Alexandre Mulatier-Gachet",
+              "party": "EELV / PS / PCF (adjoint sortant)",
+              "score": 24.0,
+              "candidateId": "annecy-alexandre-mulatier-gachet"
+            },
+            {
+              "name": "Guillaume Roit-Levêque",
+              "party": "RN",
+              "score": 12.0,
+              "candidateId": "annecy-guillaume-roit-leveque"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "Non précisé",
+          "publishDate": "2025-12-15",
+          "fieldDates": {
+            "start": "2025-12-05",
+            "end": "2025-12-12"
+          },
+          "sampleSize": 605,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Antoine Armand",
+              "party": "Renaissance",
+              "score": 32.0,
+              "candidateId": "annecy-antoine-armand"
+            },
+            {
+              "name": "Alexandre Mulatier-Gachet",
+              "party": "EELV / PS (adjoint sortant)",
+              "score": 26.0,
+              "candidateId": "annecy-alexandre-mulatier-gachet"
+            },
+            {
+              "name": "Jean-Luc Rigaut",
+              "party": "LR / UDI",
+              "score": 21.0,
+              "candidateId": "annecy-jean-luc-rigaut"
+            }
+          ]
+        },
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2026-02-16",
+          "fieldDates": {
+            "start": "2026-02-10",
+            "end": "2026-02-14"
+          },
+          "sampleSize": 610,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Antoine Armand",
+              "party": "Renaissance",
+              "score": 26.0,
+              "candidateId": "annecy-antoine-armand"
+            },
+            {
+              "name": "Jean-Luc Rigaut",
+              "party": "LR / UDI",
+              "score": 26.0,
+              "candidateId": "annecy-jean-luc-rigaut"
+            },
+            {
+              "name": "Alexandre Mulatier-Gachet",
+              "party": "EELV / PS",
+              "score": 25.0,
+              "candidateId": "annecy-alexandre-mulatier-gachet"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ipsos",
+            "description": "Triangulaire Armand / Mulatier-Gachet / Roit-Levêque",
+            "candidates": [
+              {
+                "name": "Antoine Armand",
+                "party": "Renaissance",
+                "score": 46.0,
+                "candidateId": "annecy-antoine-armand"
+              },
+              {
+                "name": "Alexandre Mulatier-Gachet",
+                "party": "EELV / PS",
+                "score": 33.0,
+                "candidateId": "annecy-alexandre-mulatier-gachet"
+              },
+              {
+                "name": "Guillaume Roit-Levêque",
+                "party": "RN",
+                "score": 21.0,
+                "candidateId": "annecy-guillaume-roit-leveque"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Limoges",
+      "population": 132175,
+      "department": "Haute-Vienne (87)",
+      "region": "Nouvelle-Aquitaine",
+      "currentMayor": {
+        "name": "Émile Roger Lombertie",
+        "party": "DVD",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Émile Roger Lombertie",
+        "party": "LR",
+        "score": 58.96,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Scrutin très fragmenté avec scission à droite entre le maire sortant Lombertie (DVD, 3e mandat) et son ancien allié Guérin (LR, président de Limoges Métropole). Gauche divisée entre LFI (Maudet, député) et PS (Miguel). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Émile Roger Lombertie",
+          "party": "DVD",
+          "listName": "Avec Lombertie",
+          "incumbent": true
+        },
+        {
+          "name": "Guillaume Guérin",
+          "party": "LR",
+          "listName": "Limoges en partage",
+          "incumbent": false
+        },
+        {
+          "name": "Damien Maudet",
+          "party": "LFI",
+          "listName": "Limoges Front Populaire",
+          "incumbent": false
+        },
+        {
+          "name": "Thierry Miguel",
+          "party": "PS",
+          "listName": "Pour Limoges",
+          "incumbent": false
+        },
+        {
+          "name": "Vincent Léonie",
+          "party": "DVD",
+          "listName": "Réunir",
+          "incumbent": false
+        },
+        {
+          "name": "Albin Freychet",
+          "party": "RN",
+          "listName": "Limoges en Grand",
+          "incumbent": false
+        },
+        {
+          "name": "Élisabeth Faucon",
+          "party": "Lutte Ouvrière",
+          "incumbent": false
+        },
+        {
+          "name": "Marie de Ferluc",
+          "party": "DVG",
+          "listName": "Nouveau Printemps pour Limoges",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Metz",
+      "population": 121841,
+      "department": "Moselle (57)",
+      "region": "Grand Est",
+      "currentMayor": {
+        "name": "François Grosdidier",
+        "party": "LR",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "François Grosdidier",
+        "party": "LR",
+        "score": 45.1,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Scrutin très ouvert : Grosdidier (LR, sortant, réélu de justesse en 2020 avec 45,1 %) face à une gauche fragmentée en 3 listes (PS, LFI, EELV+PCF) et un centre Renaissance (Mendes). 9 listes en lice. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "François Grosdidier",
+          "party": "LR",
+          "listName": "J'aime Metz",
+          "incumbent": true
+        },
+        {
+          "name": "Bertrand Mertz",
+          "party": "PS",
+          "listName": "Un souffle nouveau pour Metz",
+          "incumbent": false
+        },
+        {
+          "name": "Charlotte Leduc",
+          "party": "LFI",
+          "listName": "Metz en commun",
+          "incumbent": false
+        },
+        {
+          "name": "Jérémy Roques",
+          "party": "EELV",
+          "listName": "Maintenant pour Metz",
+          "incumbent": false
+        },
+        {
+          "name": "Ludovic Mendes",
+          "party": "Renaissance",
+          "listName": "Metz Ensemble",
+          "incumbent": false
+        },
+        {
+          "name": "Étienne Anstett",
+          "party": "RN",
+          "incumbent": false
+        },
+        {
+          "name": "Gaël Diaferia",
+          "party": "NPA",
+          "listName": "Metz ouvrière et révolutionnaire",
+          "incumbent": false
+        },
+        {
+          "name": "Mario Rinaldi",
+          "party": "Lutte Ouvrière",
+          "incumbent": false
+        },
+        {
+          "name": "Marie-Jeanne Becht",
+          "party": "DVG",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Besançon",
+      "population": 120271,
+      "department": "Doubs (25)",
+      "region": "Bourgogne-Franche-Comté",
+      "currentMayor": {
+        "name": "Anne Vignot",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Anne Vignot",
+        "party": "EELV",
+        "score": 43.83,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "cluster17",
+          "commissioner": "Presse locale",
+          "publishDate": "2025-12-05",
+          "fieldDates": {
+            "start": "2025-11-27",
+            "end": "2025-12-02"
+          },
+          "sampleSize": 562,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Anne Vignot",
+              "party": "EELV",
+              "score": 30.0,
+              "candidateId": "besancon-anne-vignot"
+            },
+            {
+              "name": "Ludovic Fagaut",
+              "party": "LR",
+              "score": 29.0,
+              "candidateId": "besancon-ludovic-fagaut"
+            },
+            {
+              "name": "Éric Delabrousse",
+              "party": "Horizons",
+              "score": 13.5,
+              "candidateId": "besancon-eric-delabrousse"
+            },
+            {
+              "name": "Séverine Véziès",
+              "party": "LFI",
+              "score": 13.5,
+              "candidateId": "besancon-severine-vezies"
+            }
+          ]
+        },
+        {
+          "institute": "ipsos",
+          "commissioner": "L'Est Républicain",
+          "publishDate": "2026-02-04",
+          "fieldDates": {
+            "start": "2026-01-13",
+            "end": "2026-01-29"
+          },
+          "sampleSize": 604,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Anne Vignot",
+              "party": "EELV",
+              "score": 34.0,
+              "candidateId": "besancon-anne-vignot"
+            },
+            {
+              "name": "Ludovic Fagaut",
+              "party": "LR",
+              "score": 34.0,
+              "candidateId": "besancon-ludovic-fagaut"
+            },
+            {
+              "name": "Jacques Ricciardetti",
+              "party": "RN",
+              "score": 11.0,
+              "candidateId": "besancon-jacques-ricciardetti"
+            },
+            {
+              "name": "Séverine Véziès",
+              "party": "LFI",
+              "score": 11.0,
+              "candidateId": "besancon-severine-vezies"
+            },
+            {
+              "name": "Éric Delabrousse",
+              "party": "Horizons",
+              "score": 9.0,
+              "candidateId": "besancon-eric-delabrousse"
+            }
+          ]
+        }
+      ],
+      "context": "Course très serrée : Vignot (EELV, sortante) et Fagaut (LR) à égalité à 34 % (Ipsos, fév. 2026). La gauche est divisée, LFI (Véziès) refusant l'union. 6 listes en lice.",
+      "declaredCandidates": [
+        {
+          "name": "Anne Vignot",
+          "party": "EELV",
+          "listName": "Besançon Vivante, Juste et Humaine",
+          "incumbent": true
+        },
+        {
+          "name": "Ludovic Fagaut",
+          "party": "LR",
+          "listName": "Ensemble Besançon Avance",
+          "incumbent": false
+        },
+        {
+          "name": "Éric Delabrousse",
+          "party": "Horizons",
+          "listName": "Besançon mérite mieux",
+          "incumbent": false
+        },
+        {
+          "name": "Séverine Véziès",
+          "party": "LFI",
+          "listName": "Faire mieux pour Besançon",
+          "incumbent": false
+        },
+        {
+          "name": "Jacques Ricciardetti",
+          "party": "RN",
+          "listName": "Changeons Besançon",
+          "incumbent": false
+        },
+        {
+          "name": "Nicole Friess",
+          "party": "Lutte Ouvrière",
+          "listName": "Le camp des travailleurs",
+          "incumbent": false
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "description": "Quadrangulaire Vignot-Fagaut-Véziès-Ricciardetti",
+            "institute": "cluster17",
+            "candidates": [
+              {
+                "name": "Anne Vignot",
+                "party": "EELV",
+                "score": 36,
+                "candidateId": "besancon-anne-vignot"
+              },
+              {
+                "name": "Ludovic Fagaut",
+                "party": "LR",
+                "score": 36,
+                "candidateId": "besancon-ludovic-fagaut"
+              },
+              {
+                "name": "Séverine Véziès",
+                "party": "LFI",
+                "score": 15,
+                "candidateId": "besancon-severine-vezies"
+              },
+              {
+                "name": "Jacques Ricciardetti",
+                "party": "RN",
+                "score": 13,
+                "candidateId": "besancon-jacques-ricciardetti"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Perpignan",
+      "population": 121875,
+      "department": "Pyrénées-Orientales (66)",
+      "region": "Occitanie",
+      "currentMayor": {
+        "name": "Louis Aliot",
+        "party": "RN",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Louis Aliot",
+        "party": "RN",
+        "score": 52.7,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "L'Indépendant",
+          "publishDate": "2025-12-10",
+          "fieldDates": {
+            "start": "2025-11-28",
+            "end": "2025-12-05"
+          },
+          "sampleSize": 612,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Louis Aliot",
+              "party": "RN (Sortant)",
+              "score": 44.0,
+              "candidateId": "perpignan-louis-aliot"
+            },
+            {
+              "name": "Agnès Langevine",
+              "party": "PS / Place publique / EELV (Union gauche)",
+              "score": 22.0,
+              "candidateId": "perpignan-agnes-langevine"
+            },
+            {
+              "name": "Mickaël Idrac",
+              "party": "LFI / EELV",
+              "score": 16.0,
+              "candidateId": "perpignan-mickael-idrac"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Duel Aliot vs Langevine (union gauche complète)",
+            "candidates": [
+              {
+                "name": "Louis Aliot",
+                "party": "RN",
+                "score": 52.0,
+                "candidateId": "perpignan-louis-aliot"
+              },
+              {
+                "name": "Agnès Langevine",
+                "party": "Gauche unie",
+                "score": 48.0,
+                "candidateId": "perpignan-agnes-langevine"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "Boulogne-Billancourt",
+      "population": 121334,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Pierre-Christophe Baguet",
+        "party": "UDI",
+        "since": 2008
+      },
+      "municipales2020": {
+        "winner": "Pierre-Christophe Baguet",
+        "party": "UDI",
+        "score": 56.05,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Baguet (UDI/Horizons) brigue un 4e mandat avec une coalition inédite LR-UDI-Renaissance, fort de sa victoire au 1er tour en 2020 (56 %). Face à lui : une droite dissidente (de Jerphanion) et une gauche fragmentée PS / EELV-LFI. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Pierre-Christophe Baguet",
+          "party": "UDI",
+          "listName": "Vivre à Boulogne-Billancourt",
+          "incumbent": true
+        },
+        {
+          "name": "Antoine de Jerphanion",
+          "party": "DVD",
+          "listName": "Aimer Boulogne-Billancourt",
+          "incumbent": false
+        },
+        {
+          "name": "Judith Shan",
+          "party": "PS",
+          "listName": "Boulogne-Billancourt nous rassemble",
+          "incumbent": false
+        },
+        {
+          "name": "Pauline Rapilly-Ferniot",
+          "party": "EELV",
+          "listName": "L'Union de la gauche et des écologistes",
+          "incumbent": false
+        },
+        {
+          "name": "Matteo Giammarresi",
+          "party": "RN",
+          "listName": "Union des patriotes pour Boulogne",
+          "incumbent": false
+        },
+        {
+          "name": "Yann Loussouarn",
+          "party": "Reconquête",
+          "listName": "À la Reconquête de Boulogne-Billancourt",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Orléans",
+      "population": 116238,
+      "department": "Loiret (45)",
+      "region": "Centre-Val de Loire",
+      "currentMayor": {
+        "name": "Serge Grouard",
+        "party": "DVD",
+        "since": 2001
+      },
+      "municipales2020": {
+        "winner": "Serge Grouard",
+        "party": "DVD",
+        "score": 40.29,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Grouard (DVD, ex-LR) brigue un 5e mandat, donné favori. La gauche est fragmentée entre PS (Chapuis) et EELV (Grand). Deux listes centristes concurrentes (Janvier/Renaissance et Meyer/Horizons). Un sondage IFOP confidentiel a circulé mais sans scores publics. 9 listes en lice.",
+      "declaredCandidates": [
+        {
+          "name": "Serge Grouard",
+          "party": "DVD",
+          "listName": "Ici, c'est Orléans",
+          "incumbent": true
+        },
+        {
+          "name": "Baptiste Chapuis",
+          "party": "PS",
+          "listName": "Rassembler Orléans",
+          "incumbent": false
+        },
+        {
+          "name": "Jean-Philippe Grand",
+          "party": "EELV",
+          "listName": "OSE — Orléans Solidaire et Écologique",
+          "incumbent": false
+        },
+        {
+          "name": "Caroline Janvier",
+          "party": "Renaissance",
+          "listName": "Vivons Orléans",
+          "incumbent": false
+        },
+        {
+          "name": "Valentin Pelé",
+          "party": "LFI",
+          "listName": "Orléans en commun",
+          "incumbent": false
+        },
+        {
+          "name": "Tiffanie Rabault",
+          "party": "RN",
+          "listName": "Orléans, nouvel élan",
+          "incumbent": false
+        },
+        {
+          "name": "Isabelle Lamarque",
+          "party": "Reconquête",
+          "listName": "À la reconquête d'Orléans",
+          "incumbent": false
+        },
+        {
+          "name": "Grégory Meyer",
+          "party": "Horizons",
+          "listName": "Notre ville plus que jamais vivante",
+          "incumbent": false
+        },
+        {
+          "name": "Farida Megdoud",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte Ouvrière — Le camp des travailleurs",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Rouen",
+      "population": 114007,
+      "department": "Seine-Maritime (76)",
+      "region": "Normandie",
+      "currentMayor": {
+        "name": "Nicolas Mayer-Rossignol",
+        "party": "PS",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Nicolas Mayer-Rossignol",
+        "party": "PS",
+        "score": 67.1,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "France 3 Normandie",
+          "publishDate": "2025-07-01",
+          "fieldDates": {
+            "start": "2025-06-17",
+            "end": "2025-06-28"
+          },
+          "sampleSize": 805,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Nicolas Mayer-Rossignol",
+              "party": "PS / Place publique (Sortant)",
+              "score": 32.0,
+              "candidateId": "rouen-nicolas-mayer-rossignol"
+            },
+            {
+              "name": "Marine Caron",
+              "party": "LR / Centre (Union droite)",
+              "score": 25.0,
+              "candidateId": "rouen-marine-caron"
+            },
+            {
+              "name": "Maxime Da Silva",
+              "party": "LFI",
+              "score": 16.0,
+              "candidateId": "rouen-maxime-da-silva"
+            },
+            {
+              "name": "Grégoire Houdan",
+              "party": "RN",
+              "score": 14.0,
+              "candidateId": "rouen-gregoire-houdan"
+            },
+            {
+              "name": "Jean-Michel Bérégovoy",
+              "party": "EELV",
+              "score": 11.0,
+              "candidateId": "rouen-jean-michel-beregovoy"
+            },
+            {
+              "name": "Manuel Labbé",
+              "party": "PCF",
+              "score": 2.0,
+              "candidateId": "rouen-manuel-labbe"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": []
+      }
+    },
+    {
+      "name": "Saint-Denis (93)",
+      "population": 113492,
+      "department": "Seine-Saint-Denis (93)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Mathieu Hanotin",
+        "party": "PS",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Mathieu Hanotin",
+        "party": "PS",
+        "score": 59.04,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Saint-Denis a fusionné avec Pierrefitte-sur-Seine au 1er janv. 2025 (~149 000 hab.). Hanotin (PS, sortant) face à une liste LFI-PCF (Bagayoko). Campagne tendue : accusations croisées entre les deux camps. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Mathieu Hanotin",
+          "party": "PS",
+          "listName": "PS – Génération.s – Les Écologistes",
+          "incumbent": true
+        },
+        {
+          "name": "Bally Bagayoko",
+          "party": "LFI",
+          "listName": "Ensemble, retrouvons l'espoir !",
+          "incumbent": false
+        },
+        {
+          "name": "Elsa Marcel",
+          "party": "NPA",
+          "listName": "Révolution Permanente",
+          "incumbent": false
+        },
+        {
+          "name": "Agnès Renaud",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        },
+        {
+          "name": "Pascal Kouppé de Kermartin",
+          "party": "UDI",
+          "listName": "Change Saint-Denis Pierrefitte",
+          "incumbent": false
+        },
+        {
+          "name": "Quentin Gutierrez",
+          "party": "LR",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Montreuil",
+      "population": 111260,
+      "department": "Seine-Saint-Denis (93)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Patrice Bessac",
+        "party": "PCF",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Patrice Bessac",
+        "party": "PCF",
+        "score": 51.3,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Bessac (PCF, sortant depuis 2014, réélu au 1er tour en 2020 avec 51,3 %) mène une large union (PCF-PS-EELV-NPA). LFI part en dissidence avec Shahryari. La droite est unie derrière Nohan (LR-Horizons-UDI). 7 listes en lice. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Patrice Bessac",
+          "party": "PCF",
+          "listName": "Vive Montreuil !",
+          "incumbent": true
+        },
+        {
+          "name": "Sayna Shahryari",
+          "party": "LFI",
+          "listName": "Faire mieux pour Montreuil",
+          "incumbent": false
+        },
+        {
+          "name": "Emeline Nohan",
+          "party": "LR",
+          "listName": "Le défi montreuillois",
+          "incumbent": false
+        },
+        {
+          "name": "Choukri Yonis",
+          "party": "DVG",
+          "listName": "Osez la voie citoyenne",
+          "incumbent": false
+        },
+        {
+          "name": "Nora Deliba",
+          "party": "DVG",
+          "listName": "Une voix pour tous",
+          "incumbent": false
+        },
+        {
+          "name": "Christel Keiser",
+          "party": "DVG",
+          "listName": "Le parti des travailleurs",
+          "incumbent": false
+        },
+        {
+          "name": "Serge Mercier",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte ouvrière — Le camp des travailleurs",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Caen",
+      "population": 108365,
+      "department": "Calvados (14)",
+      "region": "Normandie",
+      "currentMayor": {
+        "name": "Aristide Olivier",
+        "party": "DVD",
+        "since": 2024
+      },
+      "municipales2020": {
+        "winner": "Joël Bruneau",
+        "party": "LR",
+        "score": 50.79,
+        "round": 1
+      },
+      "polls": [],
+      "declaredCandidates": [
+        {
+          "name": "Aristide Olivier",
+          "party": "DVD",
+          "listName": "Caen Passionnément avec Aristide Olivier",
+          "incumbent": true
+        },
+        {
+          "name": "Rudy L'Orphelin",
+          "party": "EELV (Union de la gauche)",
+          "listName": "Caen la Ville Nous Rassemble"
+        },
+        {
+          "name": "Aurélien Guidi",
+          "party": "LFI",
+          "listName": "Faire Mieux pour Caen !"
+        },
+        {
+          "name": "Antoine Casini",
+          "party": "DVG",
+          "listName": "Le Caen de l'Engagement"
+        },
+        {
+          "name": "Chantal Henry",
+          "party": "RN",
+          "listName": "Rassemblons Caen"
+        },
+        {
+          "name": "Thomas Chevalier",
+          "party": "Divers Centre",
+          "listName": "Caen Dynamique !"
+        },
+        {
+          "name": "Xavier Le Coutour",
+          "party": "Divers Centre",
+          "listName": "Citoyens à Caen"
+        },
+        {
+          "name": "Pierre Casevitz",
+          "party": "Lutte Ouvrière"
+        },
+        {
+          "name": "Bérangère Lareynie",
+          "party": "NPA",
+          "listName": "Caen Ouvrière et Révolutionnaire"
+        }
+      ],
+      "context": "Aucun sondage publié. 9 listes déclarées. Aristide Olivier (DVD), successeur de Joël Bruneau (élu député en 2024), part favori face à une gauche fragmentée en 6 listes. Coalition la plus large à gauche : Rudy L'Orphelin (EELV-PS-PCF-Place Publique). En 2020, Bruneau réélu au 1er tour avec 50,79 %, L'Orphelin 2e à 25,56 %."
+    },
+    {
+      "name": "Argenteuil",
+      "population": 113597,
+      "department": "Val-d'Oise (95)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Georges Mothron",
+        "party": "LR",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Georges Mothron",
+        "party": "LR",
+        "score": 45.4,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Mothron (LR, sortant) se représente. La gauche est divisée entre Doucet (ex-maire PS, retour après inéligibilité) et Bougeard (PS, coalition large PS-EELV-MoDem-Renaissance). Debeaud (DVD) en dissidence à droite. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Georges Mothron",
+          "party": "LR",
+          "listName": "Vivre Argenteuil",
+          "incumbent": true
+        },
+        {
+          "name": "Philippe Doucet",
+          "party": "DVG",
+          "listName": "Argenteuil Debout",
+          "incumbent": false
+        },
+        {
+          "name": "Nicolas Bougeard",
+          "party": "PS",
+          "listName": "Union de la gauche",
+          "incumbent": false
+        },
+        {
+          "name": "Franck Debeaud",
+          "party": "DVD",
+          "listName": "Ensemble, Rassemblés pour Argenteuil",
+          "incumbent": false
+        },
+        {
+          "name": "Nadir Slifi",
+          "party": "DVG",
+          "incumbent": false
+        },
+        {
+          "name": "Lahacene Adalou",
+          "party": "DVG",
+          "incumbent": false
+        },
+        {
+          "name": "Dominique Mariette",
+          "party": "Lutte Ouvrière",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Mulhouse",
+      "population": 109588,
+      "department": "Haut-Rhin (68)",
+      "region": "Grand Est",
+      "currentMayor": {
+        "name": "Michèle Lutz",
+        "party": "LR",
+        "since": 2018
+      },
+      "municipales2020": {
+        "winner": "Michèle Lutz",
+        "party": "LR",
+        "score": 38.61,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Configuration très fragmentée (9+ listes). Droite divisée entre Lutz (LR, sortante), Million (Renaissance) et Sornin (DVD, ex-adjointe). Gauche aussi éclatée entre Minery (EELV-PS-PCF) et LFI (Gafanesch). En 2020, Lutz avait gagné une quadrangulaire au 2nd tour avec 38,6 %. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Michèle Lutz",
+          "party": "LR",
+          "listName": "Fiers de Mulhouse !",
+          "incumbent": true
+        },
+        {
+          "name": "Lara Million",
+          "party": "Renaissance",
+          "listName": "Mulhouse en vrai 2026",
+          "incumbent": false
+        },
+        {
+          "name": "Loïc Minery",
+          "party": "EELV",
+          "listName": "Mulhouse en commun",
+          "incumbent": false
+        },
+        {
+          "name": "Christelle Ritz",
+          "party": "RN",
+          "listName": "Rassemblement pour Mulhouse",
+          "incumbent": false
+        },
+        {
+          "name": "Bruno Fuchs",
+          "party": "Renaissance",
+          "listName": "Bruno Fuchs pour Mulhouse",
+          "incumbent": false
+        },
+        {
+          "name": "Cécile Sornin",
+          "party": "DVD",
+          "listName": "Mulhouse au coeur",
+          "incumbent": false
+        },
+        {
+          "name": "Annouar Sassi",
+          "party": "DVG",
+          "listName": "Nous sommes Mulhouse",
+          "incumbent": false
+        },
+        {
+          "name": "Eliot Gafanesch",
+          "party": "LFI",
+          "listName": "La France insoumise Mulhouse",
+          "incumbent": false
+        },
+        {
+          "name": "Emmanuel Taffarelli",
+          "party": "Reconquête",
+          "listName": "Restaurer Mulhouse",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Nancy",
+      "population": 104072,
+      "department": "Meurthe-et-Moselle (54)",
+      "region": "Grand Est",
+      "currentMayor": {
+        "name": "Mathieu Klein",
+        "party": "PS",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Mathieu Klein",
+        "party": "PS",
+        "score": 54.54,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Première victoire de la gauche à Nancy depuis la Libération en 2020. Klein brigue un second mandat face à Laurent Hénart (centre-droit, ex-maire 2014-2020 soutenu LR/Renaissance/Horizons). Autres candidats : Sarah Farghaly (LFI), Emmanuel Lacresse (ex-Renaissance dissident), Christiane Nimsgern (LO). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Mathieu Klein",
+          "party": "PS",
+          "listName": "Nancy Grandit",
+          "incumbent": true
+        },
+        {
+          "name": "Laurent Hénart",
+          "party": "DVD",
+          "listName": "Nancy avec vous",
+          "incumbent": false
+        },
+        {
+          "name": "Sarah Farghaly",
+          "party": "LFI",
+          "listName": "Nancy Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Emmanuel Lacresse",
+          "party": "Renaissance",
+          "listName": "Nancy en avant",
+          "incumbent": false
+        },
+        {
+          "name": "Christiane Nimsgern",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Roubaix",
+      "population": 98828,
+      "department": "Nord (59)",
+      "region": "Hauts-de-France",
+      "currentMayor": {
+        "name": "Alexandre Garcin",
+        "party": "DVD",
+        "since": 2025
+      },
+      "municipales2020": {
+        "winner": "Guillaume Delbar",
+        "party": "DVD",
+        "score": 56.2,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "La Voix du Nord / Nord Eclair",
+          "publishDate": "2026-03-07",
+          "fieldDates": {
+            "start": "2026-03-02",
+            "end": "2026-03-05"
+          },
+          "sampleSize": 601,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "David Guiraud",
+              "party": "LFI",
+              "score": 44.0,
+              "candidateId": "roubaix-david-guiraud"
+            },
+            {
+              "name": "Karim Amrouni",
+              "party": "PS / EELV / PCF / PRG / PP",
+              "score": 23.0,
+              "candidateId": "roubaix-karim-amrouni"
+            },
+            {
+              "name": "Alexandre Garcin",
+              "party": "Renaissance / MoDem / UDI",
+              "score": 18.0,
+              "candidateId": "roubaix-alexandre-garcin"
+            },
+            {
+              "name": "Céline Sayah",
+              "party": "RN",
+              "score": 12.0,
+              "candidateId": "roubaix-celine-sayah"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Quadrangulaire Guiraud / Amrouni / Garcin / Sayah",
+            "candidates": [
+              {
+                "name": "David Guiraud",
+                "party": "LFI",
+                "score": 45.0,
+                "candidateId": "roubaix-david-guiraud"
+              },
+              {
+                "name": "Karim Amrouni",
+                "party": "PS",
+                "score": 27.0,
+                "candidateId": "roubaix-karim-amrouni"
+              },
+              {
+                "name": "Alexandre Garcin",
+                "party": "Renaissance",
+                "score": 17.0,
+                "candidateId": "roubaix-alexandre-garcin"
+              },
+              {
+                "name": "Céline Sayah",
+                "party": "RN",
+                "score": 11.0,
+                "candidateId": "roubaix-celine-sayah"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Guiraud / Garcin / Sayah (Amrouni éliminé)",
+            "candidates": [
+              {
+                "name": "David Guiraud",
+                "party": "LFI",
+                "score": 46.0,
+                "candidateId": "roubaix-david-guiraud"
+              },
+              {
+                "name": "Alexandre Garcin",
+                "party": "Renaissance",
+                "score": 40.0,
+                "candidateId": "roubaix-alexandre-garcin"
+              },
+              {
+                "name": "Céline Sayah",
+                "party": "RN",
+                "score": 14.0,
+                "candidateId": "roubaix-celine-sayah"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Guiraud / Amrouni / Sayah (Garcin éliminé)",
+            "candidates": [
+              {
+                "name": "David Guiraud",
+                "party": "LFI",
+                "score": 45.0,
+                "candidateId": "roubaix-david-guiraud"
+              },
+              {
+                "name": "Karim Amrouni",
+                "party": "PS",
+                "score": 41.0,
+                "candidateId": "roubaix-karim-amrouni"
+              },
+              {
+                "name": "Céline Sayah",
+                "party": "RN",
+                "score": 14.0,
+                "candidateId": "roubaix-celine-sayah"
+              }
+            ]
+          }
+        ]
+      },
+      "context": "Delbar (DVD, maire depuis 2014) a démissionné fin 2025 après condamnation pour fraude fiscale. Son adjoint Garcin lui a succédé. LFI cible Roubaix (Mélenchon y avait obtenu 52,5 % au 1er tour présidentielle 2022) avec David Guiraud, député sortant. La gauche non-insoumise s'est unie autour de Karim Amrouni (DVG) et Mehdi Chalah (PS).",
+      "declaredCandidates": [
+        {
+          "name": "Alexandre Garcin",
+          "party": "DVD",
+          "listName": "Roubaix Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "David Guiraud",
+          "party": "LFI",
+          "listName": "Roubaix en commun",
+          "incumbent": false
+        },
+        {
+          "name": "Karim Amrouni",
+          "party": "DVG",
+          "listName": "Union de la gauche",
+          "incumbent": false
+        },
+        {
+          "name": "Céline Sayah",
+          "party": "RN",
+          "listName": "Rassemblement National",
+          "incumbent": false
+        },
+        {
+          "name": "Françoise Delbarre",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Tourcoing",
+      "population": 98656,
+      "department": "Nord (59)",
+      "region": "Hauts-de-France",
+      "currentMayor": {
+        "name": "Doriane Bécue",
+        "party": "DVD",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Gérald Darmanin",
+        "party": "DVD",
+        "score": 60.88,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Place forte de la droite depuis 2014 (Darmanin puis Bécue). Six listes : Bécue (DVD, sortante, Darmanin 2e sur la liste), Vuylsteker (EELV, union gauche PS-PCF), Talpaert (collectif citoyen), Verbrugghe (RN), Croës (LFI), Charlon (LO). Un sondage Ifop (juin 2025, n=604) existe mais ses scores détaillés ne sont pas publics.",
+      "declaredCandidates": [
+        {
+          "name": "Doriane Bécue",
+          "party": "DVD",
+          "listName": "Vive Tourcoing",
+          "incumbent": true
+        },
+        {
+          "name": "Katy Vuylsteker",
+          "party": "EELV",
+          "listName": "Nous Tourcoing",
+          "incumbent": false
+        },
+        {
+          "name": "Franck Talpaert",
+          "party": "DVG",
+          "listName": "Citoyen·nes pour Tourcoing",
+          "incumbent": false
+        },
+        {
+          "name": "Bastien Verbrugghe",
+          "party": "RN",
+          "listName": "Unis pour Tourcoing",
+          "incumbent": false
+        },
+        {
+          "name": "Émilie Croës",
+          "party": "LFI",
+          "listName": "La France Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Christophe Charlon",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Nanterre",
+      "population": 96277,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Raphaël Adam",
+        "party": "DVG",
+        "since": 2023
+      },
+      "municipales2020": {
+        "winner": "Patrick Jarry",
+        "party": "DVG",
+        "score": 51.91,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Bastion de la gauche depuis 1935, mais fracture historique en 2026 : quatre listes de gauche au 1er tour. Adam (DVG, maire sortant, soutenu PCF/Écologistes), Huyghe (LFI), Ngimbous Batjôm (PS), Kasmi (DVG). La droite (Matouk, LR) espère profiter de la division pour accéder au 2nd tour. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Raphaël Adam",
+          "party": "DVG",
+          "listName": "Nanterre en commun",
+          "incumbent": true
+        },
+        {
+          "name": "Nicolas Huyghe",
+          "party": "LFI",
+          "listName": "Faire mieux pour Nanterre",
+          "incumbent": false
+        },
+        {
+          "name": "Thérèse Ngimbous Batjôm",
+          "party": "PS",
+          "listName": "PS Nanterre",
+          "incumbent": false
+        },
+        {
+          "name": "Hélène Matouk",
+          "party": "LR",
+          "listName": "LR Nanterre",
+          "incumbent": false
+        },
+        {
+          "name": "Laurent Strumanne",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Vitry-sur-Seine",
+      "population": 95510,
+      "department": "Val-de-Marne (94)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Pierre Bell-Lloch",
+        "party": "PCF",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Jean-Claude Kennedy",
+        "party": "PCF",
+        "score": 49.87,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Bastion communiste historique. Bell-Lloch (PCF) a été élu à la hussarde en 2020 face au tête de liste Kennedy. Gauche divisée en 2026 : Bell-Lloch (NFP, PCF/PS/Verts), Tmimi (LFI, soutenu par les fidèles Kennedy), Bourdon (écologiste citoyen), Ruchot (LO). La droite unie derrière Serpette (divers centre). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Pierre Bell-Lloch",
+          "party": "PCF",
+          "listName": "Nouveau Front Populaire Vitry",
+          "incumbent": true
+        },
+        {
+          "name": "Hocine Tmimi",
+          "party": "LFI",
+          "listName": "Vitry Unie et Populaire",
+          "incumbent": false
+        },
+        {
+          "name": "Frédéric Bourdon",
+          "party": "EELV",
+          "listName": "Vitry En Mieux",
+          "incumbent": false
+        },
+        {
+          "name": "Mathieu Serpette",
+          "party": "DVD",
+          "listName": "Vitry Autrement",
+          "incumbent": false
+        },
+        {
+          "name": "Sandrine Ruchot",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Créteil",
+      "population": 93246,
+      "department": "Val-de-Marne (94)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Laurent Cathala",
+        "party": "PS",
+        "since": 1977
+      },
+      "municipales2020": {
+        "winner": "Laurent Cathala",
+        "party": "PS",
+        "score": 69.82,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Cathala est maire depuis 1977 (49 ans) et brigue un 9e mandat à 80 ans pour empêcher une victoire LFI. Sept listes : Cathala (PS/PCF), Djaffar (LFI), Damien (PT), Pruvot (LO), Nabarette (EELV), Hebbrecht (DVD, 30 % en 2020), Thézard (UDI). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Laurent Cathala",
+          "party": "PS",
+          "listName": "Bien ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Abdoulbar Djaffar",
+          "party": "LFI",
+          "listName": "Créteil Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Hervé Nabarette",
+          "party": "EELV",
+          "listName": "Créteil Écologique",
+          "incumbent": false
+        },
+        {
+          "name": "Thierry Hebbrecht",
+          "party": "DVD",
+          "listName": "Créteil Autrement",
+          "incumbent": false
+        },
+        {
+          "name": "Sylvain Thézard",
+          "party": "UDI",
+          "listName": "UDI Créteil",
+          "incumbent": false
+        },
+        {
+          "name": "Sabrina Pruvot",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Avignon",
+      "population": 91143,
+      "department": "Vaucluse (84)",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "currentMayor": {
+        "name": "Cécile Helle",
+        "party": "PS",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Cécile Helle",
+        "party": "DVG",
+        "score": 45.62,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Ici Vaucluse / L'Écho du Mardi / La Provence",
+          "publishDate": "2026-02-20",
+          "fieldDates": {
+            "start": "2026-02-12",
+            "end": "2026-02-19"
+          },
+          "sampleSize": 603,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Olivier Galzi",
+              "party": "DVD",
+              "score": 27,
+              "candidateId": "avignon-olivier-galzi"
+            },
+            {
+              "name": "David Fournier",
+              "party": "PS",
+              "score": 24,
+              "candidateId": "avignon-david-fournier"
+            },
+            {
+              "name": "Anne-Sophie Rigault",
+              "party": "RN",
+              "score": 23,
+              "candidateId": "avignon-anne-sophie-rigault"
+            },
+            {
+              "name": "Mathilde Louvain",
+              "party": "LFI",
+              "score": 16,
+              "candidateId": "avignon-mathilde-louvain"
+            },
+            {
+              "name": "Stéphan Fiori",
+              "party": "DVD",
+              "score": 10,
+              "candidateId": "avignon-stephan-fiori"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "La Provence / Sud Radio",
+          "publishDate": "2025-12-19",
+          "fieldDates": {
+            "start": "2025-12-12",
+            "end": "2025-12-18"
+          },
+          "sampleSize": 602,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Anne-Sophie Rigault",
+              "party": "RN",
+              "score": 22,
+              "candidateId": "avignon-anne-sophie-rigault"
+            },
+            {
+              "name": "Olivier Galzi",
+              "party": "DVD",
+              "score": 21,
+              "candidateId": "avignon-olivier-galzi"
+            },
+            {
+              "name": "David Fournier",
+              "party": "PS",
+              "score": 18,
+              "candidateId": "avignon-david-fournier"
+            },
+            {
+              "name": "Mathilde Louvain",
+              "party": "LFI",
+              "score": 14,
+              "candidateId": "avignon-mathilde-louvain"
+            },
+            {
+              "name": "Stéphan Fiori",
+              "party": "DVD",
+              "score": 10,
+              "candidateId": "avignon-stephan-fiori"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "La Provence",
+          "publishDate": "2025-09-29",
+          "fieldDates": {
+            "start": "2025-09-15",
+            "end": "2025-09-20"
+          },
+          "sampleSize": 707,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Anne-Sophie Rigault",
+              "party": "RN",
+              "score": 26,
+              "candidateId": "avignon-anne-sophie-rigault"
+            },
+            {
+              "name": "David Fournier",
+              "party": "DVG",
+              "score": 17,
+              "candidateId": "avignon-david-fournier"
+            },
+            {
+              "name": "Mathilde Louvain",
+              "party": "LFI",
+              "score": 13,
+              "candidateId": "avignon-mathilde-louvain"
+            },
+            {
+              "name": "Julien Aubert",
+              "party": "LR",
+              "score": 13,
+              "candidateId": "avignon-julien-aubert"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "label": "Quinquangulaire",
+            "candidates": [
+              {
+                "name": "Olivier Galzi",
+                "party": "DVD",
+                "score": 29,
+                "candidateId": "avignon-olivier-galzi"
+              },
+              {
+                "name": "David Fournier",
+                "party": "PS",
+                "score": 24,
+                "candidateId": "avignon-david-fournier"
+              },
+              {
+                "name": "Anne-Sophie Rigault",
+                "party": "RN",
+                "score": 18,
+                "candidateId": "avignon-anne-sophie-rigault"
+              },
+              {
+                "name": "Stéphan Fiori",
+                "party": "DVD",
+                "score": 15,
+                "candidateId": "avignon-stephan-fiori"
+              },
+              {
+                "name": "Mathilde Louvain",
+                "party": "LFI",
+                "score": 14,
+                "candidateId": "avignon-mathilde-louvain"
+              }
+            ]
+          },
+          {
+            "label": "Triangulaire union gauche",
+            "candidates": [
+              {
+                "name": "Union de la gauche",
+                "party": "DVG",
+                "score": 39,
+                "candidateId": "avignon-union-de-la-gauche"
+              },
+              {
+                "name": "Olivier Galzi",
+                "party": "DVD",
+                "score": 35,
+                "candidateId": "avignon-olivier-galzi"
+              },
+              {
+                "name": "Anne-Sophie Rigault",
+                "party": "RN",
+                "score": 26,
+                "candidateId": "avignon-anne-sophie-rigault"
+              }
+            ]
+          }
+        ]
+      },
+      "context": "Course très ouverte. Helle (PS, sortante) ne se représente pas. Trois blocs : droite (Galzi, ex-présentateur TV), gauche (Fournier, adjoint PS), extrême droite (Rigault, RN). Sécurité et propreté sont les enjeux principaux.",
+      "declaredCandidates": [
+        {
+          "name": "Olivier Galzi",
+          "party": "DVD",
+          "listName": "Avignon Ensemble",
+          "incumbent": false
+        },
+        {
+          "name": "David Fournier",
+          "party": "PS",
+          "listName": "Avignon avec vous",
+          "incumbent": false
+        },
+        {
+          "name": "Anne-Sophie Rigault",
+          "party": "RN",
+          "listName": "Rassemblement National",
+          "incumbent": false
+        },
+        {
+          "name": "Mathilde Louvain",
+          "party": "LFI",
+          "listName": "Avignon Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Stéphan Fiori",
+          "party": "DVD",
+          "listName": "Avignon Autrement",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Poitiers",
+      "population": 89212,
+      "department": "Vienne (86)",
+      "region": "Nouvelle-Aquitaine",
+      "currentMayor": {
+        "name": "Léonore Moncond'huy",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Léonore Moncond'huy",
+        "party": "EELV",
+        "score": 42.83,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Fiducial / La Nouvelle République / Sud Radio",
+          "publishDate": "2026-03-02",
+          "fieldDates": {
+            "start": "2026-02-23",
+            "end": "2026-02-28"
+          },
+          "sampleSize": 602,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Léonore Moncond'huy",
+              "party": "EELV",
+              "score": 26,
+              "candidateId": "poitiers-leonore-moncondhuy"
+            },
+            {
+              "name": "Anthony Brottier",
+              "party": "DVG",
+              "score": 21,
+              "candidateId": "poitiers-anthony-brottier"
+            },
+            {
+              "name": "Bertrand Geay",
+              "party": "LFI",
+              "score": 15,
+              "candidateId": "poitiers-bertrand-geay"
+            },
+            {
+              "name": "François Blanchard",
+              "party": "PS",
+              "score": 11,
+              "candidateId": "poitiers-francois-blanchard"
+            },
+            {
+              "name": "Charles Rangheard",
+              "party": "RN",
+              "score": 11,
+              "candidateId": "poitiers-charles-rangheard"
+            },
+            {
+              "name": "Lucile Parnaudeau",
+              "party": "LR",
+              "score": 10,
+              "candidateId": "poitiers-lucile-parnaudeau"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "Poitiers en Grand",
+          "publishDate": "2025-10-04",
+          "fieldDates": {
+            "start": "2025-06-10",
+            "end": "2025-07-17"
+          },
+          "sampleSize": 600,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Sacha Houlié",
+              "party": "PS",
+              "score": 28,
+              "candidateId": "poitiers-sacha-houlie"
+            },
+            {
+              "name": "Léonore Moncond'huy",
+              "party": "EELV",
+              "score": 27,
+              "candidateId": "poitiers-leonore-moncondhuy"
+            },
+            {
+              "name": "Anthony Brottier",
+              "party": "DVG",
+              "score": 13,
+              "candidateId": "poitiers-anthony-brottier"
+            },
+            {
+              "name": "Marie-Dolorès Prost",
+              "party": "RN",
+              "score": 13,
+              "candidateId": "poitiers-marie-dolores-prost"
+            },
+            {
+              "name": "Lucile Parnaudeau",
+              "party": "LR",
+              "score": 7,
+              "candidateId": "poitiers-lucile-parnaudeau"
+            }
+          ]
+        }
+      ],
+      "context": "Fief historique de la gauche. Moncond'huy (EELV) se représente. Gauche divisée en 4 listes (EELV, DVG, LFI-PCF, PS). Le sondage d'oct. 2025 a été commandité par l'asso. de Houlié — prudence sur la neutralité.",
+      "declaredCandidates": [
+        {
+          "name": "Léonore Moncond'huy",
+          "party": "EELV",
+          "listName": "Poitiers Collectif",
+          "incumbent": true
+        },
+        {
+          "name": "Anthony Brottier",
+          "party": "DVG",
+          "listName": "Poitiers Avenir",
+          "incumbent": false
+        },
+        {
+          "name": "Bertrand Geay",
+          "party": "LFI",
+          "listName": "Poitiers en commun",
+          "incumbent": false
+        },
+        {
+          "name": "François Blanchard",
+          "party": "PS",
+          "listName": "PS Poitiers",
+          "incumbent": false
+        },
+        {
+          "name": "Charles Rangheard",
+          "party": "RN",
+          "listName": "RN-UDR Poitiers",
+          "incumbent": false
+        },
+        {
+          "name": "Lucile Parnaudeau",
+          "party": "LR",
+          "listName": "LR-Horizons-Renaissance",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Aubervilliers",
+      "population": 88948,
+      "department": "Seine-Saint-Denis (93)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Karine Franclet",
+        "party": "UDI",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Karine Franclet",
+        "party": "DVD",
+        "score": 44.55,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Ville historiquement communiste pendant 70 ans, basculée en 2020. Franclet (UDI) brigue un 2e mandat face à une gauche fragmentée : Karroumi (DVG, union 9 partis), Lescaut (LFI), Djebbari (DVG). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Karine Franclet",
+          "party": "UDI",
+          "listName": "Changeons Aubervilliers",
+          "incumbent": true
+        },
+        {
+          "name": "Sofienne Karroumi",
+          "party": "DVG",
+          "listName": "Union de la gauche",
+          "incumbent": false
+        },
+        {
+          "name": "Guillaume Lescaut",
+          "party": "LFI",
+          "listName": "Aubervilliers Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Nabila Djebbari",
+          "party": "DVG",
+          "listName": "Reconnecter Aubervilliers",
+          "incumbent": false
+        },
+        {
+          "name": "Jean-Louis Lavazec",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Asnières-sur-Seine",
+      "population": 87143,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Manuel Aeschlimann",
+        "party": "LR",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Manuel Aeschlimann",
+        "party": "LR",
+        "score": 56.62,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Ville solidement ancrée à droite. Aeschlimann (LR, ex-maire 1999-2008) a reconquis la mairie au 1er tour en 2020. Listes : Aeschlimann (LR, sortant), Jehanin (union gauche, 9 % en 2020), Picard-Marcovecchio (citoyenne). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Manuel Aeschlimann",
+          "party": "LR",
+          "listName": "Asnières Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Romain Jehanin",
+          "party": "DVG",
+          "listName": "Asnières en Commun",
+          "incumbent": false
+        },
+        {
+          "name": "Sandrine Picard-Marcovecchio",
+          "party": "DVD",
+          "listName": "Asnières 2050",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Aulnay-sous-Bois",
+      "population": 86969,
+      "department": "Seine-Saint-Denis (93)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Bruno Beschizza",
+        "party": "LR",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Bruno Beschizza",
+        "party": "LR",
+        "score": 59.33,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Beschizza (LR) brigue un 3e mandat après rélection au 1er tour en 2020 (59 %). Principal adversaire : Siby (PS-EELV). Malandra (LFI-PCF) porte la gauche radicale. Aucun sondage fiable publié.",
+      "declaredCandidates": [
+        {
+          "name": "Bruno Beschizza",
+          "party": "LR",
+          "listName": "Aulnay Avenir",
+          "incumbent": true
+        },
+        {
+          "name": "Oussouf Siby",
+          "party": "PS",
+          "listName": "Aulnay Rassemblée",
+          "incumbent": false
+        },
+        {
+          "name": "Elena Malandra",
+          "party": "LFI",
+          "listName": "Aulnay Populaire",
+          "incumbent": false
+        },
+        {
+          "name": "Bruno Beaufils",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Colombes",
+      "population": 86534,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Patrick Chaimovitch",
+        "party": "EELV",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Patrick Chaimovitch",
+        "party": "EELV",
+        "score": 53.2,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Chaimovitch (EELV) a renversé la droite en 2020. Compétition très fragmentée en 2026 : 8 listes dont Giacomoni (LR), Delattre (UDI/MoDem), Narbonnais (PS, ex-adjoint), Robichon (LFI), Kimbassa (RN). Aucun sondage avec scores détaillés publié.",
+      "declaredCandidates": [
+        {
+          "name": "Patrick Chaimovitch",
+          "party": "EELV",
+          "listName": "Avec vous pour Colombes",
+          "incumbent": true
+        },
+        {
+          "name": "Joakim Giacomoni",
+          "party": "LR",
+          "listName": "Colombes est une chance",
+          "incumbent": false
+        },
+        {
+          "name": "Amélie Delattre",
+          "party": "UDI",
+          "listName": "Ensemble, révélons Colombes",
+          "incumbent": false
+        },
+        {
+          "name": "Valentin Narbonnais",
+          "party": "PS",
+          "listName": "Colombes en mieux",
+          "incumbent": false
+        },
+        {
+          "name": "Jordan Robichon",
+          "party": "LFI",
+          "listName": "Colombes Populaire",
+          "incumbent": false
+        },
+        {
+          "name": "René Kimbassa",
+          "party": "RN",
+          "listName": "Colombes en ordre",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Dunkerque",
+      "population": 86279,
+      "department": "Nord (59)",
+      "region": "Hauts-de-France",
+      "currentMayor": {
+        "name": "Patrice Vergriete",
+        "party": "DVG",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Patrice Vergriete",
+        "party": "DVG",
+        "score": 64.04,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Vergriete (DVG, ex-ministre du Logement) brigue un 3e mandat avec une coalition inédite (PS, PCF et LR locaux). Face à lui : Lacroix (LFI), Nave (droite nationale — le RN a retiré son investiture), Fournier (liste citoyenne). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Patrice Vergriete",
+          "party": "DVG",
+          "listName": "Dunkerque en Mouvement",
+          "incumbent": true
+        },
+        {
+          "name": "Damien Lacroix",
+          "party": "LFI",
+          "listName": "Dunkerque Populaire",
+          "incumbent": false
+        },
+        {
+          "name": "Adrien Nave",
+          "party": "DVD",
+          "listName": "Le Défi Dunkerquois",
+          "incumbent": false
+        },
+        {
+          "name": "Nicolas Fournier",
+          "party": "DVG",
+          "listName": "Dunkerque Citoyenne",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Versailles",
+      "population": 84808,
+      "department": "Yvelines (78)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "François de Mazières",
+        "party": "DVD",
+        "since": 2008
+      },
+      "municipales2020": {
+        "winner": "François de Mazières",
+        "party": "DVD",
+        "score": 63.11,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Ville très ancrée à droite. De Mazières (DVD/LR, 4e mandat) part favori mais le vote de droite est fragmenté : de La Faire (UDR/RN), Clément (Reconquête). La gauche reste très minoritaire. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "François de Mazières",
+          "party": "DVD",
+          "listName": "Pour Versailles",
+          "incumbent": true
+        },
+        {
+          "name": "Olivier de La Faire",
+          "party": "RN",
+          "listName": "Union des droites pour Versailles",
+          "incumbent": false
+        },
+        {
+          "name": "Sabine Clément",
+          "party": "Reconquête",
+          "listName": "À la Reconquête de Versailles",
+          "incumbent": false
+        },
+        {
+          "name": "Tess Rendina-Mancuso",
+          "party": "PCF",
+          "listName": "PCF-Écologistes Versailles",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Courbevoie",
+      "population": 81558,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Jacques Kossowski",
+        "party": "LR",
+        "since": 1995
+      },
+      "municipales2020": {
+        "winner": "Jacques Kossowski",
+        "party": "LR",
+        "score": 55.76,
+        "round": 2
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Les Républicains",
+          "publishDate": "2026-01-20",
+          "fieldDates": {
+            "start": "2026-01-12",
+            "end": "2026-01-17"
+          },
+          "sampleSize": 576,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Jacques Kossowski",
+              "party": "LR",
+              "score": 32,
+              "candidateId": "courbevoie-jacques-kossowski"
+            },
+            {
+              "name": "Aurélie Taquillain",
+              "party": "Renaissance",
+              "score": 29,
+              "candidateId": "courbevoie-aurelie-taquillain"
+            },
+            {
+              "name": "Alban Thomas",
+              "party": "PS",
+              "score": 16,
+              "candidateId": "courbevoie-alban-thomas"
+            },
+            {
+              "name": "Cyprien Ronze-Spilliaert",
+              "party": "DVG",
+              "score": 10,
+              "candidateId": "courbevoie-cyprien-ronze-spilliaert"
+            },
+            {
+              "name": "Candidat RN",
+              "party": "RN",
+              "score": 9,
+              "candidateId": "courbevoie-candidat-rn"
+            },
+            {
+              "name": "Vincent Julé",
+              "party": "DVD",
+              "score": 4,
+              "candidateId": "courbevoie-vincent-jule"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "label": "Duel Kossowski vs Taquillain",
+            "candidates": [
+              {
+                "name": "Jacques Kossowski",
+                "party": "LR",
+                "score": 53,
+                "candidateId": "courbevoie-jacques-kossowski"
+              },
+              {
+                "name": "Aurélie Taquillain",
+                "party": "Renaissance",
+                "score": 47,
+                "candidateId": "courbevoie-aurelie-taquillain"
+              }
+            ]
+          },
+          {
+            "label": "Triangulaire avec gauche",
+            "candidates": [
+              {
+                "name": "Jacques Kossowski",
+                "party": "LR",
+                "score": 41,
+                "candidateId": "courbevoie-jacques-kossowski"
+              },
+              {
+                "name": "Aurélie Taquillain",
+                "party": "Renaissance",
+                "score": 36,
+                "candidateId": "courbevoie-aurelie-taquillain"
+              },
+              {
+                "name": "Alban Thomas",
+                "party": "PS",
+                "score": 23,
+                "candidateId": "courbevoie-alban-thomas"
+              }
+            ]
+          }
+        ]
+      },
+      "context": "Fief LR depuis 1995. Kossowski (LR) face à Taquillain (Renaissance, ex-adjointe). Sondage Ifop (janv. 2026, commandé par LR — prudence) : Kossowski 32 %, Taquillain 29 %. Au 2nd tour duel : 53-47 pour Kossowski.",
+      "declaredCandidates": [
+        {
+          "name": "Jacques Kossowski",
+          "party": "LR",
+          "listName": "Courbevoie Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Aurélie Taquillain",
+          "party": "Renaissance",
+          "listName": "Courbevoie Avenir",
+          "incumbent": false
+        },
+        {
+          "name": "Alban Thomas",
+          "party": "PS",
+          "listName": "Union gauche-écologistes",
+          "incumbent": false
+        },
+        {
+          "name": "Cyprien Ronze-Spilliaert",
+          "party": "DVG",
+          "listName": "Place Publique Courbevoie",
+          "incumbent": false
+        },
+        {
+          "name": "Vincent Julé",
+          "party": "DVD",
+          "listName": "Indépendant",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Rueil-Malmaison",
+      "population": 78317,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Patrick Ollier",
+        "party": "LR",
+        "since": 2004
+      },
+      "municipales2020": {
+        "winner": "Patrick Ollier",
+        "party": "DVD",
+        "score": 50.1,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Fief de Patrick Ollier (LR, 81 ans, président Métropole Grand Paris). Brigue un nouveau mandat avec l'intention de passer le relais. Face à lui : Indjian (DVG-PS), Ruffat (centre-droite dissident, 29 % en 2020), Vassé (Reconquête). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Patrick Ollier",
+          "party": "LR",
+          "listName": "Ensemble pour Rueil",
+          "incumbent": true
+        },
+        {
+          "name": "Patrick Indjian",
+          "party": "DVG",
+          "listName": "Rueil en Commun",
+          "incumbent": false
+        },
+        {
+          "name": "Hugues Ruffat",
+          "party": "DVD",
+          "listName": "REEL Rueil Ensemble et Libres",
+          "incumbent": false
+        },
+        {
+          "name": "François Vassé",
+          "party": "Reconquête",
+          "listName": "À la Reconquête de Rueil",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Béziers",
+      "population": 78308,
+      "department": "Hérault (34)",
+      "region": "Occitanie",
+      "currentMayor": {
+        "name": "Robert Ménard",
+        "party": "DVD",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Robert Ménard",
+        "party": "DVD",
+        "score": 68.74,
+        "round": 1
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Entrevue",
+          "publishDate": "2026-01-06",
+          "fieldDates": {
+            "start": "2025-12-15",
+            "end": "2025-12-19"
+          },
+          "sampleSize": 539,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Robert Ménard",
+              "party": "DVD",
+              "score": 61,
+              "candidateId": "beziers-robert-menard"
+            },
+            {
+              "name": "Thierry Antoine",
+              "party": "DVG",
+              "score": 12,
+              "candidateId": "beziers-thierry-antoine"
+            },
+            {
+              "name": "Julien Gabarron",
+              "party": "RN",
+              "score": 10,
+              "candidateId": "beziers-julien-gabarron"
+            },
+            {
+              "name": "Thierry Mathieu",
+              "party": "DVD",
+              "score": 9,
+              "candidateId": "beziers-thierry-mathieu"
+            },
+            {
+              "name": "David Ocard",
+              "party": "LFI",
+              "score": 8,
+              "candidateId": "beziers-david-ocard"
+            }
+          ]
+        }
+      ],
+      "context": "Cas atypique : Ménard (fondateur RSF, ex-proche RN) brigue un 3e mandat avec soutien LR, après rupture avec le RN. Première fois depuis 2014 qu'une liste RN se présente face à lui (Gabarron, député). Sondage Ifop (janv. 2026) : Ménard écrasant à 61 %.",
+      "declaredCandidates": [
+        {
+          "name": "Robert Ménard",
+          "party": "DVD",
+          "listName": "Choisir Béziers",
+          "incumbent": true
+        },
+        {
+          "name": "Thierry Antoine",
+          "party": "DVG",
+          "listName": "Printemps de Béziers",
+          "incumbent": false
+        },
+        {
+          "name": "Julien Gabarron",
+          "party": "RN",
+          "listName": "Rassemblement National",
+          "incumbent": false
+        },
+        {
+          "name": "Thierry Mathieu",
+          "party": "DVD",
+          "listName": "Rassembler Béziers",
+          "incumbent": false
+        },
+        {
+          "name": "David Ocard",
+          "party": "LFI",
+          "listName": "Béziers Insoumise",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "La Rochelle",
+      "population": 77205,
+      "department": "Charente-Maritime (17)",
+      "region": "Nouvelle-Aquitaine",
+      "currentMayor": {
+        "name": "Thibaut Guiraud",
+        "party": "DVG",
+        "since": 2025
+      },
+      "municipales2020": {
+        "winner": "Jean-François Fountaine",
+        "party": "DVG",
+        "score": 41.97,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Ville de gauche historiquement. Fountaine a démissionné en juin 2025, Guiraud (DVG) lui a succédé. Sept listes : Guiraud (DVG), Falorni (DVG/Place Publique), Simoné (PS/EELV/PCF), Werbrouck (RN, eurodéputée), Salaün et Bonnet (LFI), Batcabe (DVD), Colin (LO). La gauche cumulant >70 % est très divisée. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Thibaut Guiraud",
+          "party": "DVG",
+          "listName": "Générations La Rochelle",
+          "incumbent": true
+        },
+        {
+          "name": "Olivier Falorni",
+          "party": "DVG",
+          "listName": "La Rochelle Ensemble",
+          "incumbent": false
+        },
+        {
+          "name": "Maryline Simoné",
+          "party": "PS",
+          "listName": "La Rochelle Unie",
+          "incumbent": false
+        },
+        {
+          "name": "Séverine Werbrouck",
+          "party": "RN",
+          "listName": "Rassemblement National",
+          "incumbent": false
+        },
+        {
+          "name": "Christophe Batcabe",
+          "party": "DVD",
+          "listName": "Une Vision pour La Rochelle",
+          "incumbent": false
+        },
+        {
+          "name": "Antoine Colin",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Champigny-sur-Marne",
+      "population": 76990,
+      "department": "Val-de-Marne (94)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Laurent Jeanne",
+        "party": "DVD",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Laurent Jeanne",
+        "party": "DVD",
+        "score": 54.03,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Ex-bastion PCF (ville de Georges Marchais) basculé à droite en 2020 pour la première fois depuis 1950. Jeanne (DVD, soutenu LR/MoDem/UDI) brigue un 2e mandat. Face à lui, une large coalition NFP (Léger, PCF/PS/LFI/EELV) veut reconquérir la ville. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Laurent Jeanne",
+          "party": "DVD",
+          "listName": "Champigny Avenir",
+          "incumbent": true
+        },
+        {
+          "name": "Julien Léger",
+          "party": "PCF",
+          "listName": "Champigny en commun",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Pau",
+      "population": 75627,
+      "department": "Pyrénées-Atlantiques (64)",
+      "region": "Nouvelle-Aquitaine",
+      "currentMayor": {
+        "name": "François Bayrou",
+        "party": "Horizons",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "François Bayrou",
+        "party": "Horizons",
+        "score": 55.52,
+        "round": 2
+      },
+      "polls": [],
+      "context": "François Bayrou (MoDem/Horizons, fondateur du MoDem, ex-Premier ministre déc. 2024-sept. 2025) brigue un 3e mandat. Face à lui : Marbot (PS/EELV/PCF, 44 % en 2020), Taillefer (RN), Blanco (LFI), Arraou et Boniface (listes citoyennes), Marconi (LO). Progression du RN aux législatives 2024 (29 % à Pau). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "François Bayrou",
+          "party": "Horizons",
+          "listName": "Nous aimons Pau",
+          "incumbent": true
+        },
+        {
+          "name": "Jérôme Marbot",
+          "party": "PS",
+          "listName": "Nouvelle ère",
+          "incumbent": false
+        },
+        {
+          "name": "Margaux Taillefer",
+          "party": "RN",
+          "listName": "L'espérance pour Pau",
+          "incumbent": false
+        },
+        {
+          "name": "Jean-François Blanco",
+          "party": "LFI",
+          "listName": "Pau insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Philippe Arraou",
+          "party": "DVD",
+          "listName": "Arraou avec vous",
+          "incumbent": false
+        },
+        {
+          "name": "Cyrille Marconi",
+          "party": "LO",
+          "listName": "Le camp des travailleurs",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Saint-Maur-des-Fossés",
+      "population": 74976,
+      "department": "Val-de-Marne (94)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Pierre-Michel Delecroix",
+        "party": "LR",
+        "since": 2024
+      },
+      "municipales2020": {
+        "winner": "Sylvain Berrios",
+        "party": "DVD",
+        "score": 53.24,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Ville ancrée à droite. Berrios (LR) devenu député en 2024, remplacé par Delecroix (LR). Six listes : Delecroix (LR, sortant), Caillerez (Horizons), Bertrand (RN), Fernandez (DVD), Vercelloni (DVG, 28 % en 2020), Kouki (LFI). Droite potentiellement divisée. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Pierre-Michel Delecroix",
+          "party": "LR",
+          "listName": "Saint-Maur Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Adrien Caillerez",
+          "party": "Horizons",
+          "listName": "Horizons Saint-Maur",
+          "incumbent": false
+        },
+        {
+          "name": "Jérôme Bertrand",
+          "party": "RN",
+          "listName": "Un nouvel essor pour Saint-Maur",
+          "incumbent": false
+        },
+        {
+          "name": "Céline Vercelloni",
+          "party": "DVG",
+          "listName": "Unis pour Saint-Maur",
+          "incumbent": false
+        },
+        {
+          "name": "Mehdi Kouki",
+          "party": "LFI",
+          "listName": "Imagine Saint-Maur",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Cannes",
+      "population": 74545,
+      "department": "Alpes-Maritimes (06)",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "currentMayor": {
+        "name": "David Lisnard",
+        "party": "DVD",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "David Lisnard",
+        "party": "DVD",
+        "score": 88.08,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Lisnard (DVD/Nouvelle Énergie, président AMF) brigue un 3e mandat après rélection à 88 % en 2020. Face à lui : Hugues (DVG, union gauche PS-PCF-EELV), Mussio (RN). Le RN était arrivé en tête aux législatives 2024 à Cannes. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "David Lisnard",
+          "party": "DVD",
+          "listName": "Cannes Avenir",
+          "incumbent": true
+        },
+        {
+          "name": "Michel Hugues",
+          "party": "DVG",
+          "listName": "Cannes à vous !",
+          "incumbent": false
+        },
+        {
+          "name": "Lucas Mussio",
+          "party": "RN",
+          "listName": "Cannes, croyons en nous !",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Antibes",
+      "population": 73438,
+      "department": "Alpes-Maritimes (06)",
+      "region": "Provence-Alpes-Côte d'Azur",
+      "currentMayor": {
+        "name": "Jean Leonetti",
+        "party": "LR",
+        "since": 1995
+      },
+      "municipales2020": {
+        "winner": "Jean Leonetti",
+        "party": "LR",
+        "score": 52.89,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Leonetti (LR, 77 ans) brigue un 6e mandat après 30 ans à la tête de la ville. 4 listes : Leonetti (LR), Muriel (RN, 25 ans), Muratore (gauche unie), Nouet (LFI). Aucun sondage d'intentions de vote publié (un sondage Ifop juin 2025 mesurait seulement la popularité).",
+      "declaredCandidates": [
+        {
+          "name": "Jean Leonetti",
+          "party": "LR",
+          "listName": "Ensemble pour Antibes Juan-les-Pins",
+          "incumbent": true
+        },
+        {
+          "name": "Hugo Muriel",
+          "party": "RN",
+          "listName": "L'Alternance pour Antibes",
+          "incumbent": false
+        },
+        {
+          "name": "Michèle Muratore",
+          "party": "DVG",
+          "listName": "Gauche solidaire écologique et démocratique",
+          "incumbent": false
+        },
+        {
+          "name": "Adrien Nouet",
+          "party": "LFI",
+          "listName": "Réinventons Antibes Juan-les-Pins",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Calais",
+      "population": 72509,
+      "department": "Pas-de-Calais (62)",
+      "region": "Hauts-de-France",
+      "currentMayor": {
+        "name": "Natacha Bouchart",
+        "party": "DVD",
+        "since": 2008
+      },
+      "municipales2020": {
+        "winner": "Natacha Bouchart",
+        "party": "DVD",
+        "score": 50.24,
+        "round": 1
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "ICI Nord / La Voix du Nord / Nord Littoral / France 3",
+          "publishDate": "2026-03-06",
+          "fieldDates": {
+            "start": "2026-02-27",
+            "end": "2026-03-04"
+          },
+          "sampleSize": 502,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Natacha Bouchart",
+              "party": "DVD (Sortante)",
+              "score": 56.0,
+              "candidateId": "calais-natacha-bouchart"
+            },
+            {
+              "name": "Marc de Fleurian",
+              "party": "RN",
+              "score": 22.0,
+              "candidateId": "calais-marc-de-fleurian"
+            },
+            {
+              "name": "Jean-Philippe Lannoy",
+              "party": "LFI / EELV",
+              "score": 10.0,
+              "candidateId": "calais-jean-philippe-lannoy"
+            },
+            {
+              "name": "Marion Lavigne",
+              "party": "PCF / PS",
+              "score": 8.0,
+              "candidateId": "calais-marion-lavigne"
+            },
+            {
+              "name": "Romain Debaisieux",
+              "party": "SE",
+              "score": 3.0,
+              "candidateId": "calais-romain-debaisieux"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Bouchart / de Fleurian / Lannoy (gauche unie)",
+            "candidates": [
+              {
+                "name": "Natacha Bouchart",
+                "party": "DVD",
+                "score": 60.0,
+                "candidateId": "calais-natacha-bouchart"
+              },
+              {
+                "name": "Marc de Fleurian",
+                "party": "RN",
+                "score": 25.0,
+                "candidateId": "calais-marc-de-fleurian"
+              },
+              {
+                "name": "Jean-Philippe Lannoy",
+                "party": "LFI / EELV",
+                "score": 15.0,
+                "candidateId": "calais-jean-philippe-lannoy"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Bouchart / de Fleurian / Lavigne (gauche unie)",
+            "candidates": [
+              {
+                "name": "Natacha Bouchart",
+                "party": "DVD",
+                "score": 61.0,
+                "candidateId": "calais-natacha-bouchart"
+              },
+              {
+                "name": "Marc de Fleurian",
+                "party": "RN",
+                "score": 24.0,
+                "candidateId": "calais-marc-de-fleurian"
+              },
+              {
+                "name": "Marion Lavigne",
+                "party": "PCF / PS",
+                "score": 15.0,
+                "candidateId": "calais-marion-lavigne"
+              }
+            ]
+          },
+          {
+            "institute": "ifop",
+            "description": "Duel Bouchart vs de Fleurian",
+            "candidates": [
+              {
+                "name": "Natacha Bouchart",
+                "party": "DVD",
+                "score": 71.0,
+                "candidateId": "calais-natacha-bouchart"
+              },
+              {
+                "name": "Marc de Fleurian",
+                "party": "RN",
+                "score": 29.0,
+                "candidateId": "calais-marc-de-fleurian"
+              }
+            ]
+          }
+        ]
+      },
+      "context": "Ville symbolique sur la question migratoire. Bouchart (DVD, 4e mandat) menacée par le RN (de Fleurian, député). Gauche fragmentée : Lannoy (LFI-EELV), Lavigne/Vernalde (PS-PC). Chômage ~23 %, pauvreté 30 %.",
+      "declaredCandidates": [
+        {
+          "name": "Natacha Bouchart",
+          "party": "DVD",
+          "listName": "Calais Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Marc de Fleurian",
+          "party": "RN",
+          "listName": "Rassemblement pour Calais",
+          "incumbent": false
+        },
+        {
+          "name": "Jean-Philippe Lannoy",
+          "party": "LFI",
+          "listName": "Calais en commun",
+          "incumbent": false
+        },
+        {
+          "name": "Marion Lavigne",
+          "party": "PS",
+          "listName": "Union PS-PC",
+          "incumbent": false
+        },
+        {
+          "name": "Lucille Nicolas",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Drancy",
+      "population": 72376,
+      "department": "Seine-Saint-Denis (93)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Aude Lagarde",
+        "party": "UDI",
+        "since": 2017
+      },
+      "municipales2020": {
+        "winner": "Aude Lagarde",
+        "party": "UDI",
+        "score": 65.1,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Lagarde (UDI) ne se représente pas (santé). Course ouverte : Jean-Christophe Lagarde (UDI, ex-maire 2001-2017 revenu après 2 ans d'inéligibilité), Chabani (ex-majorité dissident), Unver (LFI), Chibane (EELV, 11 % en 2020). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Jean-Christophe Lagarde",
+          "party": "UDI",
+          "listName": "Drancy Ensemble",
+          "incumbent": false
+        },
+        {
+          "name": "Hamid Chabani",
+          "party": "DVD",
+          "listName": "Drancy Autrement",
+          "incumbent": false
+        },
+        {
+          "name": "Gokhan Unver",
+          "party": "LFI",
+          "listName": "Drancy Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Hacène Chibane",
+          "party": "EELV",
+          "listName": "Drancy Écologique",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Mérignac",
+      "population": 72197,
+      "department": "Gironde (33)",
+      "region": "Nouvelle-Aquitaine",
+      "currentMayor": {
+        "name": "Thierry Trijoulet",
+        "party": "PS",
+        "since": 2025
+      },
+      "municipales2020": {
+        "winner": "Alain Anziani",
+        "party": "PS",
+        "score": 64.92,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Socialiste depuis la Libération. Anziani (PS) a démissionné pour raison de santé, remplacé par Trijoulet (PS, 1er secrétaire fédéral Gironde). Trijoulet mène la liste PS/EELV. Face à lui : Millet (LR/DVD, 6e tentative), Panifous (DVG quartiers populaires), listes LFI et RN. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Thierry Trijoulet",
+          "party": "PS",
+          "listName": "Ensemble nous sommes Mérignac",
+          "incumbent": true
+        },
+        {
+          "name": "Thierry Millet",
+          "party": "LR",
+          "listName": "Mérignac Autrement",
+          "incumbent": false
+        },
+        {
+          "name": "Loan Panifous",
+          "party": "DVG",
+          "listName": "Faire Mieux pour Mérignac",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Saint-Nazaire",
+      "population": 71394,
+      "department": "Loire-Atlantique (44)",
+      "region": "Pays de la Loire",
+      "currentMayor": {
+        "name": "David Samzun",
+        "party": "DVG",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "David Samzun",
+        "party": "DVG",
+        "score": 57.15,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Bastion de gauche historique (cité ouvrière, chantiers navals). Samzun (DVG, 3e mandat, coalition PS/PRG/Place Publique) face à Lucas (LFI-EELV-PCF-NPA, NFP), Chéreau (Horizons-LR), Pichon (RN), Le Beller (LO). Inconnue : la division gauche Samzun vs NFP. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "David Samzun",
+          "party": "DVG",
+          "listName": "Saint-Nazaire fraternelle",
+          "incumbent": true
+        },
+        {
+          "name": "Violaine Lucas",
+          "party": "LFI",
+          "listName": "Ensemble soyons Saint-Nazaire",
+          "incumbent": false
+        },
+        {
+          "name": "Denis Chéreau",
+          "party": "Horizons",
+          "listName": "Unis pour Saint-Nazaire",
+          "incumbent": false
+        },
+        {
+          "name": "Julio Pichon",
+          "party": "RN",
+          "listName": "Renouvelle-toi Saint-Nazaire !",
+          "incumbent": false
+        },
+        {
+          "name": "Eddy Le Beller",
+          "party": "LO",
+          "listName": "Le camp des travailleurs",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Ajaccio",
+      "population": 71361,
+      "department": "Corse-du-Sud (2A)",
+      "region": "Corse",
+      "currentMayor": {
+        "name": "Stéphane Sbraggia",
+        "party": "Horizons",
+        "since": 2022
+      },
+      "municipales2020": {
+        "winner": "Laurent Marcangeli",
+        "party": "DVD",
+        "score": 53.2,
+        "round": 1
+      },
+      "polls": [
+        {
+          "institute": "ifop",
+          "commissioner": "Jean-Paul Carrolaggi (partisan)",
+          "publishDate": "2026-03-05",
+          "fieldDates": {
+            "start": "2026-02-24",
+            "end": "2026-03-01"
+          },
+          "sampleSize": 502,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Stéphane Sbraggia",
+              "party": "DVD / Horizons / LR (Sortant)",
+              "score": 38.0,
+              "candidateId": "ajaccio-stephane-sbraggia"
+            },
+            {
+              "name": "Jean-Paul Carrolaggi",
+              "party": "Nationaliste corse (Femu a Corsica)",
+              "score": 27.0,
+              "candidateId": "ajaccio-jean-paul-carrolaggi"
+            },
+            {
+              "name": "François Filoni",
+              "party": "RN",
+              "score": 18.0,
+              "candidateId": "ajaccio-francois-filoni"
+            },
+            {
+              "name": "Charlotte Cesari",
+              "party": "PCF / PS",
+              "score": 9.0,
+              "candidateId": "ajaccio-charlotte-cesari"
+            }
+          ]
+        }
+      ],
+      "secondRound": {
+        "scenarios": [
+          {
+            "institute": "ifop",
+            "description": "Triangulaire Sbraggia / Carrolaggi / Filoni",
+            "candidates": [
+              {
+                "name": "Stéphane Sbraggia",
+                "party": "DVD / Horizons / LR",
+                "score": 44.0,
+                "candidateId": "ajaccio-stephane-sbraggia"
+              },
+              {
+                "name": "Jean-Paul Carrolaggi",
+                "party": "Nationaliste corse",
+                "score": 39.0,
+                "candidateId": "ajaccio-jean-paul-carrolaggi"
+              },
+              {
+                "name": "François Filoni",
+                "party": "RN",
+                "score": 17.0,
+                "candidateId": "ajaccio-francois-filoni"
+              }
+            ]
+          }
+        ]
+      },
+      "context": "Seule grande ville de Corse, clivage droite/nationalistes. Sbraggia (Horizons, successeur de Marcangeli devenu député) face à deux listes nationalistes divisées (Zagnoli PNC, Carrolaggi Femu a Corsica), Cesari (gauche unie), Filoni (RN + Mossa Palatina).",
+      "declaredCandidates": [
+        {
+          "name": "Stéphane Sbraggia",
+          "party": "Horizons",
+          "listName": "Forza Aiacciu",
+          "incumbent": true
+        },
+        {
+          "name": "Pascal Zagnoli",
+          "party": "DVG",
+          "listName": "Stintu Aiaccinu",
+          "incumbent": false
+        },
+        {
+          "name": "Jean-Paul Carrolaggi",
+          "party": "DVG",
+          "listName": "Aiacciu Vivu",
+          "incumbent": false
+        },
+        {
+          "name": "Charlotte Cesari",
+          "party": "DVG",
+          "listName": "A voci di u populu",
+          "incumbent": false
+        },
+        {
+          "name": "François Filoni",
+          "party": "RN",
+          "listName": "Gagner pour Ajaccio",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Colmar",
+      "population": 68682,
+      "department": "Haut-Rhin (68)",
+      "region": "Grand Est",
+      "currentMayor": {
+        "name": "Éric Straumann",
+        "party": "LR",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Éric Straumann",
+        "party": "LR",
+        "score": 63.89,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Fief de la droite alsacienne. Straumann (LR, soutenu Horizons/Renaissance) face à Aubert (RN-UDR, principale menace à droite avec ralliement du président LR haut-rhinois), Hemedinger (DVD, ex-député, divise le vote droite), Hilbert (EELV/Place Publique, adjoint sortant), listes PCF et citoyenne. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Éric Straumann",
+          "party": "LR",
+          "listName": "Colmar Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Nathalie Aubert",
+          "party": "RN",
+          "listName": "RN-UDR Colmar",
+          "incumbent": false
+        },
+        {
+          "name": "Yves Hemedinger",
+          "party": "DVD",
+          "listName": "Fiers d'être colmariens",
+          "incumbent": false
+        },
+        {
+          "name": "Frédéric Hilbert",
+          "party": "EELV",
+          "listName": "Colmar Écologique",
+          "incumbent": false
+        },
+        {
+          "name": "Gilles Schaffar",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Issy-les-Moulineaux",
+      "population": 67981,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "André Santini",
+        "party": "UDI",
+        "since": 1980
+      },
+      "municipales2020": {
+        "winner": "André Santini",
+        "party": "UDI",
+        "score": 60.26,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Fief de Santini (UDI, 85 ans, maire depuis 1980, hospitalisé depuis oct. 2025). 8e mandat, soutenu par Gabriel Attal (Renaissance). 5 listes : Santini (UDI), Morel (union gauche-EELV), Lago (LFI), Vessière (DVD dissidente, ex-adjointe), Allemand (RN). L'état de santé du maire et une enquête pour harcèlement dominent le débat. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "André Santini",
+          "party": "UDI",
+          "listName": "Issy Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Mathieu Morel",
+          "party": "DVG",
+          "listName": "Collectif Écolo et Social",
+          "incumbent": false
+        },
+        {
+          "name": "Gaël Lago",
+          "party": "LFI",
+          "listName": "Issy l'Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Martine Vessière",
+          "party": "DVD",
+          "listName": "Vivre Issy Pleinement",
+          "incumbent": false
+        },
+        {
+          "name": "Jean Allemand",
+          "party": "RN",
+          "listName": "Rassemblement National",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Noisy-le-Grand",
+      "population": 67871,
+      "department": "Seine-Saint-Denis (93)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Brigitte Marsigny",
+        "party": "LR",
+        "since": 2015
+      },
+      "municipales2020": {
+        "winner": "Brigitte Marsigny",
+        "party": "LR",
+        "score": 42.89,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Bastion LR atypique en Seine-Saint-Denis. Marsigny (LR, 3e mandat) face à Constant (PS, 33 % en 2020), Thiam (LFI-PCF), Zrihen (divers). Controverses : réduction services jeunesse, développement urbain intensif. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Brigitte Marsigny",
+          "party": "LR",
+          "listName": "Noisy Avenir",
+          "incumbent": true
+        },
+        {
+          "name": "Emmanuel Constant",
+          "party": "PS",
+          "listName": "Noisy en commun",
+          "incumbent": false
+        },
+        {
+          "name": "Khady Thiam",
+          "party": "LFI",
+          "listName": "Noisy, une histoire partagée",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Vénissieux",
+      "population": 67285,
+      "department": "Métropole de Lyon (69)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "Michèle Picard",
+        "party": "PCF",
+        "since": 2009
+      },
+      "municipales2020": {
+        "winner": "Michèle Picard",
+        "party": "PCF",
+        "score": 40.02,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Bastion communiste historique de la banlieue lyonnaise. Picard (PCF, 4e mandat) fragilisée par la possible dissidence LFI. Taïeb (RN, soutenu Bardella) axe sa campagne sur la sécurité. Dureau (indépendant), Petit (LO). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Michèle Picard",
+          "party": "PCF",
+          "listName": "Vénissieux en commun",
+          "incumbent": true
+        },
+        {
+          "name": "Quentin Taïeb",
+          "party": "RN",
+          "listName": "Retrouver Vénissieux",
+          "incumbent": false
+        },
+        {
+          "name": "Pascal Dureau",
+          "party": "DVD",
+          "listName": "Vénissieux plurielle",
+          "incumbent": false
+        },
+        {
+          "name": "Barbara Petit",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Levallois-Perret",
+      "population": 66082,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Agnès Pottier-Dumas",
+        "party": "LR",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Agnès Pottier-Dumas",
+        "party": "LR",
+        "score": 45.82,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Ex-fief Balkany (3 décennies, condamné pour fraude fiscale). Pottier-Dumas (LR) a assaini les finances (dette héritée 260 M€). 7 listes : Pottier-Dumas (LR), Nouguier (union gauche PS/EELV/PCF), Messatfa (Renaissance), Inoughi ('Génération Balkany' soutenue par Balkany), Rondepierre (Reconquête). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Agnès Pottier-Dumas",
+          "party": "LR",
+          "listName": "Levallois Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Baptiste Nouguier",
+          "party": "PS",
+          "listName": "Union de la gauche",
+          "incumbent": false
+        },
+        {
+          "name": "Liès Messatfa",
+          "party": "Renaissance",
+          "listName": "Renaissance Levallois",
+          "incumbent": false
+        },
+        {
+          "name": "Mounia Inoughi",
+          "party": "DVD",
+          "listName": "Génération Balkany",
+          "incumbent": false
+        },
+        {
+          "name": "Geoffroy Rondepierre",
+          "party": "Reconquête",
+          "listName": "Reconquête Levallois",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Cergy",
+      "population": 65911,
+      "department": "Val-d'Oise (95)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Jean-Paul Jeandon",
+        "party": "PS",
+        "since": 2013
+      },
+      "municipales2020": {
+        "winner": "Jean-Paul Jeandon",
+        "party": "DVG",
+        "score": 46.29,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Ville de gauche depuis 37 ans. Jeandon (PS) face à la première liste LFI à Cergy (Yaïch, ex-adjointe exclue de la majorité — Mélenchon y avait obtenu 48 % au 1er tour présidentielle 2022), et une droite unie Horizons. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Jean-Paul Jeandon",
+          "party": "PS",
+          "listName": "Cergy Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Daisy Yaïch",
+          "party": "LFI",
+          "listName": "Cergy Insoumise",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Pessac",
+      "population": 66874,
+      "department": "Gironde (33)",
+      "region": "Nouvelle-Aquitaine",
+      "currentMayor": {
+        "name": "Franck Raynal",
+        "party": "Horizons",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Franck Raynal",
+        "party": "Horizons",
+        "score": 50.57,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Ville universitaire de la métropole bordelaise. Raynal (Horizons, réélu en 2020 à 174 voix d'avance) face à Couillard (ex-ministre, centriste), Saint-Pasteur (PS/EELV/PCF, député), Jaouen (LFI), Dossat (RN). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Franck Raynal",
+          "party": "Horizons",
+          "listName": "Fiers d'être Pessacais",
+          "incumbent": true
+        },
+        {
+          "name": "Bérangère Couillard",
+          "party": "Renaissance",
+          "listName": "Unis pour Pessac",
+          "incumbent": false
+        },
+        {
+          "name": "Sébastien Saint-Pasteur",
+          "party": "PS",
+          "listName": "Pessac Ensemble",
+          "incumbent": false
+        },
+        {
+          "name": "Philippe Jaouen",
+          "party": "LFI",
+          "listName": "Pessac Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Hervé Dossat",
+          "party": "RN",
+          "listName": "L'Alternance pour Pessac",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Valence",
+      "population": 64749,
+      "department": "Drôme (26)",
+      "region": "Auvergne-Rhône-Alpes",
+      "currentMayor": {
+        "name": "Nicolas Daragon",
+        "party": "LR",
+        "since": 2014
+      },
+      "municipales2020": {
+        "winner": "Nicolas Daragon",
+        "party": "DVD",
+        "score": 59.45,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Daragon (LR, ex-ministre délégué Sécurité du quotidien) brigue un 3e mandat. Sécurité = enjeu central (fusillades narcotrafic 2023). Gauche divisée : Christophle (PS, député), Magnin (LFI). Dos Reis (RN), Kopff (LO). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Nicolas Daragon",
+          "party": "LR",
+          "listName": "Valence Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Paul Christophle",
+          "party": "PS",
+          "listName": "L'Appel pour Valence 2026",
+          "incumbent": false
+        },
+        {
+          "name": "Stéphane Magnin",
+          "party": "LFI",
+          "listName": "Valence Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Philippe Dos Reis",
+          "party": "RN",
+          "listName": "Rassemblement pour Valence",
+          "incumbent": false
+        },
+        {
+          "name": "Adèle Kopff",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Bourges",
+      "population": 64541,
+      "department": "Cher (18)",
+      "region": "Centre-Val de Loire",
+      "currentMayor": {
+        "name": "Yann Galut",
+        "party": "DVG",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Yann Galut",
+        "party": "DVG",
+        "score": 54.95,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Galut (DVG, soutenu PS/PCF/EELV) brigue un 2e mandat. Bourges désignée Capitale européenne de la culture 2028. LFI (Récher) présente sa propre liste. Droite unifiée derrière Mercier (LR/Renaissance/Horizons/MoDem). Iannuzzi (RN), Cordat (LO). Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Yann Galut",
+          "party": "DVG",
+          "listName": "Bourges Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Philippe Mercier",
+          "party": "LR",
+          "listName": "Unis changeons de cap",
+          "incumbent": false
+        },
+        {
+          "name": "Marion Récher",
+          "party": "LFI",
+          "listName": "Bourges Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Ugo Iannuzzi",
+          "party": "RN",
+          "listName": "Rassemblement pour Bourges",
+          "incumbent": false
+        },
+        {
+          "name": "Colette Cordat",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Ivry-sur-Seine",
+      "population": 63748,
+      "department": "Val-de-Marne (94)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Philippe Bouyssou",
+        "party": "PCF",
+        "since": 2015
+      },
+      "municipales2020": {
+        "winner": "Philippe Bouyssou",
+        "party": "PCF",
+        "score": 65.55,
+        "round": 2
+      },
+      "polls": [],
+      "context": "Bastion historique du PCF depuis un siècle. Bouyssou (PCF) se représente. 8 listes dont gauche très fragmentée (PCF, LO, NPA, 3 listes DVG dont une PS). Première liste RN dans la commune (Nader). Simonin (LR). Le PCF reste favori. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Philippe Bouyssou",
+          "party": "PCF",
+          "listName": "Ivry en commun",
+          "incumbent": true
+        },
+        {
+          "name": "Laurent Monfret",
+          "party": "PS",
+          "listName": "PS Ivry",
+          "incumbent": false
+        },
+        {
+          "name": "Kevin Nader",
+          "party": "RN",
+          "listName": "Rassemblement pour Ivry",
+          "incumbent": false
+        },
+        {
+          "name": "Bertrand Simonin",
+          "party": "LR",
+          "listName": "LR Ivry",
+          "incumbent": false
+        },
+        {
+          "name": "Catherine Gauvain",
+          "party": "LO",
+          "listName": "Lutte Ouvrière",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Quimper",
+      "population": 63283,
+      "department": "Finistère (29)",
+      "region": "Bretagne",
+      "currentMayor": {
+        "name": "Isabelle Assih",
+        "party": "PS",
+        "since": 2020
+      },
+      "municipales2020": {
+        "winner": "Isabelle Assih",
+        "party": "PS",
+        "score": 51.24,
+        "round": 2
+      },
+      "polls": [],
+      "context": "4 listes : Assih (PS, sortante, union gauche PCF/EELV), Menguy (DVD/LR soutenu Horizons/Renaissance/MoDem), Hénaff (RN, montée de 4,5 % en 2020 à ~20 % aux législatives 2024), Lauwers/Debest (LFI-NPA). Enjeux : sécurité (armement police municipale), inondations récurrentes. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Isabelle Assih",
+          "party": "PS",
+          "listName": "Quimper Ensemble",
+          "incumbent": true
+        },
+        {
+          "name": "Guillaume Menguy",
+          "party": "DVD",
+          "listName": "Quimper Avenir",
+          "incumbent": false
+        },
+        {
+          "name": "Christel Hénaff",
+          "party": "RN",
+          "listName": "Rassemblement pour Quimper",
+          "incumbent": false
+        },
+        {
+          "name": "Marie Lauwers",
+          "party": "LFI",
+          "listName": "Union pour Quimper solidaire et populaire",
+          "incumbent": false
+        }
+      ]
+    },
+    {
+      "name": "Clichy",
+      "population": 63089,
+      "department": "Hauts-de-Seine (92)",
+      "region": "Île-de-France",
+      "currentMayor": {
+        "name": "Rémi Muzeau",
+        "party": "LR",
+        "since": 2015
+      },
+      "municipales2020": {
+        "winner": "Rémi Muzeau",
+        "party": "DVD",
+        "score": 51.94,
+        "round": 1
+      },
+      "polls": [],
+      "context": "Muzeau (LR) réélu au 1er tour en 2020. 8 listes en 2026 : Muzeau (DVD), Esmyot (RN), Bahmed (EELV), Druet (LFI), Martinez (DVG), Dutheil et Lambert (LO), Rebollo Mayo (SE). Muzeau part favori mais contexte plus concurrentiel. Aucun sondage publié.",
+      "declaredCandidates": [
+        {
+          "name": "Rémi Muzeau",
+          "party": "LR",
+          "listName": "Clichy Naturellement",
+          "incumbent": true
+        },
+        {
+          "name": "François Esmyot",
+          "party": "RN",
+          "listName": "Rassemblement pour Clichy",
+          "incumbent": false
+        },
+        {
+          "name": "Dalila Bahmed",
+          "party": "EELV",
+          "listName": "Clichy Écologique",
+          "incumbent": false
+        },
+        {
+          "name": "Léa Druet",
+          "party": "LFI",
+          "listName": "Clichy Insoumise",
+          "incumbent": false
+        },
+        {
+          "name": "Julie Martinez",
+          "party": "DVG",
+          "listName": "Clichy en commun",
+          "incumbent": false
+        }
+      ]
+    }
+  ]
+};
