@@ -599,6 +599,14 @@
       });
     });
 
+    // Smart scroll: hide header on scroll down, show on scroll up
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+      document.querySelector('.site-header').classList.toggle('header-hidden', currentScrollY > lastScrollY && currentScrollY > 60);
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+
     // Initial render
     render();
   }
