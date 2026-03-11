@@ -1,6 +1,6 @@
 {
   "metadata": {
-    "lastUpdate": "2026-03-07",
+    "lastUpdate": "2026-03-11",
     "electionDates": {
       "firstRound": "2026-03-15",
       "secondRound": "2026-03-22"
@@ -49,7 +49,17 @@
       "https://www.francebleu.fr/bourgogne-franche-comte/cote-d-or-21/dijon/municipales-2026-le-candidat-de-la-droite-et-du-centre-devoile-un-nouveau-sondage-a-dijon-1726781",
       "https://www.francebleu.fr/hauts-de-france/pas-de-calais-62/calais/sondage-ici-municipales-a-calais-natacha-bouchart-donnee-gagnante-des-le-premier-tour-4363104",
       "https://www.francebleu.fr/hauts-de-france/nord-59/roubaix/municipales-2026-a-roubaix-david-guiraud-lfi-donne-largement-gagnant-selon-un-sondage-ifop-pour-la-voix-du-nord-7379979",
-      "https://france3-regions.franceinfo.fr/corse/corse-du-sud/grand-ajaccio/municipales-a-ajaccio-les-resultats-d-un-sondage-ifop-commande-par-jean-paul-carrolaggi-a-dix-jours-du-vote-3310425.html"
+      "https://france3-regions.franceinfo.fr/corse/corse-du-sud/grand-ajaccio/municipales-a-ajaccio-les-resultats-d-un-sondage-ifop-commande-par-jean-paul-carrolaggi-a-dix-jours-du-vote-3310425.html",
+      "https://elabe.fr/municipales-paris-3/",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10132-mun-paris-elabe-le-figaro-7-mars.pdf",
+      "https://www.cnews.fr/france/2026-03-11/municipales-2026-un-duel-serre-se-profile-entre-benoit-payan-et-franck-allisio",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10144-mun-marseille-opinionway-cnews-11-mars.pdf",
+      "https://france3-regions.franceinfo.fr/occitanie/haute-garonne/toulouse/municipales-2026-un-nouveau-sondage-dessine-une-triangulaire-decisive-au-second-tour-a-toulouse-3311841.html",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10134-mun-toulouse-cluster17-la-depeche-9-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10137-mun-bordeaux-cluster17-politico-9-mars.pdf",
+      "https://www.francebleu.fr/hauts-de-france/somme-80/amiens/sondage-ici-municipales-a-amiens-le-socialiste-frederic-fauvet-et-le-sortant-hubert-de-jenlis-au-coude-a-coude-5767344",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10142-mun-amiens-ifop-courrier-picard-11-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10139-mun-lille-cluster17-politico-10-mars.pdf"
     ]
   },
   "institutes": {
@@ -389,6 +399,65 @@
               "party": "RN",
               "score": 4.3,
               "candidateId": "paris-thierry-mariani"
+            }
+          ]
+        },
+        {
+          "institute": "elabe",
+          "commissioner": "Le Figaro / BFMTV / La Tribune Dimanche",
+          "publishDate": "2026-03-07",
+          "fieldDates": {
+            "start": "2026-02-27",
+            "end": "2026-03-06"
+          },
+          "sampleSize": 1120,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS / Écologistes / PCF",
+              "score": 32.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR / MoDem / UDI",
+              "score": 26.5,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 13.5,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Horizons / Renaissance",
+              "score": 12.0,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 10.5,
+              "candidateId": "paris-sophia-chikirou"
+            },
+            {
+              "name": "Thierry Mariani",
+              "party": "RN / UDR",
+              "score": 3.0,
+              "candidateId": "paris-thierry-mariani"
+            },
+            {
+              "name": "Mahel Pierot-Guimbaud",
+              "party": "DVG",
+              "score": 1.5
+            },
+            {
+              "name": "Blandine Chauvel",
+              "party": "NPA",
+              "score": 1.0
             }
           ]
         }
@@ -934,6 +1003,43 @@
               "candidateId": "marseille-sebastien-delogu"
             }
           ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "CNews / Europe 1 / JDD",
+          "publishDate": "2026-03-11",
+          "fieldDates": {
+            "start": "2026-03-04",
+            "end": "2026-03-09"
+          },
+          "sampleSize": 818,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Benoît Payan",
+              "party": "PS (DVG)",
+              "score": 36.0,
+              "candidateId": "marseille-benoit-payan"
+            },
+            {
+              "name": "Franck Allisio",
+              "party": "RN-UDR",
+              "score": 34.0,
+              "candidateId": "marseille-franck-allisio"
+            },
+            {
+              "name": "Martine Vassal",
+              "party": "LR / Renaissance / Horizons",
+              "score": 13.0,
+              "candidateId": "marseille-martine-vassal"
+            },
+            {
+              "name": "Sébastien Delogu",
+              "party": "LFI",
+              "score": 12.0,
+              "candidateId": "marseille-sebastien-delogu"
+            }
+          ]
         }
       ],
       "secondRound": {
@@ -1179,6 +1285,43 @@
               "party": "RN",
               "score": 10.0,
               "candidateId": "toulouse-candidat-rn"
+            }
+          ]
+        },
+        {
+          "institute": "cluster17",
+          "commissioner": "La Dépêche du Midi",
+          "publishDate": "2026-03-09",
+          "fieldDates": {
+            "start": "2026-03-04",
+            "end": "2026-03-06"
+          },
+          "sampleSize": 649,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Jean-Luc Moudenc",
+              "party": "Horizons / LR / Renaissance / MoDem / UDI (Sortant)",
+              "score": 33.0,
+              "candidateId": "toulouse-jean-luc-moudenc"
+            },
+            {
+              "name": "François Briançon",
+              "party": "PS (Gauche hors LFI)",
+              "score": 30.0,
+              "candidateId": "toulouse-francois-briancon"
+            },
+            {
+              "name": "François Piquemal",
+              "party": "LFI",
+              "score": 23.0,
+              "candidateId": "toulouse-francois-piquemal"
+            },
+            {
+              "name": "Julien Leonardelli",
+              "party": "RN",
+              "score": 6.0,
+              "candidateId": "toulouse-julien-leonardelli"
             }
           ]
         }
@@ -2109,6 +2252,43 @@
               "party": "SE",
               "score": 12.0,
               "candidateId": "bordeaux-philippe-dessertine"
+            }
+          ]
+        },
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2026-03-09",
+          "fieldDates": {
+            "start": "2026-03-04",
+            "end": "2026-03-07"
+          },
+          "sampleSize": 624,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Pierre Hurmic",
+              "party": "EELV (Sortant)",
+              "score": 31.0,
+              "candidateId": "bordeaux-pierre-hurmic"
+            },
+            {
+              "name": "Thomas Cazenave",
+              "party": "Renaissance / Horizons",
+              "score": 26.0,
+              "candidateId": "bordeaux-thomas-cazenave"
+            },
+            {
+              "name": "Philippe Dessertine",
+              "party": "SE (économiste)",
+              "score": 17.0,
+              "candidateId": "bordeaux-philippe-dessertine"
+            },
+            {
+              "name": "Nordine Raymond",
+              "party": "LFI",
+              "score": 11.5,
+              "candidateId": "bordeaux-nordine-raymond"
             }
           ]
         }
@@ -4110,6 +4290,73 @@
               "party": "DVD",
               "score": 5.0,
               "candidateId": "amiens-aurelien-caron"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "ICI Picardie / France 3 Picardie / Courrier Picard",
+          "publishDate": "2026-03-11",
+          "fieldDates": {
+            "start": "2026-03-04",
+            "end": "2026-03-09"
+          },
+          "sampleSize": 602,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Frédéric Fauvet",
+              "party": "PS (Gauche unie)",
+              "score": 25.0,
+              "candidateId": "amiens-frederic-fauvet"
+            },
+            {
+              "name": "Hubert de Jenlis",
+              "party": "UDI / SE",
+              "score": 24.0,
+              "candidateId": "amiens-hubert-de-jenlis"
+            },
+            {
+              "name": "Samy Olivier",
+              "party": "LFI",
+              "score": 14.0,
+              "candidateId": "amiens-samy-olivier"
+            },
+            {
+              "name": "Damien Toumi",
+              "party": "RN",
+              "score": 12.0,
+              "candidateId": "amiens-damien-toumi"
+            },
+            {
+              "name": "Julia Bellina",
+              "party": "DVG",
+              "score": 11.0,
+              "candidateId": "amiens-julia-bellina"
+            },
+            {
+              "name": "Aurélien Caron",
+              "party": "DVD",
+              "score": 8.0,
+              "candidateId": "amiens-aurelien-caron"
+            },
+            {
+              "name": "Benoît Mercuzot",
+              "party": "DVD",
+              "score": 3.5,
+              "candidateId": "amiens-benoit-mercuzot"
+            },
+            {
+              "name": "Paul-Éric Dècle",
+              "party": "UDI",
+              "score": 1.0,
+              "candidateId": "amiens-paul-eric-decle"
+            },
+            {
+              "name": "Jean-Patrick Baudry",
+              "party": "LO",
+              "score": 1.5,
+              "candidateId": "amiens-jean-patrick-baudry"
             }
           ]
         }

@@ -44,7 +44,7 @@
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
 
     document.getElementById('countdown').innerHTML =
-      `<span class="countdown-label">1er tour dans</span>` +
+      `<span class="countdown-label">1er tour dans </span>` +
       `<span class="countdown-value">${days}j ${hours}h</span>`;
   }
 

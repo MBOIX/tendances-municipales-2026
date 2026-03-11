@@ -4004,6 +4004,15 @@ const CANDIDATS_DATA = {
       "city": "Vénissieux",
       "currentRole": null,
       "coalition": "Retrouver Vénissieux"
+    },
+    {
+      "id": "toulouse-julien-leonardelli",
+      "firstName": "Julien",
+      "lastName": "Leonardelli",
+      "party": "RN",
+      "city": "Toulouse",
+      "currentRole": null,
+      "coalition": "Rassemblement National"
     }
   ]
 };
