@@ -1,6 +1,6 @@
 const TENDANCES_DATA = {
   "metadata": {
-    "lastUpdate": "2026-03-11",
+    "lastUpdate": "2026-03-13",
     "electionDates": {
       "firstRound": "2026-03-15",
       "secondRound": "2026-03-22"
@@ -59,7 +59,13 @@ const TENDANCES_DATA = {
       "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10137-mun-bordeaux-cluster17-politico-9-mars.pdf",
       "https://www.francebleu.fr/hauts-de-france/somme-80/amiens/sondage-ici-municipales-a-amiens-le-socialiste-frederic-fauvet-et-le-sortant-hubert-de-jenlis-au-coude-a-coude-5767344",
       "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10142-mun-amiens-ifop-courrier-picard-11-mars.pdf",
-      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10139-mun-lille-cluster17-politico-10-mars.pdf"
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10139-mun-lille-cluster17-politico-10-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10150-mun-paris-opinionway-jdd-12-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10152-mun-lyon-cluster17-mag2lyon-12-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10151-mun-limoges-cluster17-france3-12-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10148-mun-limoges-ifop-france3-12-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10149-mun-perpignan-cluster17-politico-12-mars.pdf",
+      "https://www.commission-des-sondages.fr/notices/files/notices/2026/mars/10140-mun-nimes-ifop-sudradio-12-mars.pdf"
     ]
   },
   "institutes": {
@@ -458,6 +464,55 @@ const TENDANCES_DATA = {
               "name": "Blandine Chauvel",
               "party": "NPA",
               "score": 1.0
+            }
+          ]
+        },
+        {
+          "institute": "opinionway",
+          "commissioner": "Le Journal du Dimanche / CNews / Europe 1",
+          "publishDate": "2026-03-12",
+          "fieldDates": {
+            "start": "2026-03-09",
+            "end": "2026-03-11"
+          },
+          "sampleSize": 1012,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Emmanuel Grégoire",
+              "party": "PS / Écologistes / PCF / Place Publique",
+              "score": 31.0,
+              "candidateId": "paris-emmanuel-gregoire"
+            },
+            {
+              "name": "Rachida Dati",
+              "party": "LR / MoDem / UDI",
+              "score": 26.0,
+              "candidateId": "paris-rachida-dati"
+            },
+            {
+              "name": "Sophia Chikirou",
+              "party": "LFI",
+              "score": 13.0,
+              "candidateId": "paris-sophia-chikirou"
+            },
+            {
+              "name": "Sarah Knafo",
+              "party": "Reconquête",
+              "score": 12.0,
+              "candidateId": "paris-sarah-knafo"
+            },
+            {
+              "name": "Pierre-Yves Bournazel",
+              "party": "Renaissance / Horizons",
+              "score": 12.0,
+              "candidateId": "paris-pierre-yves-bournazel"
+            },
+            {
+              "name": "Thierry Mariani",
+              "party": "RN / UDR",
+              "score": 5.0,
+              "candidateId": "paris-thierry-mariani"
             }
           ]
         }
@@ -1183,6 +1238,43 @@ const TENDANCES_DATA = {
               "party": "DVC",
               "score": 3.0,
               "candidateId": "lyon-georges-kepenekian"
+            }
+          ]
+        },
+        {
+          "institute": "cluster17",
+          "commissioner": "Mag2Lyon",
+          "publishDate": "2026-03-12",
+          "fieldDates": {
+            "start": "2026-03-10",
+            "end": "2026-03-12"
+          },
+          "sampleSize": 826,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Jean-Michel Aulas",
+              "party": "DVD / LR / Renaissance / MoDem",
+              "score": 40.0,
+              "candidateId": "lyon-jean-michel-aulas"
+            },
+            {
+              "name": "Grégory Doucet",
+              "party": "EELV",
+              "score": 36.0,
+              "candidateId": "lyon-gregory-doucet"
+            },
+            {
+              "name": "Anaïs Belouassa-Cherifi",
+              "party": "LFI",
+              "score": 10.0,
+              "candidateId": "lyon-anais-belouassa-cherifi"
+            },
+            {
+              "name": "Alexandre Dupalais",
+              "party": "RN / UDR",
+              "score": 7.0,
+              "candidateId": "lyon-alexandre-dupalais"
             }
           ]
         }
@@ -3666,6 +3758,43 @@ const TENDANCES_DATA = {
               "candidateId": "nimes-julien-plantier"
             }
           ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "Sud Radio",
+          "publishDate": "2026-03-12",
+          "fieldDates": {
+            "start": "2026-03-02",
+            "end": "2026-03-07"
+          },
+          "sampleSize": 503,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Vincent Bouget",
+              "party": "PCF / PS / Place Publique / PRG / EELV",
+              "score": 30.0,
+              "candidateId": "nimes-vincent-bouget"
+            },
+            {
+              "name": "Julien Sanchez",
+              "party": "RN",
+              "score": 26.0,
+              "candidateId": "nimes-julien-sanchez"
+            },
+            {
+              "name": "Franck Proust",
+              "party": "Horizons / LR / DVD",
+              "score": 22.0,
+              "candidateId": "nimes-franck-proust"
+            },
+            {
+              "name": "Julien Plantier",
+              "party": "Renaissance / MoDem",
+              "score": 13.0,
+              "candidateId": "nimes-julien-plantier"
+            }
+          ]
         }
       ],
       "secondRound": {
@@ -4581,7 +4710,94 @@ const TENDANCES_DATA = {
         "score": 58.96,
         "round": 2
       },
-      "polls": [],
+      "polls": [
+        {
+          "institute": "cluster17",
+          "commissioner": "France 3 Régions",
+          "publishDate": "2026-03-12",
+          "fieldDates": {
+            "start": "2026-02-24",
+            "end": "2026-02-28"
+          },
+          "sampleSize": 538,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Thierry Miguel",
+              "party": "PS",
+              "score": 24.0,
+              "candidateId": "limoges-thierry-miguel"
+            },
+            {
+              "name": "Guillaume Guérin",
+              "party": "LR",
+              "score": 23.0,
+              "candidateId": "limoges-guillaume-guerin"
+            },
+            {
+              "name": "Damien Maudet",
+              "party": "LFI",
+              "score": 20.0,
+              "candidateId": "limoges-damien-maudet"
+            },
+            {
+              "name": "Émile Roger Lombertie",
+              "party": "DVD",
+              "score": 15.0,
+              "candidateId": "limoges-emile-roger-lombertie"
+            },
+            {
+              "name": "Albin Freychet",
+              "party": "RN",
+              "score": 12.0,
+              "candidateId": "limoges-albin-freychet"
+            }
+          ]
+        },
+        {
+          "institute": "ifop",
+          "commissioner": "France 3 Régions",
+          "publishDate": "2026-03-12",
+          "fieldDates": {
+            "start": "2026-03-02",
+            "end": "2026-03-07"
+          },
+          "sampleSize": 703,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Guillaume Guérin",
+              "party": "LR",
+              "score": 23.0,
+              "candidateId": "limoges-guillaume-guerin"
+            },
+            {
+              "name": "Damien Maudet",
+              "party": "LFI",
+              "score": 23.0,
+              "candidateId": "limoges-damien-maudet"
+            },
+            {
+              "name": "Thierry Miguel",
+              "party": "PS",
+              "score": 20.0,
+              "candidateId": "limoges-thierry-miguel"
+            },
+            {
+              "name": "Émile Roger Lombertie",
+              "party": "DVD",
+              "score": 15.0,
+              "candidateId": "limoges-emile-roger-lombertie"
+            },
+            {
+              "name": "Albin Freychet",
+              "party": "RN",
+              "score": 12.0,
+              "candidateId": "limoges-albin-freychet"
+            }
+          ]
+        }
+      ],
       "context": "Scrutin très fragmenté avec scission à droite entre le maire sortant Lombertie (DVD, 3e mandat) et son ancien allié Guérin (LR, président de Limoges Métropole). Gauche divisée entre LFI (Maudet, député) et PS (Miguel). Aucun sondage publié.",
       "declaredCandidates": [
         {
@@ -4922,6 +5138,52 @@ const TENDANCES_DATA = {
               "party": "LFI / EELV",
               "score": 16.0,
               "candidateId": "perpignan-mickael-idrac"
+            }
+          ]
+        },
+        {
+          "institute": "cluster17",
+          "commissioner": "Politico",
+          "publishDate": "2026-03-12",
+          "fieldDates": {
+            "start": "2026-03-08",
+            "end": "2026-03-11"
+          },
+          "sampleSize": 521,
+          "round": 1,
+          "candidates": [
+            {
+              "name": "Louis Aliot",
+              "party": "RN",
+              "score": 46.0,
+              "candidateId": "perpignan-louis-aliot"
+            },
+            {
+              "name": "Agnès Langevine",
+              "party": "PS / Place Publique",
+              "score": 15.0,
+              "candidateId": "perpignan-agnes-langevine"
+            },
+            {
+              "name": "Mickaël Idrac",
+              "party": "LFI",
+              "score": 15.0,
+              "candidateId": "perpignan-mickael-idrac"
+            },
+            {
+              "name": "Bruno Nougayrède",
+              "party": "LR / Horizons / UDI",
+              "score": 14.0
+            },
+            {
+              "name": "Mathias Blanc",
+              "party": "DVG",
+              "score": 9.0
+            },
+            {
+              "name": "Pascale Advenard",
+              "party": "LO",
+              "score": 1.0
             }
           ]
         }
